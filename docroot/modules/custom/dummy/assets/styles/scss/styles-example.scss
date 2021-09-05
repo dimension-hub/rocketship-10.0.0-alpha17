@@ -1,0 +1,14 @@
+.header {
+  color: #ffffff;
+  background: #ff0000;
+  lost-flex-container: row;
+  font-size: 20px;
+
+  &__left {
+    lost-column: 6/12;
+  }
+
+  &__right {
+    lost-column: 6/12;
+  }
+}

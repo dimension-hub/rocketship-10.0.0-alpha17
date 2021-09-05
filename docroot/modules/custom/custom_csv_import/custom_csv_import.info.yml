@@ -1,0 +1,4 @@
+name: 'Custom CSV import'
+type: module
+core_version_requirement: 8.x || 9.x
+version: 1.x

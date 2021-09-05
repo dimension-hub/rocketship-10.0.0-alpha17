@@ -1,0 +1,59 @@
+id: custom_migrate_article_files
+label: 'Article files'
+migration_group: custom_migrate
+migration_tags:
+  - file
+  - article
+source:
+  plugin: custom_migrate_csv
+  module: custom_migrate
+  # Его настройки.
+  path: assets/articles.csv
+  delimiter: ';'
+  enclosure: '"'
+  header_row_count: 1
+  columns:
+    0:
+      key: id
+      label: 'Article id'
+    1:
+      key: title
+      label: 'Title'
+    2:
+      key: image_url
+      label: 'Promo image url'
+    3:
+      key: uid
+      label: 'Author id'
+    4:
+      key: body
+      label: 'Content'
+  key: id
+  constants:
+    status: 1
+    uid: 1
+    destination: 'public://migration-downloads/articles/image.jpg'
+process:
+  uri:
+    -
+      # Мы будем пробовать качать каждый файл и называть его image_N.jpg чтобы
+      # не заморачиваться и не добавлять для этого плагинов и новых данных.
+      plugin: download
+      source:
+        - image_url
+        - 'constants/destination'
+      file_exists: rename
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Field downloaded_photo is missed'
+  status: 'constants/status'
+  uid: 'constants/uid'
+destination:
+  plugin: entity:file
+migration_dependencies: {}
+dependencies:
+  enforced:
+    module:
+      - custom_migrate
+      - migrate_source_csv

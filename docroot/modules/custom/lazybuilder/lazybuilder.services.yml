@@ -1,0 +1,3 @@
+services:
+  lazybuilder.lazy_renderer:
+    class: Drupal\lazybuilder\LazyRenderer

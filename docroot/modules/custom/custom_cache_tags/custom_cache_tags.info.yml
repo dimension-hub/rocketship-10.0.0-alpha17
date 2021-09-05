@@ -1,0 +1,5 @@
+name: Cache Tags
+description: 'Example for Cache context.'
+version: VERSION
+core_version_requirement: ^8 || ^9
+type: module

@@ -1,0 +1,5 @@
+name: Dummy Serv
+description: Example with services.
+version: VERSION
+core_version_requirement: 8.x || 9.x
+type: module

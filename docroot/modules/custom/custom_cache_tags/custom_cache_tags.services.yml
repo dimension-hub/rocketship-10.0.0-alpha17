@@ -1,0 +1,6 @@
+services:
+  cache_context.custom_cache_tags_request_header:
+    class: Drupal\custom_cache_tags\Cache\Context\CustomCacheTagsRequestHeaderCacheContext
+    arguments: ['@request_stack']
+    tags:
+      - { name: cache.context }

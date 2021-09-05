@@ -1,0 +1,6 @@
+services:
+  making_bread_crumbs.article_breadcrumb:
+    class: Drupal\making_bread_crumbs\ArticleBreadcrumbBuilder
+    arguments: []
+    tags:
+      - { name: breadcrumb_builder, priority: 10 }

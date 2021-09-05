@@ -1,0 +1,7 @@
+name: Custom_configuration
+description: 'Custom_configuration module - Form API learning!'
+type: module
+core_version_requirement: 8.x || 9.x
+version: 1.0
+package: Examples
+configure: collect_phone.admin_settings

@@ -1,0 +1,5 @@
+name: Views Field Handler Plugin
+description: 'Example for Views Field Handler Plugin.'
+version: VERSION
+core_version_requirement: ^8 || ^9
+type: module

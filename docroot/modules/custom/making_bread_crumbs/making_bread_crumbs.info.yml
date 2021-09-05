@@ -1,0 +1,6 @@
+name: Dummy MBC
+description: 'Custom e Examples'
+type: module
+core_version_requirement: 8.x || 9.x
+version: 1.0
+package: Custom

@@ -1,0 +1,7 @@
+name: Custom Language Negotiaton
+description: Example with Language Negotiators.
+version: VERSION
+core_version_requirement: ^8 || ^9
+type: module
+dependencies:
+  - language

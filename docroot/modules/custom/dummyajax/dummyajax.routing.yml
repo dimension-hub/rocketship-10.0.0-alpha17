@@ -1,0 +1,7 @@
+dummyajax.ajax_form_submit_example:
+  path: '/dummy/ajax-form-submit-example'
+  defaults:
+    _form: '\Drupal\dummyajax\Form\AjaxFormSubmitExample'
+    _title: 'Form with AJAX submit'
+  requirements:
+    _permission: 'access content'

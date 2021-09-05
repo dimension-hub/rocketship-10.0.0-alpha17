@@ -1,0 +1,69 @@
+id: custom_migrate_articles
+label: 'Article'
+migration_group: custom_migrate
+migration_tags:
+  - node
+  - article
+source:
+  plugin: custom_migrate_csv
+  module: custom_migrate
+  # Его настройки.
+  path: assets/articles.csv
+  delimiter: ';'
+  enclosure: '"'
+  header_row_count: 1
+  columns:
+    0:
+      key: id
+      label: 'Article id'
+    1:
+      key: title
+      label: 'Title'
+    2:
+      key: image_url
+      label: 'Promo image url'
+    3:
+      key: uid
+      label: 'Author id'
+    4:
+      key: body
+      label: 'Content'
+  key: id
+  constants:
+    status: 1
+    sticky: 0
+    body_format: 'full_html'
+process:
+  title: title
+  uid:
+    -
+      # В данном плагине мы ищем актуальный uid юзера зная его UID в источнике.
+      plugin: migration_lookup
+      migration: custom_migrate_users
+      source: uid
+    -
+      # Если по каким-то причинам связь не нашлась, отдаем авторство админу.
+      plugin: default_value
+      default_value: 1
+  sticky: 'constants/sticky'
+  status: 'constants/status'
+  'body/value': body
+  'body/format': 'constants/body_format'
+  # Находим fid загруженного файла и записываем его в поле для изображения.
+  'field_image/target_id':
+    plugin: migration_lookup
+    migration: custom_migrate_article_files
+    source: id
+destination:
+  plugin: entity:node
+  # Вы также можете установить данное значение в process как type.
+  default_bundle: article
+migration_dependencies:
+  required:
+    - custom_migrate_users
+    - custom_migrate_article_files
+dependencies:
+  enforced:
+    module:
+      - custom_migrate
+      - migrate_source_csv

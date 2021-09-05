@@ -1,0 +1,5 @@
+<div{{ attributes }}>
+  {{ dd(_context) }}
+  <a href="{{ url('user.login') }}">{{ 'Log in'|t }}</a>
+  {{ drupal_view('news', 'last_three') }}
+</div>
