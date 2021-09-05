@@ -1,0 +1,25 @@
+#recaptcha:
+#  js:
+#    'https://www.google.com/recaptcha/api.js': { type: external, minified: true, attributes: { defer: true, async: true } }
+simple_recaptcha:
+  version: 1.x
+  js:
+    js/buttons.js: {}
+    js/simple_recaptcha.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSettings
+    - simple_recaptcha/recaptcha
+simple_recaptcha_v3:
+  version: 1.x
+  js:
+    js/buttons.js: {}
+    js/simple_recaptcha_v3.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupalSettings
+    - simple_recaptcha/recaptcha_v3

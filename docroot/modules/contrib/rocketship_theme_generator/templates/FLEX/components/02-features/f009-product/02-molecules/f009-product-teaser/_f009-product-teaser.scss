@@ -1,0 +1,300 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.product--teaser {
+  // background-color: $color-product-teaser-bg;
+
+  // ** visual
+
+  .layout__sidebar {
+    margin-bottom: rem($gap-vert-sm);
+  }
+
+  // ** content
+
+  .layout__content {
+    // padding: 0 rem($padding-product-teaser) rem($padding-product-teaser) rem($padding-product-teaser);
+  }
+
+  // ** title
+
+  h2,
+  h3 {
+    @include h3;
+  }
+
+  // ** description: hidden in advanced teasers
+
+  .advanced {
+    .field--name-field-product-teaser {
+      @include hide;
+    }
+  }
+
+  // ** Properties & categories: Facet filters
+
+  .field--name-field-product-category,
+  .field--name-field-product-property-one,
+  .field--name-field-product-property-two,
+  .field--name-field-product-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: rem(5);
+    align-items: flex-end;
+
+    // label
+
+    h3,
+    h4,
+    .label-value-item-label {
+      @include font-size($font-size-base, $line-height-base);
+      margin: 0 rem(10) 0 0;
+
+      @include text-nobreak;
+
+      &::after {
+        content: ":";
+        margin-left: rem(-4); // counteract the spacing
+      }
+    }
+
+    // value
+    a {
+      //
+    }
+  }
+
+  // ** Category
+
+  .field--name-field-product-category {
+    .field__items {
+      display: flex;
+      flex-wrap: wrap;
+      margin: rem(-5) rem(-2) 0 rem(-2);
+    }
+
+    .field__item {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      margin: rem(5) rem(2) 0 rem(2);
+
+      &::after {
+        content: ", ";
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+        }
+      }
+    }
+
+    .field__item::before,
+    .field__item::after,
+    a {
+      //
+    }
+
+    a {
+      //
+    }
+  }
+
+  // ** Product attributes
+
+  .field--name-field-product-attributes {
+
+    .field__items {
+      //
+    }
+  }
+
+  .field__item--name-field-product-attributes {
+    //
+  }
+
+  .label-value-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .label-value-item-label {
+    font-weight: $font-weight-bold;
+    margin-bottom: 0;
+    margin-right: rem(10);
+
+    @include text-nobreak;
+  }
+
+  .label-value-item-value {
+    //
+  }
+
+  // ** read more
+
+  .layout__content__row--bottom {
+    margin-top: rem($gap-vert-sm);
+  }
+
+  .field--name-node-link {
+    margin-top: rem($gap-vert-sm);
+    a {
+      @include link-more;
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide-only {
+
+  .product--teaser {
+
+    // ** the BASIC teaser: in 2 cols
+
+    .basic {
+
+      @include flex-grid();
+      margin-top: 0;
+
+      .layout__sidebar {
+        @include flex-col(6);
+      }
+
+      // ** content
+
+      .layout__content {
+        @include flex-col(6);
+        margin-top: 0;
+      }
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .product--teaser {
+
+    &,
+    .node__content {
+      display: flex;
+    }
+
+    .node__content {
+      width: 100%; // IE
+    }
+
+    // ** the BASIC teaser: in 2 cols + 'read more' sticks to the bottom
+
+    .basic {
+
+      margin-top: 0;
+      width: 100%; // IE
+
+      .layout__sidebar {
+        @include flex-col(6);
+        flex: 0 1 auto; // no grow
+        margin-top: 0;
+      }
+
+      .layout__content {
+        @include flex-col(6);
+        // needed to manipulate content with flex
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto; // grow
+        margin-top: 0;
+        // padding: rem($padding-product-teaser) rem($padding-product-teaser) rem($padding-product-teaser) rem(abs($padding-product-teaser - $grid-gap-hor));
+      }
+
+      // push the actions to the end
+      .layout__content__row--bottom {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row;
+        align-items: flex-end;
+      }
+    }
+
+    // ** the ADVANCED teaser: no colums (fill them out)
+
+    .advanced {
+
+      width: 100%; // IE
+
+      .layout__sidebar {
+        @include flex-col(12);
+        margin-top: 0;
+      }
+
+      .layout__content {
+        @include flex-col(12);
+        margin-top: 0;
+      }
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .product--teaser {
+
+    // ** the ADVANCED teaser: no columns + 'read more' sticks to the bottom
+
+    .advanced {
+
+      margin-top: 0;
+      flex-direction: column; // makes it so the shrink/grow of flex works
+
+      .layout__sidebar {
+        @include flex-col(12);
+        flex: 0 1 auto; // no grow
+        margin-top: 0;
+      }
+
+      .layout__content {
+        @include flex-col(12);
+        // needed to manipulate content with flex
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto; // grow
+        margin-top: 0;
+      }
+
+      // push the actions to the end
+      .layout__content__row--bottom {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row;
+        align-items: flex-end;
+      }
+    }
+
+  }
+
+}

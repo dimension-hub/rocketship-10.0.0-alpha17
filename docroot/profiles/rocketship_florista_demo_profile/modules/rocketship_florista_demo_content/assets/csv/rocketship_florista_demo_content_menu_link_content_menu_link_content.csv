@@ -1,0 +1,7 @@
+uuid,enabled,title,description,menu_name,link_title,link_uri,external,rediscover,weight,expanded,parent,menu_clickthrough_description_format,menu_clickthrough_description_value,menu_clickthrough_image
+771b62d3-9f5a-41f5-802c-9fafef5f0de5,1,Home,,main,,internal:/,0,0,-48,0,,,,
+250a4aaa-1924-4241-ba60-a6f36b8696fd,1,Collection,,main,,uuid:node/285d192f-741b-4b49-afd9-920bfef119d5,0,0,-47,0,,,,
+22d17357-4d81-4281-b861-974db9914271,1,Subscriptions,,main,,uuid:node/e5c6059a-c6b2-4942-b89d-018a687c1ed4,0,0,-46,0,,,,
+9ff4a28a-5fda-447e-b4c6-df724326fafc,1,"Find a dealer",,main,,uuid:node/22b04921-38c4-4510-b863-814c7c47c38d,0,0,-45,0,,,,
+69200c07-ab91-4e56-bc45-6e3e0304ff8d,1,Blog,,main,,uuid:node/a6f3ad33-0ed8-4afc-bc7b-b2a53c74df20,0,0,-44,0,,,,
+f0613586-754a-483d-ab6a-2de00cc50f96,1,"About us",,main,,uuid:node/399d950c-f1d6-48de-96c9-c84381a2ff74,0,0,-43,0,,,,

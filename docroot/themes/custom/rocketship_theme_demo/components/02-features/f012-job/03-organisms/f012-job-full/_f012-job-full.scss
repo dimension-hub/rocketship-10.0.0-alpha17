@@ -1,0 +1,150 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job detail full
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// ** header main content (contains the img, title, location, …)
+
+.job__header--full {
+  position: relative;
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+  transition: all $duration $easing;
+
+  // background-color
+  @include full-bg ($color-job-header-bg, "before");
+
+  // color changes for the content
+
+  &,
+  h1,
+  h2,
+  h3,
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  .field {
+    color: $color-white;
+  }
+
+  // -- background image: make it stretch (like "cover")
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 0;
+
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100%;
+    transform: translateX(-50%);
+    opacity: .5;
+
+    // prevent blazy wrappers from breaking positioning of absolute image
+    // so needs some styling to enable proper position and stretch of the img
+    // basically, match what the sidebar div is doing
+    .media {
+      position: static;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: auto;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto; // hack to force 100% of container
+      height: auto;
+      max-width: none;
+      transform: translateX(-50%) translateY(-50%);
+      object-fit: cover; // keep image in ratio (not in IE)
+    }
+  }
+
+  // ** wrapper of that main content, in order to center using flexbox later on
+
+  .layout__subregion-01 {
+    position: relative;
+    z-index: 1; // over the bg image
+
+    h1,
+    h2 {
+      margin-bottom: 0;
+    }
+
+    // -- the stuff that goes under the title, usually just the date
+    //    (add a wrapper is more than 1 field)
+
+    .field--name-ds-time-ago,
+    .field--name-created {
+      display: block;
+      margin-top: rem(15);
+      font-weight: $font-weight-bold;
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .job__header--full {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+    width: 100%; // IE bugfix
+    height: rem(270); // no min-height because IE11 doesn't understand it
+
+    .layout__subregion-01 {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .job__header--full {
+    padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+    height: rem(370);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .job__header--full {
+    padding: rem($gap-vert-top-lg-2) 0 rem($gap-vert-bottom-lg-2) 0;
+    height: rem(470);
+  }
+}

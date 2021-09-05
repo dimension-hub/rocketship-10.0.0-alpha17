@@ -1,0 +1,121 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job meta on full page: bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.job__footer--full {
+  //
+
+  // ** included fields
+
+  .field--name-field-job-property-one,
+  .field--name-field-job-category {
+
+    h3 {
+      display: flex;
+      margin: 0;
+    }
+  }
+
+  // ** lists of links
+
+  .field__items {
+    display: flex;
+    padding: 0;
+    margin: rem(-10) rem(-5) 0 rem(-5);
+
+    .field__item {
+      display: inline-block;
+      margin: rem(10) rem(5) 0 rem(5);
+    }
+
+    a {
+      display: inline-block;
+      @include text-nobreak;
+    }
+
+  }
+
+  // ** location
+
+  .field--name-field-job-property-one {
+    //
+  }
+
+  // ** business area
+
+  .field--name-field-job-category {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .job__footer--full {
+
+
+    // -- inline the text with flexbox
+
+    display: flex;
+    flex-wrap: wrap;
+    // align-items: flex-end;
+    justify-content: center; // horizontal alignment
+
+    // if you want equal space between the 2 or fields:
+    // justify-content: space-between;
+
+    // ** location
+
+    .field--name-field-job-property-one {
+      display: flex;
+      margin-bottom: 0;
+
+      h3 {
+        //
+      }
+    }
+
+    .field--name-field-job-category {
+      display: flex;
+
+      h3 {
+        //
+      }
+    }
+
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .job__footer--full {
+
+    justify-content: flex-start; // horizontal alignment
+
+    // ** date
+
+    .field--name-ds-time-ago,
+    .field--name-created {
+      display: flex;
+      // push date & share to the right
+      // and align date to the right
+      flex-grow: 1;
+      justify-content: flex-end; // horizontal alignment
+
+    }
+
+  }
+
+}

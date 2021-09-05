@@ -1,0 +1,255 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event detail full: has its own view-mode of the news CT, with a DS template
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.event--full {
+  //
+}
+
+// ** header with image
+
+.event__top--full {
+  position: relative;
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+  transition: all $duration $easing;
+
+  // background-color
+  @include full-bg ($color-event-header-bg, "before");
+
+  // color changes for the content
+
+  &,
+  h1,
+  h2,
+  h3,
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  .field {
+    //
+  }
+
+  // -- background image: make it stretch (like "cover")
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 0;
+
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100%;
+
+    transform: translateX(-50%);
+    opacity: .5;
+
+    // prevent blazy wrappers from breaking positioning of absolute image
+    // so needs some styling to enable proper position and stretch of the img
+    // basically, match what the sidebar div is doing
+    .media {
+      position: static;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: auto;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto; // hack to force 100% of container
+      height: auto;
+      max-width: none;
+      transform: translateX(-50%) translateY(-50%);
+      object-fit: cover; // keep image in ratio (not in IE)
+    }
+  }
+
+  // ** subregion for the title, location, …
+
+  .layout__subregion-01 {
+    position: relative;
+    z-index: 1; // over the bg image
+
+    h1,
+    h2 {
+      //;
+    }
+
+    // -- the stuff that goes under the title, usually just the location
+    //    (add a wrapper is more than 1 field)
+
+    .field--name-field-event-place {
+      //
+    }
+  }
+}
+
+// ** wrapper on top of content
+//     for fields such as map, extra remarks, …
+
+.event__header--full {
+
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0 ;
+  @include full-bg($color-event-content-top);
+
+  .block {
+    margin-bottom: rem(20);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // -- address has label
+
+  .field--name-field-event-location {
+    & > h3:first-child {
+      margin-bottom: rem($gap-vert-sm);
+      @include font-size($h4-size, $h4-line);
+    }
+
+    .address__lines {
+      position: relative;
+      padding-left: rem(24);
+
+      @include font-awesome((
+        icon: $fa-var-map-marker,
+        size: 14,
+        type: "light",
+        position: absolute,
+        left: 0,
+        top: rem(2)
+      ));
+    }
+
+    .address__locality,
+    .address__country {
+      padding-left: rem(24);
+    }
+
+    .address__locality {
+      //
+    }
+
+    .address__country {
+      //
+    }
+  }
+
+  // -- remarks has label
+
+  .field--name-field-event-extra-remarks {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .event--full {
+    //
+  }
+
+  .event__top--full {
+
+    // ** center title etc. over the visual
+    //
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+
+    // width: 100%; // IE bugfix
+    // padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+    // // height: rem(270); // no min-height because IE11 doesn't understand it
+
+    // .layout__subregion-01 {
+    //   display: flex;
+    //   flex-direction: column;
+    //   text-align: center;
+    // }
+  }
+
+  .event__header--full {
+    padding: $gap-vert-top-sm 0 $gap-vert-bottom-sm 0 ;
+    margin: 0 rem(-$gap-hor / 2);
+
+    // ** align address, remarks, …
+    //
+    // .layout-builder__region {
+    //   display: flex;
+    // }
+
+    // .block {
+    //   flex-basis: auto;
+    //   margin: 0 rem($gap-hor / 2);
+    //   // width: calc(#{(100% / 3)} - #{rem($gap-hor)});
+    // }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .event--full {
+    //
+  }
+
+  .event__top--full {
+    padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+    // height: rem(370);
+  }
+
+  .event__header--full {
+    padding: $gap-vert-top-md 0 $gap-vert-bottom-md 0 ;
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .event--full {
+    //
+  }
+
+  .event__top--full {
+    padding: rem($gap-vert-top-lg-2) 0 rem($gap-vert-bottom-lg-2) 0;
+    // height: rem(470);
+  }
+
+  .event__header--full {
+    padding: $gap-vert-top-lg 0 $gap-vert-bottom-lg 0 ;
+  }
+
+}

@@ -1,0 +1,76 @@
+view_mode: frontpage
+isPromoted: true
+isSticky: false
+bundle: event
+layouts:
+  top:
+    label: 'top'
+    template: 'rs-top'
+    layout_reset: true
+    region_type: null
+    modifier: null
+    extra_classes: null
+    settings: null
+    content:
+      content: true
+      before01: false
+      before02: false
+      after01: false
+      after02: false
+  content:
+    label: 'Content'
+    template: 'rs-content'
+    layout_reset: true
+    region_type: false
+    modifier: null
+    extra_classes: null
+    settings: null
+    content:
+      content: true
+      before01: false
+      before02: false
+      after01: false
+      after02: false
+fields:
+  date_teaser:
+    label_hidden: true
+    field_name: field_events
+    field_type: entity_reference
+    bem_field_modifiers:
+      - 'label-hidden'
+    day: 12
+    month: oct
+  title:
+    heading_display: true
+    heading_level: 3
+    heading: Sed plane dicit quod intellegitLorem ipsum dolor sit amet, consectetur adipiscing
+    field_name: title
+    field_type: string
+    heading_url: '#'
+  date_single:
+    label_hidden: true
+    field_name: field_events
+    field_type: entity_reference
+    bem_field_modifiers:
+      - 'label-hidden'
+      - 'field-events'
+    day_month: 12 oct
+  place:
+    label_hidden: true
+    field_name: field_event_place
+    field_type: string
+    bem_field_modifiers:
+      - 'label-hidden'
+    items:
+      -
+        content: Ghent
+  more:
+    label_hidden: true
+    field_name: field_event_n_display_field
+    field_type: rs_display_field
+    bem_field_modifiers:
+      - 'label-hidden'
+    bem_field_extra:
+      - 'field-blog-display-canonical'
+    href: '#'
+    title: 'Read more'

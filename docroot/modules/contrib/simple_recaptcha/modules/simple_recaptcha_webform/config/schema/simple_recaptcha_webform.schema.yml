@@ -1,0 +1,14 @@
+webform.handler.simple_recaptcha:
+  type: mapping
+  label: 'Simple reCAPTCHA'
+  mapping:
+    recaptcha_type:
+      label: 'Message type'
+      type: string
+    v3_score:
+      label: 'Message type'
+      type: string
+    v3_error_message:
+      label: 'V3 error message'
+      type: string
+

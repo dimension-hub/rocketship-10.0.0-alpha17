@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square150x150logo src="/themes/custom/rocketship_theme_demo/favicons/generated/mstile-150x150.png"/>
+            <TileColor>#ef6c69</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>

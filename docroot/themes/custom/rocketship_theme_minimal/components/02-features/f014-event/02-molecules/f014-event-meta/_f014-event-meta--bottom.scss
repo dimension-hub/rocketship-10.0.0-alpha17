@@ -1,0 +1,54 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * event meta on full page: bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.event__bottom--full {
+
+  .field--name-field-event-price {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .event__bottom--full {
+
+    // price & date: inline the elements
+    .field--name-field-events {
+
+      .field {
+        //
+      }
+    }
+
+    // price itself
+    .field--name-field-event-price {
+      //
+    }
+
+    // date itself: inline the elements
+    .event-daterange-wrapper {
+      div {
+        //
+      }
+    }
+
+    // place
+
+    .field--name-field-event-place p {
+      //
+    }
+
+  }
+
+}
+

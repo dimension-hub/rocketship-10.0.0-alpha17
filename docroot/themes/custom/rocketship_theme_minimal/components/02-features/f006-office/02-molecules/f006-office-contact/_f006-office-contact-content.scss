@@ -1,0 +1,33 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office address: a field with multiple lines and elements
+// *
+// * In full contact detail
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// -- address
+.office--full,
+.office--office-promoted {
+
+  .layout__content {
+
+    // -- contact styling
+    // @include office-contact((
+    //   icons: true,
+    //   font-size: $font-size-sm,
+    //   line-height: $line-height-sm
+    // ));
+
+    .address {
+      //
+    }
+
+    // -- contact button
+
+    .field--name-field-show-contact-us-button {
+      //
+    }
+  }
+}

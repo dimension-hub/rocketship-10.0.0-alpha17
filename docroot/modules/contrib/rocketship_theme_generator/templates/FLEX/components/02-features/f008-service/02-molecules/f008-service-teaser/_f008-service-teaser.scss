@@ -1,0 +1,152 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Service teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.view--display-service-overview-block {
+
+  .service--teaser {
+
+    // ** visual
+
+    .field--image,
+    .field--name-field-media-canonical-image {
+      margin-bottom: rem($gap-vert-sm);
+    }
+
+    // ** title
+
+    h2,
+    h3,
+    h4 {
+      @include h3;
+    }
+
+    // ** date/author
+
+    // .node__meta {
+    //   display: flex;
+    //   margin-top: rem(-5);
+    //   margin-bottom: rem($gap-vert-sm);
+    // }
+
+    // .field--name-node-author {
+    //   margin-left: rem(10);
+    // }
+
+    // ** Taxonomy
+    //    see News teaser styling
+
+    // .layout__subregion-01 {
+    //
+    // }
+
+    // ** read more
+
+    .rs-canonical-link-formatter {
+      margin-top: rem($gap-vert-sm);
+
+      a {
+        @include link-more;
+      }
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .view--display-service-overview-block {
+
+    .service--teaser {
+
+      // make 2 cols
+
+      &,
+      .node__content {
+        display: flex;
+      }
+
+      .node__content {
+        width: 100%; // IE
+      }
+
+      .layout--rs-header,
+      .layout--rs-content {
+        flex: 1 0 calc(50% - #{rem($gap-service-teaser / 2)});
+        width: calc(50% - #{rem($gap-service-teaser / 2)});
+      }
+
+      .layout--rs-header {
+        padding-right: #{rem($gap-service-teaser / 2)};
+      }
+
+      .layout--rs-content {
+        display: flex;
+        flex-direction: column;
+        padding-left: #{rem($gap-service-teaser / 2)};
+      }
+
+      // -- reset margin on image
+
+      .field--image,
+      .field--name-field-media-canonical-image {
+        margin-bottom: 0;
+      }
+
+      // -- Style 'read more' as a button
+
+      .rs-canonical-link-formatter {
+
+        a {
+          @include button-primary("sm");
+
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+    }
+
+    // -- stretch and push actions down
+
+    .layout__subregion-01 {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: flex-end; // align to bottom
+      justify-items: flex-end; // align to bottom
+      //align-items: flex-end; // align to the right
+    }
+
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-service-overview-block {
+
+    .service--teaser {
+
+      //
+
+    }
+
+  }
+
+}

@@ -1,0 +1,19 @@
+stages:
+  - test
+  - deploy
+
+deploy to drupal:
+  stage: deploy
+  image:
+    name: prooph/composer:7.2
+    entrypoint: ["/bin/sh", "-c"]
+  script:
+    - apk --no-cache add bash openssh-client rsync
+    - mkdir -p /root/.ssh
+    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
+    - chmod 600 /root/.ssh/id_rsa
+    - ssh-keyscan git.drupal.org >> ~/.ssh/known_hosts
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+    - bash ./ci/workflow.sh
+  only:
+    - /^[0-9]+\.[0-9]+\.x$/

@@ -1,0 +1,52 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * News main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.view--display-news-overview-block {
+
+  .view__content {
+    margin-top: rem(-$grid-gap-hor);
+  }
+}
+
+.news--teaser {
+  margin-top: rem($grid-gap-hor);
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-news-overview-block {
+
+    // ** make a grid
+
+    .view__content {
+
+      @include flex-grid();
+    }
+  }
+
+  // normal overview is 2 cols
+  .news--teaser {
+    @include flex-col(6);
+
+    // first 3 items are in 3 cols
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include flex-col(4);
+    }
+  }
+
+}

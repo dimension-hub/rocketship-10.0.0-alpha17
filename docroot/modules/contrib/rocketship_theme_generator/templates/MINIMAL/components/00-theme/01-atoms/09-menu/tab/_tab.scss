@@ -1,0 +1,56 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Tab
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+
+.tabs__link {
+  display: block;
+  padding: rem(10) rem($grid-gap-hor / 2);
+  border-top: 1px solid rgba($color-white, .4);
+  @include font-size(14, 18);
+  background-color: $color-tab-bg;
+
+  &,
+  &:visited {
+    color: $color-tab-text;
+    background-color: $color-tab-bg;
+  }
+
+  &:hover {
+    color: $color-tab-text;
+    background-color: $color-tab-bg-hover;
+  }
+
+  &.is-active {
+    color: $color-tab-text;
+    background-color: $color-tab-bg-active;
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .tabs li {
+    display: inline-block;
+  }
+
+  .tabs__link {
+    display: inline-block;
+    border-top: 0 none;
+
+    &.is-active {
+      color: $color-tab-bg-hover;
+      background-color: $color-tab-bg-active-2;
+    }
+  }
+}

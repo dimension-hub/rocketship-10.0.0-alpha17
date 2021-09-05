@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains installation, uninstallation, and update functionality.
+ */
+
+/**
+ * Implements hook_update_last_removed().
+ */
+function plugin_update_last_removed() {
+  return 8001;
+}

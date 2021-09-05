@@ -1,0 +1,164 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * jobs main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** The paragraph
+
+.overview--job-overview {
+  //
+}
+
+// ** The block for the view itself
+
+.view--display-job-overview-block {
+
+  // ** count
+
+  .view__header {
+    //
+  }
+
+  // ** grid
+
+  .view__content {
+    //
+  }
+
+  .job--teaser {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .overview--job-overview {
+
+    //
+
+  }
+
+  // ** The block for the view itself
+
+  .view--display-job-overview-block {
+
+    // ** count
+
+    .view__header {
+      //
+    }
+
+    // ** grid
+
+    .view__content {
+      // @include flex-grid();
+    }
+
+    .job--teaser {
+      // @include flex-col(12);
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .overview--job-overview {
+
+    // -- overview paragraph cols
+    .paragraph__cols {
+      // @include flex-grid();
+    }
+
+    // -- sidebar
+    .paragraph__sidebar {
+      // padding-right: rem(20);
+      // @include flex-col(4);
+    }
+
+    // -- content
+    .paragraph__content {
+      // @include flex-col(8);
+    }
+  }
+
+  // ** The block for the view itself
+
+  .view--display-job-overview-block {
+
+    // ** count
+
+    .view__header {
+      //
+    }
+
+    // ** grid
+
+    .view__content {
+      //
+    }
+
+    .job--teaser {
+      //
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .overview--job-overview {
+    // -- overview sidebar column
+    .paragraph__sidebar {
+      // padding-right: 0;
+      // @include flex-col(3);
+    }
+
+    // -- overview content column
+    .paragraph__content {
+      // @include flex-col(8);
+      // @include flex-col-push(1);
+    }
+  }
+
+  // ** The block for the view itself
+
+  .view--display-job-overview-block {
+
+    // ** count
+
+    .view__header {
+      //
+    }
+
+    // ** grid
+
+    .view__content {
+      //
+    }
+
+    .job--teaser {
+      //
+    }
+  }
+
+}

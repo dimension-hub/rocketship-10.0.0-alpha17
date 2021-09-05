@@ -1,0 +1,78 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * service meta on full page: part of the header
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.service__header--full {
+
+  .layout__subregion-02 {
+    //
+  }
+
+  // ** breadcrumb
+
+  .breadcrumb__item {
+
+    //
+  }
+
+  .breadcrumb__link {
+
+    //
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .service__header--full {
+
+    .layout__subregion-02 {
+
+      h3 {
+        //
+      }
+
+      a {
+        //
+      }
+
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .service__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .service__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}

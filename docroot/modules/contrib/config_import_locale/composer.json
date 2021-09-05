@@ -1,0 +1,6 @@
+{
+  "name": "drupal/config_import_locale",
+  "description": "Locale: Config import",
+  "type": "drupal-module",
+  "license": "GPL-2.0+"
+}

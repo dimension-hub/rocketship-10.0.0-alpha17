@@ -1,0 +1,185 @@
+{
+    "name": "dropsolid/rocketship",
+    "description": "Dropsolid Rocketship is a distribution that enables small to mid-market business to profit from an optimal start when getting your feet wet in Drupal.",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "require": {
+        "composer/installers": "^1.11",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/core-composer-scaffold": "^9.2",
+        "drupal/core-recommended": "^9.2",
+        "drupal/core-vendor-hardening": "^9.2",
+        "drupal/dropsolid_rocketship_profile": "^6.0",
+        "drupal/rocketship_theme_generator": "^3.3.0",
+        "drupal/rocketship_florista_demo_profile": "^1.0",
+        "harvesthq/chosen": "1.8.7",
+        "imakewebthings/waypoints": "~4.0.1",
+        "jackmoore/colorbox": "^1.0",
+        "kenwheeler/slick": "1.8.1",
+        "topfloor/composer-cleanup-vcs-dirs": "^1.1",
+        "vardot/blazy": "~1.8"
+    },
+    "authors": [
+        {
+            "name": "Mattias Michaux",
+            "homepage": "https://www.drupal.org/u/mollux",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Nick Vanpraet",
+            "homepage": "https://www.drupal.org/u/grayle",
+            "role": "Maintainer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "autoloader-suffix": "Drupal8",
+        "platform": {
+            "php": "7.4"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "patches": {
+            "drupal/core": {
+                "Change title to label for inline blocks and other UX improvements": "etc/patches/inlineblocklabelux.patch",
+                "Block fallback preview change": "etc/patches/layout_builder.ui.patch",
+                "Hide profiles": "etc/patches/hide-install-profiles.patch",
+                "Fix undefined errors in dialog when saving a modal in Layout Builder": "etc/patches/dialog-position.patch",
+                "Lock langauge during installation": "etc/patches/install-language-selector.patch"
+            }
+        },
+        "patches-ignore": [],
+        "_readme": [
+            "By default Drupal loads the autoloader from ./vendor/autoload.php.",
+            "To change the autoloader you can edit ./autoload.php."
+        ],
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "enable-patching": true,
+        "installer-paths": {
+            "docroot/core": [
+                "type:drupal-core"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "docroot/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "docroot/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library"
+            ]
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "./docroot"
+            },
+            "file-mapping": {
+                "[web-root]/robots.txt": {
+                    "append": "etc/scaffold-modifications/robots.txt.append",
+                    "prepend": "etc/scaffold-modifications/robots.txt.prepend"
+                }
+            },
+            "allowed-packages": [
+                "drupal/core"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\Core\\Composer\\": "core/lib/Drupal/Core/Composer"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php docroot/modules/contrib/rocketship_theme_generator/scripts/generate-theme.php --name='Rocketship Minimal' --machine-name='rocketship_theme_minimal' --preset=minimal --theme-path='docroot/themes/custom'",
+            "php docroot/modules/contrib/rocketship_theme_generator/scripts/generate-theme.php --name='Rocketship Starter' --machine-name='rocketship_theme_starter' --preset=starter --theme-path='docroot/themes/custom'",
+            "php docroot/modules/contrib/rocketship_theme_generator/scripts/generate-theme.php --name='Rocketship Flex' --machine-name='rocketship_theme_flex' --preset=flex --theme-path='docroot/themes/custom'",
+            "php docroot/modules/contrib/rocketship_theme_generator/scripts/generate-theme.php --name='Rocketship Demo' --machine-name='rocketship_theme_demo' --preset=demo --theme-path='docroot/themes/custom'",
+            "cp etc/.gitignore .gitignore"
+        ],
+        "post-update-cmd": [
+            "php docroot/modules/contrib/rocketship_theme_generator/scripts/generate-theme.php --name='Rocketship Minimal' --machine-name='rocketship_theme_minimal' --preset=minimal --theme-path='docroot/themes/custom'",
+            "php docroot/modules/contrib/rocketship_theme_generator/scripts/generate-theme.php --name='Rocketship Starter' --machine-name='rocketship_theme_starter' --preset=starter --theme-path='docroot/themes/custom'",
+            "php docroot/modules/contrib/rocketship_theme_generator/scripts/generate-theme.php --name='Rocketship Flex' --machine-name='rocketship_theme_flex' --preset=flex --theme-path='docroot/themes/custom'",
+            "php docroot/modules/contrib/rocketship_theme_generator/scripts/generate-theme.php --name='Rocketship Demo' --machine-name='rocketship_theme_demo' --preset=demo --theme-path='docroot/themes/custom'"
+        ],
+        "post-drupal-scaffold-cmd": [
+            "patch -p1 < ./etc/scaffold-modifications/htaccess.patch"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "kenwheeler/slick",
+                "version": "1.8.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/kenwheeler/slick/archive/v1.8.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jackmoore/colorbox",
+                "version": "1.6.4",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/jackmoore/colorbox/archive/1.x.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "imakewebthings/waypoints",
+                "version": "4.0.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/imakewebthings/waypoints/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "harvesthq/chosen",
+                "version": "1.8.7",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/harvesthq/chosen-package.git",
+                    "type": "git",
+                    "reference": "v1.8.7"
+                }
+            }
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require-dev": {
+        "drupal/core-dev-pinned": "^9.2",
+        "drupal/twig_xdebug": "^1.2",
+        "drupal/twig_vardumper": "^3.0"
+    }
+}

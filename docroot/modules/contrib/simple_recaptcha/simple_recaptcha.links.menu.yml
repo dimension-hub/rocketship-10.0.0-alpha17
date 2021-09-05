@@ -1,0 +1,5 @@
+simple_recaptcha.settings:
+  title: 'Simple Google reCaptcha'
+  description: 'Configure Simple Google reCaptcha verification'
+  parent: system.admin_config_services
+  route_name: simple_recaptcha.settings

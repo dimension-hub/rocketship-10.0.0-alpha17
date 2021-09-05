@@ -1,0 +1,210 @@
+<?php
+
+/**
+ * @file
+ * Contains disable_language.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\language\Entity\ConfigurableLanguage;
+use Drupal\Core\Language\LanguageInterface;
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Add the disabled option to the form.
+ */
+function disable_language_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Add checkbox to language edit form.
+  if ($form_id === 'language_admin_edit_form') {
+    $configurableLanguage = $form_state->getFormObject()->getEntity();
+
+    $this_language = $form_state->getFormObject()->getEntity();
+    $languages = Drupal::languageManager()->getLanguages();
+    $options = [];
+    foreach ($languages as $language) {
+      // Only include this language if its not itself.
+      if ($language->getId() != $this_language->getId()) {
+        $options[$language->getId()] = $language->getName();
+      }
+    }
+
+    $configurableLanguage = $form_state->getFormObject()->getEntity();
+    $form['disable'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Disable language'),
+      '#description' => t('This will remove the language from the language switcher and filter out the Simple XML sitemap'),
+      '#default_value' => $configurableLanguage->getThirdPartySetting('disable_language', 'disable'),
+    ];
+
+    $form['redirect_language'] = [
+      '#type' => 'select',
+      '#title' => t('Select language to which we redirect'),
+      '#description' => t('This option will redirect to the selected language when a user calls the disabled language'),
+      '#options' => $options,
+      '#default_value' => $configurableLanguage->getThirdPartySetting('disable_language', 'redirect_language'),
+      '#states' => [
+        'visible' => [
+          ':input[name="disable"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['#entity_builders'][] = 'disable_language_language_admin_edit_form_builder';
+    // @todo: Add validation so people can't disable all languages
+  }
+
+  // Add disabled information to the overview.
+  if ($form_id === 'language_admin_overview_form') {
+    $configurableLanguages = \Drupal::service('disable_language.disable_language_manager')
+      ->getConfigurableLanguages();
+
+    // Add the disabled header in the right position.
+    $offset = array_search('weight', array_keys($form['languages']['#header']));
+
+    $form['languages']['#header'] = array_slice($form['languages']['#header'], 0, $offset, TRUE) +
+      ['disabled' => t('Disabled')] +
+      array_slice($form['languages']['#header'], $offset, NULL, TRUE);
+
+    foreach ($configurableLanguages as $langcode => $configurableLanguage) {
+      $disabled = $configurableLanguage->getThirdPartySetting('disable_language', 'disable') ? t('Yes') : t('No');
+      $data['disabled']['data']['#markup'] = $disabled;
+      $form['languages'][$langcode] = array_slice($form['languages'][$langcode], 0, $offset, TRUE) +
+        $data +
+        array_slice($form['languages'][$langcode], $offset, NULL, TRUE);
+    }
+  }
+}
+
+/**
+ * We need to save the disabled value.
+ */
+function disable_language_language_admin_edit_form_builder($entity_type, ConfigurableLanguage $configurableLanguage, &$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('disable')) {
+    $configurableLanguage->setThirdPartySetting('disable_language', 'disable', $form_state->getValue('disable'));
+
+    if ($form_state->getValue('redirect_language')) {
+      $configurableLanguage->setThirdPartySetting('disable_language', 'redirect_language', $form_state->getValue('redirect_language'));
+    }
+    return;
+  }
+
+  $configurableLanguage->unsetThirdPartySetting('disable_language', 'disable');
+  $configurableLanguage->unsetThirdPartySetting('disable_language', 'redirect_language');
+}
+
+/**
+ * Implements hook_language_switch_links_alter().
+ *
+ * We need to filter out the disabled languages
+ * from the language selection list.
+ */
+function disable_language_language_switch_links_alter(array &$links, $type, $path) {
+
+  $user = Drupal::currentUser();
+
+  // Only filter the links if the current user doesn't
+  // have permission to view disabled language.
+  if (!$user->hasPermission('view disabled languages')) {
+    foreach ($links as $langcode => $link) {
+      // When te language isn't available in the link object we need to load it
+      // using the entity storage.
+      if (empty($link['language']) || !($link['language'] instanceof LanguageInterface)) {
+        $language = \Drupal::entityTypeManager()->getStorage('configurable_language')->load($langcode);
+      }
+      else {
+        $language = $link['language'];
+      }
+      // If the third party settings exists and the disable
+      // value is true then remove the item from the links list.
+      $disabled = $language->getThirdPartySetting('disable_language', 'disable');
+      if (isset($disabled) && $disabled == 1) {
+        unset($links[$langcode]);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_simple_sitemap_links_alter().
+ */
+function disable_language_simple_sitemap_links_alter(array &$links) {
+  $disabledLanguages = \Drupal::service('disable_language.disable_language_manager')
+    ->getDisabledLanguages();
+
+  if (!empty($disabledLanguages)) {
+    $disabledLanguagesLangCodes = array_keys($disabledLanguages);
+
+    // Remove the urls for disabled languages.
+    foreach ($links as $key => $link) {
+      // Remove 'loc' URL if it points to a disabled language.
+      if (in_array($link['langcode'], $disabledLanguagesLangCodes)) {
+        unset($links[$key]);
+      }
+      // If this 'loc' URL points to a non-disabled language, make sure to
+      // remove its disabled alternate url.
+      else {
+        if (isset($link['alternate_urls'])) {
+          foreach ($link['alternate_urls'] as $langcode => $alternate_url) {
+            if (in_array($langcode, $disabledLanguagesLangCodes)) {
+              unset($links[$key]['alternate_urls'][$langcode]);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function disable_language_page_attachments_alter(array &$attachments) {
+  $disabledLanguages = \Drupal::service('disable_language.disable_language_manager')
+    ->getDisabledLanguages();
+
+  if (isset($attachments['#attached']['html_head_link'])) {
+    foreach ($attachments['#attached']['html_head_link'] as $key => $value) {
+      // Remove the hreflang tags for the disabled languages.
+      if (isset($value[0]['hreflang']) && $disabledLanguages && in_array($value[0]['hreflang'], array_keys($disabledLanguages))) {
+        unset($attachments['#attached']['html_head_link'][$key]);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function disable_language_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['language']['preferred_langcode'])) {
+    $form['language']['preferred_langcode']['#pre_render'][] = '\Drupal\disable_language\DisableLanguageCallback::preRender';
+  }
+}
+
+
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function disable_language_field_widget_language_select_form_alter(&$element, FormStateInterface $form_state, $context) {
+  // Check permissions and add after_build callback to language select widgets.
+  if (\Drupal::currentUser()->hasPermission('create content in disabled language')) {
+    return;
+  }
+  $element['#after_build'][] = 'disable_language_language_select_after_build';
+}
+
+/**
+ * After build callback for language_select widgets.
+ */
+function disable_language_language_select_after_build($element, $form_state) {
+  // Get disabled languages and remove them from options of language select.
+  $disabled_languages = \Drupal::service('disable_language.disable_language_manager')->getDisabledLanguages();
+  foreach (array_keys($disabled_languages) as $langcode) {
+    if (isset($element['value']['#options'][$langcode])) {
+      unset($element['value']['#options'][$langcode]);
+    }
+  }
+  return $element;
+}

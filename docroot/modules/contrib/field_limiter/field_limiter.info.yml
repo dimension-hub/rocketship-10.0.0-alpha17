@@ -1,0 +1,13 @@
+name: Field Limiter
+type: module
+description: Limit the number of field values rendered by a formatter.
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - field_formatter:field_formatter
+package: Other
+
+# Information added by Drupal.org packaging script on 2020-09-09
+version: '8.x-1.1'
+project: 'field_limiter'
+datestamp: 1599678330

@@ -1,0 +1,16 @@
+{
+  "name": "drupal/rocketship_florista_demo_profile",
+  "description": "Florista demo profile for Rocketship",
+  "type": "drupal-profile",
+  "authors": [
+    {
+      "name": "Nick Vanpraet",
+      "homepage": "https://www.drupal.org/u/grayle",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/dropsolid_rocketship_profile": "^6.0",
+    "drupal/gin": "^3.0"
+  }
+}

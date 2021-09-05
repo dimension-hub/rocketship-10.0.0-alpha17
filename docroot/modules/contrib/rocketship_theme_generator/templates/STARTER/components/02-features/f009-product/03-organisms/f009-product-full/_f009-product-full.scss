@@ -1,0 +1,341 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Product detail full: has its own view-mode of the news CT, with a DS template
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.product--full {
+  //
+}
+
+// load font-family after font loaded
+.font-text-01-loaded .product__cols--full {
+  .field--name-field-product-category,
+  .field--name-field-product-property-one,
+  .field--name-field-product-property-two,
+  .field--name-field-product-attributes {
+    // // label
+    // h3,
+    // .label-value-item-label {
+    //   font-family: $font-base;
+    // }
+  }
+}
+
+.product__cols--full {
+
+  // ** create space between header & content and doormat/related products & content
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+
+  // ** content
+  .layout__content__row--main {
+    margin-top: rem($gap-vert-top-xs);
+  }
+
+  // ** Title
+  h2 {
+    margin-bottom: 0; // reset because we use the wrapper with the teaser/props to add spacing
+  }
+
+  // ** Properties & categories: Facet filters
+
+  .field--name-field-product-category,
+  .field--name-field-product-property-one,
+  .field--name-field-product-property-two,
+  .field--name-field-product-attributes {
+
+    // margin-bottom: rem(5);
+
+    // // label
+    // h3,
+    // .label-value-item-label {
+    //   margin: 0;
+    //   font-family: $font-fallback;
+    //   @include font-size($font-size-base, $line-height-base);
+    //   font-weight: $font-weight-bold;
+    //   text-transform: none;
+    //   color: $color-base;
+
+    //   @include text-nobreak;
+
+    //   &::after {
+    //     content: ":";
+    //     margin-left: rem(-4);
+    //   }
+    // }
+
+    // // value
+    // a {
+    //   //
+    // }
+  }
+
+  // ** category
+
+  .field--name-field-product-category {
+    // .field__items {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   margin: rem(-5) rem(-2) 0 rem(-2);
+    // }
+
+    // .field__item {
+    //   display: flex;
+    //   align-items: flex-end;
+    //   justify-content: flex-end;
+    //   margin: rem(5) rem(2) 0 rem(2);
+
+    //   &::after {
+    //     content: ", ";
+    //   }
+
+    //   &:last-child {
+    //     &::after {
+    //       content: "";
+    //     }
+    //   }
+    // }
+
+    // .field__item::before,
+    // .field__item::after,
+    // a {
+    //   //
+    // }
+
+    // a {
+    //   //
+    // }
+  }
+
+
+  // ** Product attributes
+
+  .field--name-field-product-attributes {
+    // margin-bottom: 0;
+
+    // .field__items {
+    //   width: 100%; // otherwise it collapses bc of flexbox later on
+    // }
+  }
+
+  .field__item--name-field-product-attributes {
+    //
+  }
+
+  // // label
+
+  // .label-value-item-label {
+  //   display: block;
+  //   font-weight: $font-weight-bold;
+  //   margin-bottom: rem(5);
+
+  //   @include text-nobreak;
+  // }
+
+  // // value
+
+  // .label-value-item-value {
+  //   display: inline;
+  // }
+
+  // ** description
+
+  .block--field-blocknodeproductfield-product-description {
+    margin-top: rem($gap-vert-top-xs);
+  }
+
+  // ** Buttons
+
+  .layout__content__row--bottom {
+    margin-top: rem($gap-vert-top-xs);
+  }
+
+  // PDF download
+
+  .field--name-field-media-file {
+
+    .file {
+      padding-left: 0; // don't need space for icon
+    }
+
+    .icon {
+      display: none; // don't need icon
+    }
+
+    a {
+      @include button-secondary;
+    }
+  }
+
+  // Contact button
+
+  .rs-configurable-link-formatter {
+    margin-top: rem($gap-vert-sm);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .product--full {
+    //
+  }
+
+  .product__cols--full {
+
+    // ** create space between header & content and doormat/related products & content
+    padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+
+    // ** picture
+
+    .layout__sidebar {
+      // @include flex-col(6);
+    }
+
+    // ** product info
+
+    .layout__content {
+      // @include flex-col(6);
+      // padding-left: rem($grid-gap-hor); // extra space next to picture
+    }
+
+    // ** content
+    .layout__content__row--main {
+      margin-top: rem($gap-vert-top-sm);
+    }
+
+    // ** Properties & categories: Facet filters
+
+    .field--name-field-product-category,
+    .field--name-field-product-property-one,
+    .field--name-field-product-property-two,
+    .field--name-field-product-attributes {
+      // display: flex;
+      // flex-wrap: wrap;
+      // align-items: flex-end;
+
+      // // label
+      // h3,
+      // .label-value-item-label {
+      //   padding-right: rem(20);
+      //   width: 33%; // force a min-width on table cell
+      // }
+    }
+
+    // ** category
+
+    // .field--name-field-product-category {
+    //   .field__items {
+    //     width: 66%;
+    //   }
+    // }
+
+    // ** Product attributes
+
+    // .label-value-item {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    // }
+
+    // // label
+
+    // .label-value-item-label {
+    //   display: inline-block;
+    //   padding-right: rem(20);
+    //   min-width: 33%; // force a min-width on table cell
+    // }
+
+    // ** description
+
+    .block--field-blocknodeproductfield-product-description {
+      margin-top: rem($gap-vert-top-sm);
+    }
+
+    // ** Buttons
+
+    .layout__content__row--bottom {
+      margin-top: rem($gap-vert-top-sm);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .product--full {
+    //
+  }
+
+  .product__cols--full {
+
+    // ** create space between header & content and doormat/related products & content
+    padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+
+    // ** product info
+
+    .layout__content {
+      // padding-left: rem($grid-gap-hor * 2); // extra space next to picture
+    }
+
+    // ** content
+    .layout__content__row--main {
+      margin-top: rem($gap-vert-top-md);
+    }
+
+    // ** description
+
+    .block--field-blocknodeproductfield-product-description {
+      margin-top: rem($gap-vert-top-md);
+    }
+
+    // ** Buttons
+
+    .layout__content__row--bottom {
+      margin-top: rem($gap-vert-top-md);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .product--full {
+    //
+  }
+
+  .product__cols--full {
+
+    // ** create space between header & content and doormat/related products & content
+    padding: rem($gap-vert-top-lg) 0 rem($gap-vert-bottom-lg) 0;
+
+    // ** product info
+
+    .layout__content {
+      // padding-left: rem($grid-gap-hor * 3); // extra space next to picture
+    }
+  }
+
+}

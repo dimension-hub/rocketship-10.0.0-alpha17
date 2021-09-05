@@ -1,0 +1,132 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Variables: basic colors
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// ** Palette
+// =============================================================================
+
+$color-spot-1:              #ef6c69 !default; // orange
+$color-spot-2:              #ca2751 !default; // purple
+$color-spot-3:              #2b3470 !default; // dark blue
+
+$color-black:                #000000 !default;
+$color-white:                #fff !default;
+
+$color-off-white:            #f3f3f3 !default;
+
+$color-gray-light-1:         #e5e5e5 !default;
+$color-gray-light-2:         #d6d8dc !default;
+$color-gray-light-3:         #989898 !default;
+$color-gray:                 #494949 !default;
+$color-gray-dark:            #545454 !default;
+$color-gray-dark-2:          #212121 !default;
+
+
+// ** Main
+// =============================================================================
+
+$color-base:                #5f5f5f !default;
+$color-base-bg:             $color-white !default;
+
+$color-heading:             #1e1e1f !default;
+
+// -- default link tag colors
+$color-link:                $color-spot-1 !default;
+$color-link-hover :         $color-spot-1 !default;
+$color-link-active:         $color-spot-1 !default;
+
+// -- colors for links in CKE (often different color/underline effect)
+$color-text-link:           $color-spot-1 !default;
+$color-text-link-hover :    $color-spot-1 !default;
+$color-text-link-active:    $color-spot-1 !default;
+
+$color-button:              $color-white !default;
+$color-button-bg:           $color-spot-1 !default;
+$color-button-hover:        $color-white !default;
+$color-button-hover-bg:     darken($color-spot-1, 10%) !default;
+
+$color-border:              $color-gray-light-2 !default;
+
+
+// * Regions
+// =============================================================================
+
+$color-header-top-bg:   $color-off-white;
+$color-navigation-bg:   $color-white;
+
+$color-nav-submenu:     lighten($color-spot-1, 10%);
+$color-mobile-nav:      $color-base;
+$color-mobile-nav-bg:   $color-white;
+$color-mobile-nav-open:      $color-white;
+$color-mobile-nav-open-bg:   $color-white;
+
+$color-doormat:         $color-heading;
+$color-doormat-bg:      $color-white;
+$color-footer:          $color-base;
+$color-footer-bg:       $color-white;
+
+
+// * Subdivisions
+// =============================================================================
+
+// $color-meta-bg:       $color-gray-light-1;
+
+
+// ** Tabs
+// =============================================================================
+
+$color-tabs-background:     $color-gray-dark;
+$color-tab-text:            $color-white;
+$color-tab-bg:              $color-gray;
+$color-tab-bg-hover:        $color-link;
+$color-tab-bg-active:       $color-link;
+$color-tab-bg-active-2:     $color-white;
+
+
+// * Alerts
+// =============================================================================
+$color-error:             #e74c3c;
+$color-error-dark:        #c0392b;
+$color-status:            #3fc380;
+$color-status-dark:       #00b16a;
+$color-warning:           #eb9532;
+$color-warning-dark:      #f2784b;
+$color-neutral:           #0074bd;
+
+
+// ** Forms
+// =============================================================================
+
+$color-placeholder:          $color-gray-light-2;
+
+$color-form:                 $color-base;
+// $color-form-bg:              $color-border;
+$color-form-border:          $color-border;
+
+$color-form-inactive:        rgba($color-gray, .6); //#b5b5b5;
+$color-form-active:          $color-spot-1 !default;
+// $color-form-active-bg:       $color-white;
+$color-form-active-border:   lighten($color-spot-1, 10);
+
+$color-form-disabled:        $color-gray-light-1;
+$color-form-disabled-bg:     $color-white;
+$color-form-disabled-border: $color-gray-light-1;
+// $color-form-error-bg:        lighten($color-error, 10);
+$color-form-error-border:    $color-error;
+
+// ** Gin backend theme colors
+// =============================================================================
+
+$colorAppBackground: #f5f7fb; //#fbfbff; //#f5f7fb;
+$colorAppBackgroundShadow: #f5f5f9;
+$colorDarkAppBackground: #1b1b1d;
+$ginPrimary: #0550e6; //0136fd;
+$ginPrimaryDark: #080090;
+
+$mixColor: $ginPrimary;
+
+$ginPrimaryHover: mix(black, $ginPrimary, 15%);
+$ginPrimaryActive: mix(black, $ginPrimary, 25%);

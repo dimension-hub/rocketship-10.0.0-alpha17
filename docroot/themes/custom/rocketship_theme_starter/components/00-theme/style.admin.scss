@@ -1,0 +1,63 @@
+//////////////////////////////////////////////////////////////////////////////
+//   *
+//   * Styling-overrides for elements of the admin theme
+//   *
+//////////////////////////////////////////////////////////////////////////////
+
+
+@import "00-base/_libs.scss";
+@import "00-base/00-config/**/*.scss";
+@import "00-base/01-helpers/**/*.scss";
+@import "00-base/02-fonts/**/*.scss";
+
+
+// * Eg. Overrides for background-color palette
+// =============================================================================
+
+/*
+.layout-field-bg-color {
+
+  .white {
+    background: $color-off-white;
+    color: $color-black;
+    a {
+      color: $color-black;
+    }
+    a:hover,
+    a:focus,
+    a:active,
+    a.is-active {
+      color: $color-black;
+    }
+  }
+
+  .grey {
+    background: $color-gray-light-1;
+    color: $color-black;
+    a {
+      color: $color-black;
+    }
+    a:hover,
+    a:focus,
+    a:active,
+    a.is-active {
+      color: $color-black;
+    }
+  }
+
+  .spot_01 {
+    background: $color-spot-1;
+    color: $color-white;
+    a {
+      color: $color-white;
+    }
+    a:hover,
+    a:focus,
+    a:active,
+    a.is-active {
+      color: $color-white;
+    }
+  }
+
+}
+*/

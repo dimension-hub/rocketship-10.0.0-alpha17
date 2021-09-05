@@ -1,0 +1,172 @@
+<?php
+
+namespace Drupal\rocketship_florista_demo_content\EventSubscriber;
+
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\layout_builder\InlineBlockUsageInterface;
+use Drupal\layout_builder\Plugin\Block\InlineBlock;
+use Drupal\migrate\Event\MigrateEvents;
+use Drupal\migrate\Event\MigrateImportEvent;
+use Drupal\migrate\Event\MigratePostRowSaveEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+/**
+ * Class MigrateSubscriber
+ *
+ * @package Drupal\rocketship_florista_demo_content\EventSubscriber
+ */
+class MigrateSubscriber implements EventSubscriberInterface {
+
+  /**
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
+   */
+  protected $entityFieldManager;
+
+  /**
+   * @var \Drupal\layout_builder\InlineBlockUsageInterface
+   */
+  protected $inlineBlockUsage;
+
+  /**
+   * @var \Drupal\Core\Logger\LoggerChannelInterface
+   */
+  protected $logger;
+
+  /**
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
+   * MigrateSubscriber constructor.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entityFieldManager
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $loggerChannelFactory
+   * @param \Drupal\layout_builder\InlineBlockUsageInterface $inlineBlockUsage
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   */
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, EntityFieldManagerInterface $entityFieldManager, LoggerChannelFactoryInterface $loggerChannelFactory, InlineBlockUsageInterface $inlineBlockUsage, ConfigFactoryInterface $config_factory) {
+    $this->entityTypeManager = $entityTypeManager;
+    $this->entityFieldManager = $entityFieldManager;
+    $this->logger = $loggerChannelFactory->get('layout_builder_post_migrate');
+    $this->inlineBlockUsage = $inlineBlockUsage;
+    $this->configFactory = $config_factory;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getSubscribedEvents() {
+    $events[MigrateEvents::POST_ROW_SAVE] = ['onMigratePostRowSaveEvent'];
+    $events[MigrateEvents::POST_IMPORT] = ['onMigratePostImportEvent'];
+
+    return $events;
+  }
+
+  /**
+   * @param \Drupal\migrate\Event\MigratePostRowSaveEvent $event
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  public function onMigratePostRowSaveEvent(MigratePostRowSaveEvent $event) {
+    $migration = $event->getMigration();
+
+    if (empty($event->getDestinationIdValues())) {
+      // Nothing to check
+      return;
+    }
+
+    if ($migration->id() === 'rocketship_florista_demo_content_node_page') {
+      // Based on uuid, set the node as homepage
+      $nids = $event->getDestinationIdValues();
+      $nid = reset($nids);
+      $node = $this->entityTypeManager->getStorage('node')->load($nid);
+      if ($node->uuid() === 'cb12db47-20ff-42b1-84e5-0539391d49b6') {
+        $this->configFactory->getEditable('system.site')
+          ->set('page.front', '/node/' . $node->id())
+          ->save();
+      }
+    }
+
+  }
+
+  /**
+   * @param \Drupal\migrate\Event\MigrateImportEvent $event
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function onMigratePostImportEvent(MigrateImportEvent $event) {
+    // So this used to be in the post row event, and checked for the node migrate.
+    // But that isn't good enough, because of reference blocks and stubs not working
+    // with layout builder. So now, I guess, we run this code after every migrate of
+    // this group and see if we can load nodes or not. Means this'll run at least
+    // 3 times or something. But at least it'll work regardless of how people
+    // trigger the migrate.
+    $migration = $event->getMigration();
+
+    if (strpos($migration->id(), 'rocketship_florista_demo_content') !== 0) {
+      return;
+    }
+
+    $entity_type_id = 'node';
+    $entity_type_storage = $this->entityTypeManager->getStorage($entity_type_id);
+
+    $path = drupal_get_path('module', 'rocketship_florista_demo_content');
+    $handle = fopen("$path/assets/csv/rocketship_florista_demo_content_node_page.csv", "r");
+    // skip first line
+    fgetcsv($handle);
+    while (($data = fgetcsv($handle)) !== FALSE) {
+      $entities = $entity_type_storage->loadByProperties(['uuid' => $data[0]]);
+      foreach ($entities as $entity) {
+        $fields = $this->entityFieldManager->getFieldDefinitions($entity_type_id, $entity->bundle());
+        foreach ($fields as $field) {
+          if ($field->getType() === 'layout_section') {
+            $data = $entity->get($field->getName());
+            foreach ($data as $item) {
+              /** @var \Drupal\layout_builder\Section $section */
+              $section = $item->section;
+              foreach ($section->getComponents() as $component) {
+                $plugin = $component->getPlugin();
+                if ($plugin instanceof InlineBlock) {
+                  $configuration = $plugin->getConfiguration();
+                  $block = NULL;
+                  if (isset($configuration['block_uuid'])) {
+                    $loaded_blocks = $this->entityTypeManager->getStorage('block_content')
+                      ->loadByProperties(['uuid' => $configuration['block_uuid']]);
+                    $block = !empty($loaded_blocks) ? current($loaded_blocks) : NULL;
+                  }
+                  if (!$block) {
+                    $this->logger->warning('Could not add @block to usage table because it does not exist.',
+                      ['@block' => serialize($plugin->getConfiguration())]);
+                    continue;
+                  }
+                  $this->inlineBlockUsage->addUsage($block->id(), $entity);
+                  // Now set correct revision ID. Too much stuff relies on it.
+                  $configuration = $plugin->getConfiguration();
+                  $configuration['block_revision_id'] = $block->getRevisionId();
+                  $component->setConfiguration($configuration);
+                }
+              }
+            }
+          }
+        }
+        $entity->save();
+      }
+    }
+
+  }
+
+}

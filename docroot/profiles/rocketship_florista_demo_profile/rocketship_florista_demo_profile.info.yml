@@ -1,0 +1,41 @@
+name: 'Rocketship Florista Demo Profile'
+description: 'Sets up a Florista demo site.'
+type: profile
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - environment_indicator:environment_indicator
+  - drupal:system
+  - drupal:action
+  - blazy:blazy
+  - drupal:user
+  - drupal:node
+  - drupal:block
+  - simple_recaptcha:simple_recaptcha
+  - r4032login:r4032login
+  - drupal:media_library
+  - link_attributes:link_attributes
+  - drupal:layout_builder
+  - redirect:redirect
+  - block_content_permissions:block_content_permissions
+  - http_cache_control:http_cache_control
+  - config_import_locale:config_import_locale
+  - rocketship_core:rocketship_core
+install:
+  - drupal:page_cache
+  - drupal:dblog
+  - gin_toolbar:gin_toolbar
+  - drupal:link
+  - chosen:chosen
+  - imageapi_optimize:imageapi_optimize
+  - imageapi_optimize_binaries:imageapi_optimize_binaries
+  - imageapi_optimize_resmushit:imageapi_optimize_resmushit
+  - seckit:seckit
+  - config_import_single:config_import_single
+themes:
+  - gin
+package: Rocketship
+
+# Information added by Drupal.org packaging script on 2021-08-24
+version: '1.0.0-alpha7'
+project: 'rocketship_florista_demo_profile'
+datestamp: 1629799635

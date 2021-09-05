@@ -1,0 +1,59 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Realisation teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.view--display-realisation-overview-block {
+
+  .realisation--teaser {
+
+    // ** visual
+
+    .field--image,
+    .field--name-field-media-canonical-image {
+      //
+    }
+
+    // ** title
+
+    h2,
+    h3,
+    h4 {
+      //
+    }
+
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .view--display-realisation-overview-block {
+
+    .realisation--teaser {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  //
+
+}

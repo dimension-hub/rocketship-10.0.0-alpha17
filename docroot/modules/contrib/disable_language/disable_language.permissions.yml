@@ -1,0 +1,6 @@
+'view disabled languages':
+  title: 'View disabled languages'
+  description: 'Allows the user to see disabled languages'
+'create content in disabled language':
+  title: 'Create content in disabled language'
+  description: 'Allows the user to create content in a disabled language'

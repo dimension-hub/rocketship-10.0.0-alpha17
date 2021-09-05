@@ -1,0 +1,76 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Office teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.office--teaser {
+
+  // ** visual
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    // margin-bottom: rem($gap-vert);
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    //
+  }
+
+  // ** description
+
+  .layout__content__row--bottom {
+    //
+  }
+
+  // ** read more
+
+  .rs-canonical-link-formatter {
+    //
+  }
+
+  .field--name-field-office-address {
+    // @include office-contact();
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // ** the normal teaser
+
+  .office--teaser {
+
+
+    .layout__sidebar {
+      //
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .office--teaser {
+    //
+  }
+
+}

@@ -1,0 +1,56 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * event meta on full page: bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.event__bottom--full {
+
+  .field--name-field-event-price {
+    @include text-nobreak;
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .event__bottom--full {
+
+    // price & date: inline the elements
+    .field--name-field-events {
+
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: rem(-25);
+
+      .field {
+        margin-left: rem(25);
+      }
+    }
+
+    // price itself
+    .field--name-field-event-price {
+      margin-bottom: 0;
+    }
+
+    // date itself: inline the elements
+    .event-daterange-wrapper {
+      div {
+        display: inline;
+      }
+    }
+
+    // place
+
+    .field--name-field-event-place p {
+      margin-bottom: 0;
+    }
+  }
+
+}

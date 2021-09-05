@@ -1,0 +1,77 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job frontpage overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+// ** paragraph contaiing the view
+
+.overview--job-overview-front {
+  //
+}
+
+.view--display-job-overview-front {
+
+  .view__content {
+    //
+  }
+
+  .job--teaser {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-job-overview-front {
+
+    // ** make a grid
+
+    .view__content {
+      //
+    }
+
+    .job--teaser {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--display-job-overview-front {
+
+    .job--teaser {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .view--display-job-overview-front {
+    //
+  }
+
+}

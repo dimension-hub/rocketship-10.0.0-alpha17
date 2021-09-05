@@ -1,0 +1,239 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office detail full: 'full' view-mode
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.office--full {
+
+  // ** cols
+  .layout__cols {
+    // create space between header and content
+    padding-top: rem($gap-vert-top-xs);
+  }
+
+  // ** sidebar
+  .layout__sidebar {
+    //
+  }
+
+  // ** main content
+  .layout__content {
+    margin-top: rem($gap-vert-bottom-xs);
+  }
+
+  // ** groups
+  .layout__content__row--top {
+    margin-bottom: rem($gap-vert);
+  }
+
+  // -- address
+  .layout__content__row--main {
+    //
+  }
+
+  // -- office hours
+  .layout__content__row--bottom {
+    //
+  }
+
+  // ** map
+
+  .field--name-field-office-geolocation {
+    padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+  }
+
+  // // full width map
+  //
+  // .geofield-google-map {
+  //   position: relative;
+  //   left: 50%;
+  //   transform: translateX(-50vw);
+  //   width: 100vw !important;
+  // }
+
+  // ** More button
+
+  .rs-more-offices-formatter {
+
+    margin: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+
+    a {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    .layout__cols {
+      // create space between header and content
+      padding-top: rem($gap-vert-top-sm);
+    }
+
+    // ** sidebar
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** main content
+
+    .layout__content {
+      margin-top: rem($gap-vert-bottom-xs);
+    }
+
+    // ** groups
+
+    // -- text
+
+    .layout__content__row--top {
+      //
+    }
+
+    // -- address
+
+    .layout__content__row--main {
+      //
+    }
+
+    // -- office hours
+
+    .layout__content__row--bottom {
+      //
+    }
+
+    // ** map
+
+    .field--name-field-office-geolocation {
+      padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+    }
+
+    // ** More button
+
+    .rs-more-offices-formatter {
+      margin: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    .layout__cols {
+      // create space between header and content
+      padding-top: rem($gap-vert-top-md);
+    }
+
+    // ** sidebar
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** main content
+
+    .layout__content {
+      margin-top: rem($gap-vert-bottom-xs);
+    }
+
+    // ** groups
+
+    // -- text
+
+    .layout__content__row--top {
+      margin-bottom: rem($gap-vert-lg);
+    }
+
+    // -- address
+
+    .layout__content__row--main {
+      //
+    }
+
+    // -- office hours
+
+    .layout__content__row--bottom {
+      //
+    }
+
+    // ** map
+
+    .field--name-field-office-geolocation {
+      padding: rem($gap-vert-top-md) 0  rem($gap-vert-bottom-md) 0;
+    }
+
+    // ** More button
+
+    .rs-more-offices-formatter {
+      margin: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    .layout__cols {
+      // create space between header and content
+      padding-top: rem($gap-vert-top-lg);
+    }
+
+    // ** sidebar
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** main content
+
+    .layout__content {
+      //
+    }
+
+    // ** map
+
+    .field--name-field-office-geolocation {
+      padding: rem($gap-vert-top-lg) 0 rem($gap-vert-bottom-lg) 0;
+    }
+
+    // ** More button
+
+    .rs-more-offices-formatter {
+      margin: rem($gap-vert-top-lg) 0 rem($gap-vert-bottom-lg) 0;
+    }
+
+  }
+
+}

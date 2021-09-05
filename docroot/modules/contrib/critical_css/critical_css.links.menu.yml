@@ -1,0 +1,5 @@
+critical_css.settings:
+  title: Critical CSS
+  parent: system.performance_settings
+  description: Critical CSS settings.
+  route_name: critical_css.settings

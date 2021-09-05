@@ -1,0 +1,98 @@
+///////////////////////////////////////////////////////////////////////
+// *
+// * User
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Better login forms
+// =============================================================================
+
+.user-box {
+  //
+}
+
+.user-box__middle {
+
+  //
+
+  h1 {
+    //
+  }
+
+
+  .form__element {
+    //
+  }
+
+  // -- buttons
+
+  input[type="submit"],
+  button[type="submit"] {
+    //
+  }
+
+  // -- secondary header
+
+  .paragraph--type-simple-header::before {
+    display: none !important;
+  }
+}
+
+.user-box__links {
+  //
+
+  li {
+    //
+  }
+}
+
+.user-box__bottom {
+  //
+}
+
+
+// ** registration page
+
+.user-box__middle--register {
+  //
+}
+
+
+// * User create / edit page
+// =============================================================================
+
+.password-strength__meter {
+  margin-top: rem(10);
+  background: $color-off-white;
+}
+.password-strength__indicator {
+  background-color: $color-off-white;
+  transition: width $duration $easing;
+
+  &.is-weak {
+    background-color: $color-error;
+  }
+  &.is-fair {
+    background-color: $color-warning;
+  }
+  &.is-good {
+    background-color: $color-neutral;
+  }
+  &.is-strong {
+    background-color: $color-status;
+  }
+}
+
+.confirm-parent {
+
+  .password-confirm {
+    .ok {
+      color: $color-status;
+    }
+    .error {
+      color: $color-error;
+    }
+  }
+}
+

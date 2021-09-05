@@ -1,0 +1,73 @@
+{
+  "name": "drupal/dropsolid_rocketship_profile",
+  "description": "The installation profile for Dropsolid products.",
+  "type": "drupal-profile",
+  "authors": [
+    {
+      "name": "Kevin Van Belle",
+      "homepage": "https://www.drupal.org/u/kevinvb",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Brent Gees",
+      "homepage": "https://www.drupal.org/u/brentgees",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Nick Vanpraet",
+      "homepage": "https://www.drupal.org/u/grayle",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/console": "~1.0",
+    "drupal/devel": "^4.0",
+    "drupal/devel_php": "^1.2",
+    "drupal/facets": "^1.4",
+    "drupal/views_exposed_filter_blocks": "^1.1",
+    "drupal/captcha": "^1.1",
+    "drupal/simple_recaptcha": "^1.0",
+    "drupal/field_hidden": "^2.0",
+    "drupal/reroute_email": "^1.2",
+    "drupal/environment_indicator": "^4.0",
+    "drupal/memcache": "^2.1",
+    "drupal/dropsolid_purge": "^1.0",
+    "drupal/purge": "^3.0",
+    "drupal/twig_xdebug": "^1.2",
+    "drupal/rabbit_hole": "^1.0",
+    "drupal/chosen": "^3.0",
+    "drupal/allowed_formats": "^1.3",
+    "drupal/stage_file_proxy": "^1.0",
+    "drupal/geocoder": "^3.0",
+    "drupal/geofield": "^1.0",
+    "drupal/geofield_map": "~2.13",
+    "drupal/address": "^1.8",
+    "drupal/disable_language": "^1.0",
+    "drupal/office_hours": "^1.3",
+    "drupal/imageapi_optimize": "^4.0",
+    "drupal/imageapi_optimize_binaries": "^1.0",
+    "drupal/imageapi_optimize_resmushit": "^2.0",
+    "drupal/rocketship_core": "^6.0",
+    "drupal/r4032login": "^2.0",
+    "drupal/link_attributes": "^1.1",
+    "drupal/redirect": "^1.6",
+    "drupal/block_content_permissions": "^1.10",
+    "drupal/critical_css": "^1.16",
+    "drupal/seckit": "^2.0",
+    "drupal/path_redirect_import": "^1.0",
+    "drupal/unified_twig_ext": "^1.0",
+    "kint-php/kint": "^3.3",
+    "drupal/http_cache_control": "~2.0",
+    "drupal/config_import_single": "^1.0"
+  },
+  "support": {
+    "docs": "https://drupal.org/project/dropsolid_rocketship_profile"
+  },
+  "extra": {
+    "patches": {
+      "drupal/purge": {
+        "Give destruct service tags priority. Depends on related core patch": "https://www.drupal.org/files/issues/2020-06-19/3008776.add-priority-to-needs_destruct.8.patch"
+      }
+    }
+  }
+}

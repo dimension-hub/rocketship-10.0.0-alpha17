@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog frontpage overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** paragraph contaiing the view
+
+.overview--blog-overview-front {
+  //
+}
+
+.view--display-blog-overview-front {
+
+  .view__content {
+    //
+  }
+
+  .blog--frontpage {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-blog-overview-front {
+
+    // ** make a grid
+
+    .view__content {
+      //
+    }
+
+    .blog--frontpage {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--display-blog-overview-front {
+
+    .blog--frontpage {
+      //
+    }
+  }
+
+}

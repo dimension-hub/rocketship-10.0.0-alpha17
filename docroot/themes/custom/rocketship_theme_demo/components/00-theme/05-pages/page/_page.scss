@@ -1,0 +1,56 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Page: resets or defaults for the main content
+// *       (eg. the main block when there is no CT node in it)
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// page with info about using html in textarea
+.block--system-main-block > .compose-tips {
+  padding: rem($gap-vert-top-xs) 0;
+
+  .filter-type {
+    margin-bottom: rem($gap-vert);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .block--system-main-block > .compose-tips {
+    padding: rem($gap-vert-top-sm) 0;
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .block--system-main-block > .compose-tips {
+    padding: rem($gap-vert-top-md) 0;
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .block--system-main-block > .compose-tips {
+    padding: rem($gap-vert-top-lg) 0;
+  }
+
+}

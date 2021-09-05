@@ -1,0 +1,17 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.news__top--full {
+  position: relative;
+  z-index: 1;
+}
+
+.news__header--full {
+  position: relative;
+}

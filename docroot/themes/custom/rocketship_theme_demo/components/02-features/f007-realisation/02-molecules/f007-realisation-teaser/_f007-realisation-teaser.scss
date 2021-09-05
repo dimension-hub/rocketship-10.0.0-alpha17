@@ -1,0 +1,71 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Realisation teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.view--display-realisation-overview-block {
+
+  .realisation--teaser {
+
+    // ** visual
+
+    .field--image,
+    .field--name-field-media-canonical-image {
+      margin-bottom: rem($gap-vert-sm);
+    }
+
+    // ** title
+
+    h2,
+    h3,
+    h4 {
+      @include h3;
+    }
+
+    // ** date/author
+
+    // .node__meta {
+    //   display: flex;
+    //   margin-top: rem(-5);
+    //   margin-bottom: rem($gap-vert-sm);
+    // }
+
+    // .field--name-node-author {
+    //   margin-left: rem(10);
+    // }
+
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .view--display-realisation-overview-block {
+
+    .realisation--teaser {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  //
+
+}

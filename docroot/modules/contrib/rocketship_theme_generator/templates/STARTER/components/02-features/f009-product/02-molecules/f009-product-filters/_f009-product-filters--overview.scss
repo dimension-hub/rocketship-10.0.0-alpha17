@@ -1,0 +1,217 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Product Filters
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Variables
+// ===========================================================================
+
+$color-product-categories-bg: $color-gray-light-1;
+
+
+// * Facets in overview (product complex)
+// ===========================================================================
+
+// -- we get a column of Filters
+//    hidden on mobile, with some JS to fold out
+
+.overview--product-overview {
+
+  // ** facet block by default
+
+  .block--provider-facets {
+    //
+
+    h2 {
+      @include h4;
+    }
+
+    // -- list default
+
+    ul[class*="item-list"] {
+      @include list-reset;
+    }
+
+    // -- list: checkboxes & radios: spacing & positioning for radio/checkbox
+
+    .item-list__checkbox,
+    .item-list__radio,
+    .item-list__radiobutton {
+
+      cursor: pointer;
+
+      .facet-item {
+        position: relative;
+        padding-left: rem(30);
+        margin-bottom: rem($gap-vert-xs);
+      }
+
+      input {
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    // -- list item by default
+
+    .facet-item {
+      @include list-reset;
+
+      // -- link
+      a {
+        display: flex;
+      }
+
+      .product-facet-item__status {
+        display: none;
+      }
+
+      .product-facet-item__value {
+        //
+      }
+
+      .product-facet-item__count {
+        margin-left: rem(10);
+      }
+    }
+
+  }
+
+  // ** Categories
+
+  .block--facet-blockproduct-categories {
+
+    [class*="facets-widget-"] {
+      //
+    }
+  }
+
+  // ** Properties
+
+  // …
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: only on mobile
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-only {
+
+  // ** collapsible filters on mobile phone (because not a lot of room)
+
+  .overview--product-overview {
+
+    .block--provider-facets {
+
+      h2 {
+        cursor: pointer;
+        position: relative;
+        // margin-bottom: 0;
+        padding: 0 rem(25) 0 0;
+        transition: all $duration $easing;
+
+        @include font-awesome((
+          icon: $fa-var-chevron-down,
+          color: $color-base,
+          size: 16,
+          element: "before"));
+
+        // -- icon
+
+        &::before {
+          position: absolute;
+          right: 0;
+          top: rem(6);
+          transform: rotate(90deg);
+          transition: all $duration $easing;
+        }
+      }
+
+      // -- facets with a background-color
+      &.block--facet-blockproduct-categories [class*="facets-widget-"] {
+        padding: 0;
+        transition: all $duration $easing;
+      }
+
+      // -- default facet list items
+      .facet-item {
+        overflow: hidden;
+        max-height: 0;
+        transition: all $duration $easing;
+      }
+
+      // ** states
+
+      &.js-open {
+
+        h2 {
+          //
+
+          &::before {
+            transform: rotate(0);
+            transform-origin: center center;
+          }
+        }
+
+        // -- facets with a background-color
+        &.block--facet-blockproduct-categories [class*="facets-widget-"] {
+          //
+        }
+
+        .facet-item {
+          max-height: rem(100); // think of the heighest this could get when open
+        }
+      }
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone only
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide-only {
+  //
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .overview--product-overview {
+
+    // ** facet block by default
+
+    .block--provider-facets {
+
+      // -- list: checkboxes & radios: spacing & positioning for radio/checkbox
+
+      .item-list__checkbox,
+      .item-list__radio,
+      .item-list__radiobutton {
+
+        .facet-item {
+          margin-bottom: rem($gap-vert-xs);
+          // min-height: rem(35);
+        }
+      }
+    }
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+  //
+}

@@ -1,0 +1,10 @@
+name: Node Title Help Text
+description: Allows you to add help text to node title.
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+# Information added by Drupal.org packaging script on 2020-06-23
+version: '8.x-1.2'
+project: 'node_title_help_text'
+datestamp: 1592935559

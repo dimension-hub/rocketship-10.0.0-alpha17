@@ -1,0 +1,164 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Doormat
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.doormat {
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+  text-align: center;
+  color: $color-doormat;
+  background: $color-doormat-bg;
+
+  .container {
+    // compensate for vertical space between blocks
+    // replace with the bottom space of the
+    margin-bottom: rem(-15);
+  }
+}
+
+// * Blocks
+// =============================================================================
+
+.doormat .view,
+.doormat .nav,
+.block--region-doormat {
+  margin-bottom: rem(15); // vertical space between blocks
+  color: $color-doormat;
+
+  // ** Titles
+  h2,
+  h3,
+  h4 {
+    @include h4;
+    margin-bottom: rem(15);
+    color: $color-doormat;
+  }
+
+  h5,
+  h6 {
+    margin-bottom: rem(15);
+    color: $color-doormat;
+  }
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .item-list {
+    ul {
+      @include list-reset;
+    }
+
+    li {
+      @include list-reset;
+      //margin-bottom: rem(7);
+    }
+
+    a {
+      @include link-underline((
+        color: $color-doormat,
+        inverse: false
+      ));
+    }
+  }
+
+  .menu {
+
+    @include list-reset;
+
+    li {
+      @include list-reset;
+      //margin-bottom: rem(7);
+    }
+
+    a {
+      @include link-underline((
+        color: $color-doormat,
+        inverse: false
+      ));
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .doormat {
+    padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+    text-align: left;
+  }
+
+  // * Structure
+  // ===========================================================================
+
+  .row--doormat {
+    @include flex-grid;
+  }
+
+  .col--doormat--01,
+  .col--doormat--02,
+  .col--doormat--03,
+  .col--doormat--04 {
+    @include flex-col(6);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .doormat {
+    padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+
+    .container {
+      margin-bottom: rem(-20); // compensate for vertical space between blocks
+    }
+  }
+
+  // * Structure
+  // ===========================================================================
+
+  .col--doormat--01,
+  .col--doormat--02,
+  .col--doormat--03,
+  .col--doormat--04 {
+    @include flex-col(3);
+  }
+
+  // * General styling
+  // =============================================================================
+
+  .doormat .view,
+  .doormat .nav,
+  .block--region-doormat {
+    margin-bottom: rem(20); // vertical space between blocks
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .doormat {
+    padding: rem($gap-vert-top-lg-2) 0 rem($gap-vert-bottom-lg-2) 0;
+  }
+}

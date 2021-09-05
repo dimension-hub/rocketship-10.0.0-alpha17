@@ -1,0 +1,15 @@
+name: Disable Language
+description: A module that lets you disable multiple languages.
+package: Multilingual
+dependencies:
+  - drupal:language
+
+type: module
+core_version_requirement: ^8.8 || ^9
+
+configure: disable_language.disable_language_settings
+
+# Information added by Drupal.org packaging script on 2020-12-04
+version: '8.x-1.0-beta11'
+project: 'disable_language'
+datestamp: 1607074506

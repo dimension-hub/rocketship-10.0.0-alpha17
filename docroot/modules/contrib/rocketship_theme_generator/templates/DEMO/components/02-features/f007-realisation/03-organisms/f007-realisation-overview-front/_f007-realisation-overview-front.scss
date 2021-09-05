@@ -1,0 +1,119 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Realisation frontpage overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** paragraph contaiing the view
+
+.overview--realisation-overview-front {
+
+  h2 {
+    margin-bottom: rem(34);
+    @include font-size(35, 40);
+    text-transform: uppercase;
+    color: $color-spot-1;
+  }
+
+  .more-link--overview {
+
+    margin-top: rem(-20);
+    padding-bottom: rem(20);
+
+    a {
+      border-bottom: 0 none;
+      @include link-more-big;
+      text-decoration: none;
+    }
+  }
+}
+
+.view-display-id-realisation_overview_front {
+
+  .realisation--teaser {
+    margin-bottom: rem($grid-gap-hor);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone and wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .overview--realisation-overview-front {
+
+    .more-link--overview {
+
+      position: absolute;
+      top: rem(9);
+      right: 0;
+      margin: 0;
+      padding: 0;
+
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view-display-id-realisation_overview_front {
+
+    .view__content {
+
+      @include flex-grid();
+    }
+
+    .realisation--teaser {
+      @include flex-col(6);
+    }
+
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view-display-id-realisation_overview_front {
+
+    .realisation--teaser {
+      @include flex-col(4);
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .overview--realisation-overview-front {
+
+    h2 {
+      margin-bottom: rem(60);
+    }
+  }
+
+}

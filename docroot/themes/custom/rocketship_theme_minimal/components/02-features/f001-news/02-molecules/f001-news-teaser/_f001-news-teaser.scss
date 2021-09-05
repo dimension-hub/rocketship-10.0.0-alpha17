@@ -1,0 +1,142 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.news--teaser {
+
+  // ** visual
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    //
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    //
+  }
+
+  // ** date/author
+
+  // wrapper around date
+  .block--field-blocknodenewscreated {
+    //
+  }
+
+  .field--name-node-post-date,
+  .field--name-created {
+    //
+  }
+
+  .block--field-blocknodenewsauthor {
+    //
+  }
+
+  // ** group stuff
+  .layout__content__row--bottom {
+    //
+
+    .block--field-blocknodenewsfield-news-display-field {
+      //
+    }
+  }
+
+  // ** read more
+
+  .field--name-node-link,
+  .rs-canonical-link-formatter {
+    a {
+      //
+    }
+  }
+
+  // wrapper around tags
+  .block--field-blocknodenewsfield-news-tags {
+    //
+  }
+
+  .field--name-field-news-tags {
+
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone only
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide-only {
+
+  // normal overview is visual + content in 2 cols
+
+  .news--teaser {
+
+    .node__content {
+      //
+    }
+
+    // ** make a grid
+    .layout__cols {
+      //
+    }
+
+    .layout__sidebar {
+      //
+    }
+
+    .layout__content {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .news--teaser {
+
+    // ** make a grid
+    .layout__cols {
+      //
+    }
+
+    .layout__sidebar {
+      //
+    }
+
+    .layout__content {
+      //
+    }
+
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .news--teaser {
+    //
+
+  }
+
+}

@@ -1,0 +1,196 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog related: item
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Styling
+// =============================================================================
+
+.product--related {
+  //
+
+
+  // ** Properties & categories: Facet filters
+
+  .field--name-field-product-category,
+  .field--name-field-product-property-one,
+  .field--name-field-product-property-two,
+  .field--name-field-product-attributes {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-bottom: rem(5);
+    // align-items: flex-end;
+    // @include font-size($font-size-base, $line-height-base);
+
+    // // label
+
+    // h3,
+    // .label-value-item-label {
+    //   @include font-size($font-size-base, $line-height-base);
+    //   margin: 0 rem(10) 0 0;
+
+    //   @include text-nobreak;
+
+    //   &::after {
+    //     content: ":";
+    //     margin-left: rem(-4); // counteract the spacing
+    //   }
+    // }
+
+    // // value
+    // a {
+    //   //
+    // }
+  }
+
+  // ** Product attributes
+
+  .field__item--name-field-product-attributes,
+  .label-value-item-label {
+    // @include font-size($font-size-base, $line-height-base);
+  }
+
+  .field--name-field-product-attributes {
+
+    .field__items {
+      //
+    }
+  }
+
+  .field__item--name-field-product-attributes {
+    //
+  }
+
+  // .label-value-item {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  // }
+
+  // .label-value-item-label {
+  //   font-weight: $font-weight-bold;
+  //   margin-bottom: 0;
+  //   margin-right: rem(10);
+
+  //   @include text-nobreak;
+  // }
+
+  // .label-value-item-value {
+  //   //
+  // }
+
+  // ** 'read more'
+
+  .layout__content__row--bottom {
+    //
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .product--related {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // .field__item--name-field-product-related-products {
+  //   display: flex;  // needed for stretching content to align 'read more' link
+  // }
+
+  .product--related {
+
+    // display: flex;
+
+    // .node__content {
+    //   display: flex;
+    //   width: 100%; // IE
+    // }
+
+    // **********************************************
+    //
+    // ** If it all needs to go in 2 cols, use this:
+    //
+    // .layout__cols {
+    //   display: flex;
+    //   // flex-direction: column;
+    //   margin-top: 0;
+    // }
+    //
+    // .layout__sidebar {
+    //   @include flex-col(6);
+    //   flex: 0 1 auto;
+    //   margin-top: 0;
+    // }
+    //
+    // .layout__content {
+    //   @include flex-col(6);
+    //   display: flex;
+    //   flex: 1 0 auto; // flex-grow 1
+    //   flex-direction: column;
+    //   margin-top: 0;
+    // }
+    //
+    // .layout__content__row--bottom {
+    //   flex-grow: 1;
+    //   display: flex;
+    //   align-items: flex-end;
+    // }
+    //
+    // **********************************************
+
+
+    // **********************************************
+    //
+    // ** If it all needs to go in 1 col, use this:
+
+    // .layout__cols {
+    //   display: flex;
+    //   flex-direction: column;
+    //   margin-top: 0;
+    // }
+    //
+    // .layout__sidebar {
+    //   @include flex-col(12);
+    //   flex: 0 1 auto;
+    //   margin-top: 0;
+    // }
+    //
+    // .layout__content {
+    //   @include flex-col(12);
+    //   display: flex;
+    //   flex: 1 0 auto; // flex-grow 1
+    //   flex-direction: column;
+    //   margin-top: 0;
+    // }
+    //
+    // **********************************************
+
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .product--related {
+    //
+  }
+
+}

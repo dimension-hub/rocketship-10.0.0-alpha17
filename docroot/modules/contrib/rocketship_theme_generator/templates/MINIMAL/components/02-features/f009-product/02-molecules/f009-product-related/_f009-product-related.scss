@@ -1,0 +1,120 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog related: item
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Styling
+// =============================================================================
+
+.product--related {
+  //
+
+
+  // ** Properties & categories: Facet filters
+
+  .field--name-field-product-category,
+  .field--name-field-product-property-one,
+  .field--name-field-product-property-two,
+  .field--name-field-product-attributes {
+
+    // label
+
+    h3,
+    .label-value-item-label {
+      //
+    }
+
+    // value
+    a {
+      //
+    }
+  }
+
+  // ** Product attributes
+
+  .field__item--name-field-product-attributes,
+  .label-value-item-label {
+    //
+  }
+
+  .field--name-field-product-attributes {
+
+    .field__items {
+      //
+    }
+  }
+
+  .field__item--name-field-product-attributes {
+    //
+  }
+
+  .label-value-item {
+    //
+  }
+
+  .label-value-item-label {
+    //
+  }
+
+  .label-value-item-value {
+    //
+  }
+
+  // ** 'read more'
+
+  .layout__content__row--bottom {
+    //
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .product--related {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .product--related {
+
+    .layout__cols {
+      //
+    }
+
+    .layout__sidebar {
+      //
+    }
+
+    .layout__content {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .product--related {
+    //
+  }
+
+}

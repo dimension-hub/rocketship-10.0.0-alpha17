@@ -1,0 +1,266 @@
+label: 'Events'
+configuration:
+  label_display: false
+heading_id: "block-event-overview-home"
+bem_block_modifiers:
+  - provider-block-content
+  - type-content
+  - block-content94356e36-7990-48d5-bff4-fc01b2b7a626
+paragraph:
+  type: overview
+  bem_p_extra:
+    - has-bg-stretched
+    - overview--event-overview-front
+fields:
+  title:
+    label_hidden: true
+    field_name: field_p_title
+    field_type: string
+    bem_field_modifiers:
+      - 'label-hidden'
+    heading_display: true
+    heading_level: 2
+    heading: 'Events'
+  link:
+    field_name: field_p_link
+    field_type: link
+    bem_field_modifiers:
+      - label-hidden
+    bem_field_extra:
+      - 'field-p-link'
+      - 'more-link '
+      - 'more-link--overview'
+    link_content: 'See all'
+    link_url: '#'
+teasers:
+  -
+    view_mode: frontpage
+    isPromoted: true
+    isSticky: false
+    bundle: event
+    layouts:
+      top:
+        label: 'top'
+        template: 'rs-top'
+        layout_reset: true
+        region_type: null
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: false
+          after02: false
+      content:
+        label: 'Content'
+        template: 'rs-content'
+        layout_reset: true
+        region_type: false
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: true
+          after02: true
+    fields:
+      date_teaser:
+        label_hidden: true
+        field_name: field_events
+        field_type: entity_reference
+        bem_field_modifiers:
+          - 'label-hidden'
+        day: 12
+        month: oct
+      title:
+        heading_display: true
+        heading_level: 3
+        heading: Sed plane dicit quod intellegitLorem ipsum dolor sit amet, consectetur adipiscing
+        field_name: title
+        field_type: string
+        heading_url: '#'
+      date_single:
+        label_hidden: true
+        field_name: field_events
+        field_type: entity_reference
+        bem_field_modifiers:
+          - 'label-hidden'
+          - 'field-events'
+        day_month: 12 oct
+      place:
+        label_hidden: true
+        field_name: field_event_place
+        field_type: string
+        bem_field_modifiers:
+          - 'label-hidden'
+        items:
+          -
+            content: Ghent
+      more:
+        label_hidden: true
+        field_name: field_event_n_display_field
+        field_type: rs_display_field
+        bem_field_modifiers:
+          - 'label-hidden'
+        bem_field_extra:
+          - 'field-blog-display-canonical'
+        href: '#'
+        title: 'Read more'
+  -
+    view_mode: frontpage
+    isPromoted: true
+    isSticky: false
+    bundle: event
+    layouts:
+      top:
+        label: 'top'
+        template: 'rs-top'
+        layout_reset: true
+        region_type: null
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: false
+          after02: false
+      content:
+        label: 'Content'
+        template: 'rs-content'
+        layout_reset: true
+        region_type: false
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: true
+          after02: true
+    fields:
+      date_teaser:
+        label_hidden: true
+        field_name: field_events
+        field_type: entity_reference
+        bem_field_modifiers:
+          - 'label-hidden'
+        day: 22
+        month: oct
+      title:
+        heading_display: true
+        heading_level: 3
+        heading: Omnes enim iucundum motum, quo sensus hilaretur
+        field_name: title
+        field_type: string
+        heading_url: '#'
+      date_single:
+        label_hidden: true
+        field_name: field_events
+        field_type: entity_reference
+        bem_field_modifiers:
+          - 'label-hidden'
+          - 'field-events'
+        day_month: 22 oct
+      place:
+        label_hidden: true
+        field_name: field_event_place
+        field_type: string
+        bem_field_modifiers:
+          - 'label-hidden'
+        items:
+          -
+            content: Ghent
+      more:
+        label_hidden: true
+        field_name: field_event_n_display_field
+        field_type: rs_display_field
+        bem_field_modifiers:
+          - 'label-hidden'
+        bem_field_extra:
+          - 'field-blog-display-canonical'
+        href: '#'
+        title: 'Read more'
+  -
+    view_mode: frontpage
+    isPromoted: true
+    isSticky: false
+    bundle: event
+    layouts:
+      top:
+        label: 'top'
+        template: 'rs-top'
+        layout_reset: true
+        region_type: null
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: false
+          after02: false
+      content:
+        label: 'Content'
+        template: 'rs-content'
+        layout_reset: true
+        region_type: false
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: true
+          after02: true
+    fields:
+      date_teaser:
+        label_hidden: true
+        field_name: field_events
+        field_type: entity_reference
+        bem_field_modifiers:
+          - 'label-hidden'
+        day: 23
+        month: oct
+      title:
+        heading_display: true
+        heading_level: 3
+        heading: Videsne quam sit magna dissensio
+        field_name: title
+        field_type: string
+        heading_url: '#'
+      date_single:
+        label_hidden: true
+        field_name: field_events
+        field_type: entity_reference
+        bem_field_modifiers:
+          - 'label-hidden'
+          - 'field-events'
+        day_month: 23 oct
+      place:
+        label_hidden: true
+        field_name: field_event_place
+        field_type: string
+        bem_field_modifiers:
+          - 'label-hidden'
+        items:
+          -
+            content: Ghent
+      more:
+        label_hidden: true
+        field_name: field_event_n_display_field
+        field_type: rs_display_field
+        bem_field_modifiers:
+          - 'label-hidden'
+        bem_field_extra:
+          - 'field-blog-display-canonical'
+        href: '#'
+        title: 'Read more'

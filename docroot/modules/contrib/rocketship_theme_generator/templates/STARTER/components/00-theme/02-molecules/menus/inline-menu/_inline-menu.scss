@@ -1,0 +1,24 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Main menu
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.inline-menu,
+.menu--inline {
+  @include list-reset;
+}
+
+.inline-menu__item,
+.menu__item--inline {
+  margin: 0 rem($gap-vert) rem($gap-vert-sm) 0;
+
+  @include bp-sm {
+    display: inline;
+    margin-bottom: rem($gap-vert);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

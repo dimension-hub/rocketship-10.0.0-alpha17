@@ -1,0 +1,107 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * News overview: related
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Styling
+// =============================================================================
+
+.view--related-news {
+
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+
+  @include full-bg($color-news-view-related-bg);
+
+  // ** title
+  .view__header {
+    h2 {
+      //
+    }
+  }
+
+  .view__content {
+    //
+  }
+
+  .news--related {
+    //
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--related-news {
+
+    padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+
+    // ** title
+    .view__header {
+      h2 {
+        //
+      }
+    }
+
+    // ** make a grid
+
+    .view__content {
+      //
+    }
+
+    .news--related {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--related-news {
+    padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+
+    // ** title
+    .view__header {
+      h2 {
+        //
+      }
+    }
+
+    .news--related {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .view--related-news {
+    padding: rem($gap-vert-top-lg) 0 rem($gap-vert-bottom-lg) 0;
+
+    // ** title
+    .view__header {
+      h2 {
+        //
+      }
+    }
+
+  }
+
+}

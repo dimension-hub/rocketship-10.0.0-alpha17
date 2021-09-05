@@ -1,0 +1,6 @@
+services:
+  rocketship_florista_demo_content.migrate_subscriber:
+    class: Drupal\rocketship_florista_demo_content\EventSubscriber\MigrateSubscriber
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@logger.factory', '@inline_block.usage', '@config.factory']
+    tags:
+      - { name: event_subscriber }

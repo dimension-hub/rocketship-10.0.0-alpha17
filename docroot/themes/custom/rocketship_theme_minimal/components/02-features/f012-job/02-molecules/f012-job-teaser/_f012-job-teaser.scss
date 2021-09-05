@@ -1,0 +1,74 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.job--teaser {
+
+  // ** title
+
+  h2 {
+    //
+  }
+
+  // ** read more
+
+  .rs-canonical-link-formatter {
+    //
+  }
+
+  // ** date
+
+  .field--name-created,
+  .field--name-ds-time-ago {
+    //
+  }
+
+  // ** group the filters
+  .layout__content__row--bottom {
+    //
+  }
+
+  // ** filter 1
+
+  .field--name-field-job-property-one {
+    //
+  }
+
+  // ** filter 2
+
+  .field--name-field-job-category {
+    //
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .job--teaser {
+    //
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .job--teaser {
+    //
+  }
+
+}

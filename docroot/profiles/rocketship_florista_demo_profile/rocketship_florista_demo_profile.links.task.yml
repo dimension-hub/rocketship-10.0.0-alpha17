@@ -1,0 +1,5 @@
+rocketship_content_block_library:
+  title: Blocks
+  route_name: view.rocketship_content_block_library.page_1
+  base_route: system.admin_content
+  weight: 11

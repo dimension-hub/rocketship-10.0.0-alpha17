@@ -1,0 +1,111 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * realisation meta on full page: part of the header
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.realisation__header--full {
+  .layout__subregion-02 {
+    position: relative;
+    padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+    transition: all $duration $easing;
+  }
+
+  // ** breadcrumb
+
+  .breadcrumb__item {
+
+    &::before {
+      color: $color-white;
+    }
+
+    &::after {
+      color: $color-white;
+    }
+  }
+
+  .breadcrumb__link {
+
+    &,
+    &:visited {
+      border-bottom: 1px solid rgba($color-white, 1);
+      color: $color-white;
+    }
+
+    &:hover,
+    &:active {
+      border-bottom: 1px solid rgba($color-white, 0);
+      color: $color-white;
+    }
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .realisation__header--full {
+    .layout__subregion-02 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 5; // go over the header img and bg
+
+      // spread items evenly in 1 row
+      display: flex;
+      justify-content: space-between;
+
+      width: 100%;
+      color: $color-white;
+
+      // -- Example: set a background-color
+      // @include full-bg ($color-spot-1, "before");
+
+      h3 {
+        color: $color-white;
+      }
+
+      a {
+        &,
+        &:visited {
+          color: $color-white;
+
+        }
+      }
+
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .realisation__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .realisation__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}

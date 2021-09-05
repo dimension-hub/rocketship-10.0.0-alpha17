@@ -1,0 +1,41 @@
+name: 'Dropsolid Rocketship Profile'
+description: 'The Dropsolid Rocketship installation profile.'
+type: profile
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - rocketship_core:rocketship_core
+  - dropsolid_rocketship_profile:dropsolid_rocketship_drush
+  - environment_indicator:environment_indicator
+  - drupal:system
+  - drupal:action
+  - blazy:blazy
+  - drupal:user
+  - drupal:node
+  - drupal:block
+  - simple_recaptcha:simple_recaptcha
+  - r4032login:r4032login
+  - drupal:media_library
+  - link_attributes:link_attributes
+  - drupal:layout_builder
+  - redirect:redirect
+  - block_content_permissions:block_content_permissions
+  - http_cache_control:http_cache_control
+  - config_import_locale:config_import_locale
+install:
+  - drupal:page_cache
+  - drupal:dblog
+  - chosen:chosen
+  - imageapi_optimize:imageapi_optimize
+  - imageapi_optimize_binaries:imageapi_optimize_binaries
+  - imageapi_optimize_resmushit:imageapi_optimize_resmushit
+  - seckit:seckit
+  - config_import_single:config_import_single
+themes:
+  - bartik
+  - seven
+package: Rocketship
+
+# Information added by Drupal.org packaging script on 2021-07-09
+version: '6.0.0-alpha5'
+project: 'dropsolid_rocketship_profile'
+datestamp: 1625840303

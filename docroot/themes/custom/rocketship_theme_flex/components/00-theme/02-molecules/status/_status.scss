@@ -1,0 +1,148 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Status messages
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.messages--wrapper {
+  position: relative;
+  clear: both;
+
+  // **  Do this not to annoy back-end devs ;)
+
+  body.toolbar-fixed & {
+    position: relative;
+    @include z-index(status); // over the reset of the header, under admin bar
+  }
+}
+
+.messages {
+  position: relative;
+  clear: both;
+  margin-top: rem($gap-vert);
+  padding: rem(15) rem(30) rem(15) rem(60);
+  border-radius: rem(3);
+  color: $color-white;
+  transform: translate(0, 0);
+  transition: transform .5s $easing;
+  opacity: 1;
+
+  &::before {
+    position: absolute;
+    top: rem(12);
+    bottom: 0;
+    left: rem(15);
+    @include square(rem(30));
+    text-align: center;
+    line-height: 1;
+  }
+
+  &:first-child {
+    margin-top: rem($gap-vert);
+  }
+  &:last-child {
+    margin-bottom: rem($gap-vert);
+  }
+
+  &.js-closing {
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all .5s $easing;
+
+    @include bp-md {
+      transform: translate(0, -100%);
+    }
+  }
+
+  &.js-closed {
+    display: none;
+  }
+}
+
+$messages-icons-size: 30;
+$messages-icons-weight: 900;
+
+.messages--status {
+  border: 1px solid $color-status-dark;
+  background-color: $color-status;
+  $msg-icon-status: (icon: $fa-var-check-circle, color: $color-white, size: $messages-icons-size);
+  @include font-awesome($msg-icon-status);
+
+  a {
+    color: darken($color-status-dark, 10%);
+
+    &:hover {
+      color: $color-status-dark;
+    }
+  }
+}
+
+.messages--warning {
+  border: 1px solid $color-warning-dark;
+  background-color: $color-warning;
+
+  $msg-icon-warning: (icon: $fa-var-exclamation-triangle, color: $color-white, size: $messages-icons-size);
+  @include font-awesome($msg-icon-warning);
+
+  a {
+    color: darken($color-warning-dark, 10%);
+
+    &:hover {
+      color: $color-warning-dark;
+    }
+  }
+}
+
+.messages--error {
+  border: 1px solid $color-error-dark;
+  background-color: $color-error;
+
+  $msg-icon-error: (icon: $fa-var-exclamation-circle, color: $color-white, size: $messages-icons-size);
+  @include font-awesome($msg-icon-error);
+
+  a {
+    color: darken($color-error-dark, 10%);
+
+    &:hover {
+      color: $color-error-dark;
+    }
+  }
+}
+
+.message__close {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  color: $color-white;
+  outline: none;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  .icon {
+    display: block;
+    width: rem(40);
+    height: rem(40);
+    padding-top: rem(7);
+    text-align: center;
+    @include font-awesome((icon: $fa-var-times, color: $color-white));
+  }
+
+  span {
+    @include hide;
+  }
+}
+
+.messages__list {
+  @include list-reset;
+}
+
+.messages__item {
+  + .messages__item {
+    margin-top: rem(10);
+  }
+}

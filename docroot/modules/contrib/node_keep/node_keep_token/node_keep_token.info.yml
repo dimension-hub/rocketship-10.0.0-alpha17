@@ -1,0 +1,13 @@
+name: Dropsolid Node Keeper Service & Tokens
+description: 'Extends node_keep module with a machine name and exposes protected nodes via a service and as tokens'
+type: module
+package: Node Keep
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - node_keep:node_keep
+  - token:token
+
+# Information added by Drupal.org packaging script on 2020-11-09
+version: '2.1.0'
+project: 'node_keep'
+datestamp: 1604954126

@@ -1,0 +1,50 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * realisation teasers: frontpage
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.view--display-realisation-overview-front .realisation--teaser,
+.realisation--teaser-front,
+.realisation--front {
+
+  // ** visual
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    //
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  //
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+  //
+}

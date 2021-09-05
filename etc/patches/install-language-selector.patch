@@ -1,0 +1,23 @@
+diff --git a/core/lib/Drupal/Core/Installer/Form/SelectLanguageForm.php b/core/lib/Drupal/Core/Installer/Form/SelectLanguageForm.php
+index 55b7cbeea7..0bce69f1b6 100644
+--- a/core/lib/Drupal/Core/Installer/Form/SelectLanguageForm.php
++++ b/core/lib/Drupal/Core/Installer/Form/SelectLanguageForm.php
+@@ -85,6 +85,18 @@ public function buildForm(array $form, FormStateInterface $form_state, $install_
+       '#value' => 'Save and continue',
+       '#button_type' => 'primary',
+     ];
++
++    $form['langcode']['#default_value'] = 'en';
++    $form['langcode']['#value'] = 'en';
++    $form['langcode']['#disabled'] = TRUE;
++
++    $form['info'] = [
++      '#type' => 'item',
++      // #markup is XSS admin filtered which ensures unsafe protocols will be
++      // removed from the url.
++      '#markup' => '<p>Rocketship is designed for a default language of English. Using the included <a target="_blank" href="https://www.drupal.org/project/disable_language">Disable Language</a> module you can restrict access to English later on, if needed.</p>',
++    ];
++
+     return $form;
+   }
+ 

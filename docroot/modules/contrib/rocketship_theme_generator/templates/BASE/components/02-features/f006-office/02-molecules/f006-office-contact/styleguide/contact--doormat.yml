@@ -1,0 +1,74 @@
+label: 'Contact'
+configuration:
+  label_display: true
+heading_level: 4
+heading_id: "block-contact-xyz"
+bem_block_modifiers:
+  - region-doormat
+  - provider-views
+  - id-rocketship-theme-xyz-views-block-footer-offices-footer
+  - views-blockfooter-offices-footer
+bem_block_extra:
+  - block-views
+  - views-element-container
+fields:
+  address:
+    block:
+      label: 'Address'
+      configuration:
+        label_display: false
+      bem_block_modifiers:
+        - provider-layout-builder
+        - field-blocknodeofficefield-office-address
+      bem_block_extra:
+        - block-layout_builder
+    field:
+      field_name: field_office_address
+      field_type: address
+      bem_field_modifiers:
+        - 'label-hidden'
+      organization: Dropsolid
+      address_line1: Moutstraat 60
+      postal_code: 9000
+      locality:
+        code: Gent
+      country:
+        name: Belgium
+  phone:
+    block:
+      label: 'Phone number'
+      configuration:
+        label_display: false
+      bem_block_modifiers:
+        - provider-layout-builder
+        - field-blocknodeofficefield-office-phone
+      bem_block_extra:
+        - block-layout_builder
+    field:
+      field_name: field_office_phone
+      field_type: telephone
+      bem_field_modifiers:
+        - 'label-hidden'
+      multiple: true
+      items:
+        -
+          tel: "+32 (0)9227 86 54"
+  email:
+    block:
+      label: 'E-mail address'
+      configuration:
+        label_display: false
+      bem_block_modifiers:
+        - provider-layout-builder
+        - field-blocknodeofficefield-office-email
+      bem_block_extra:
+        - block-layout_builder
+    field:
+      field_name: field_office_email
+      field_type: email
+      bem_field_modifiers:
+        - 'label-hidden'
+      multiple: true
+      items:
+        -
+          mail: "info@dropsolid.com"

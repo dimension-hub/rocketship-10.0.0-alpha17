@@ -1,0 +1,162 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * event meta on full page: bar below the the header image & title
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.event__bar--full {
+  position: relative;
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+  color: $color-white;
+  transition: all $duration $easing;
+
+  // background-color
+  @include full-bg ($color-spot-1, "before");
+
+  // ** price
+
+  .field--name-field-event-price {
+    @include font-size($h3-size, $h3-line);
+    margin-bottom: rem(10);
+    @include text-nobreak;
+  }
+
+  // ** date
+
+  .event-daterange-wrapper {
+    @include font-size($h4-size, $h4-line);
+
+    $icon: (
+      icon: $fa-var-calendar-alt,
+      size: 32,
+      type: "light",
+      element: "before",
+      position: "relative",
+      top: rem(-5)
+    );
+
+    @include font-awesome($icon);
+
+    &::before {
+      padding-right: rem(10);
+    }
+  }
+
+  // ** Subscribe (if Advanced module)
+
+  .rs-scroll-to-formatter {
+    margin-top: rem(10);
+
+    a {
+      @include button-negative;
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .event__bar--full {
+
+    top: 0; // needed for fixed animation
+
+    //
+    .layout-builder__region {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    // -- Center and inline the text with flexbox and space-between
+
+    .block--field-blocknodeeventfield-events {
+      display: flex;
+      flex-grow: 1; // push subscribe button to the end
+    }
+
+    .field--name-field-events {
+      display: flex; // make price & date go in 1 line
+      align-items: center; // center vertically
+      width: 100%; // for IE
+    }
+
+    // ** price
+
+    .field--name-field-event-price {
+      margin-bottom: 0;
+      margin-right: rem(25);
+      @include text-nobreak;
+    }
+
+    // ** date
+
+    .event-daterange-wrapper {
+
+      display: flex;
+      align-items: flex-end;
+
+      div {
+        display: inline;
+      }
+    }
+
+    // ** Subscribe (if Advanced module)
+
+    .rs-scroll-to-formatter {
+      margin-top: 0; // reset
+    }
+
+  }
+
+  // ** sticky bar
+
+  .event__bar--full.js-sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    @include z-index(header);
+
+    width: 100%;
+
+    padding-left: rem($container-padding);
+    padding-right: rem($container-padding);
+
+    transition: top $duration $easing;
+
+    // compensate for space made by fixed toolbar
+    // TO DO: in case of fixed header, need to add space then as well
+    .toolbar-fixed.toolbar-horizontal & {
+      top: rem(79);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .event__bar--full {
+
+    // ** price:
+
+    .field--name-field-event-price {
+      @include font-size($h4-size, $h4-line);
+    }
+
+    // ** date:
+
+    .event-daterange-wrapper {
+      @include font-size($h4-size, $h4-line);
+    }
+
+  }
+
+}
+

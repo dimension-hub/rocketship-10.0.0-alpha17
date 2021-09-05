@@ -1,0 +1,12 @@
+name: Plugin Test Helper
+description: Supports Plugin tests.
+core_version_requirement: ^8.7.7 || ^9
+type: module
+dependencies:
+  - plugin:plugin
+hidden: true
+
+# Information added by Drupal.org packaging script on 2020-07-21
+version: '8.x-2.8'
+project: 'plugin'
+datestamp: 1595360849

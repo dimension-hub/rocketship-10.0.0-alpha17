@@ -1,0 +1,321 @@
+label: 'Blog'
+configuration:
+  label_display: false
+heading_id: "block-blog-overview-home"
+bem_block_modifiers:
+  - provider-block-content
+  - type-content
+  - block-content23954704-3571-4f66-80c4-76240651ddde
+paragraph:
+  type: overview
+  bem_p_extra:
+    - has-bg-stretched
+    - overview--blog-overview-front
+fields:
+  title:
+    label_hidden: true
+    field_name: field_p_title
+    field_type: string
+    bem_field_modifiers:
+      - 'label-hidden'
+    heading_display: true
+    heading_level: 2
+    heading: 'Blog'
+  link:
+    field_name: field_p_link
+    field_type: link
+    bem_field_modifiers:
+      - label-hidden
+    bem_field_extra:
+      - 'field-p-link'
+      - 'more-link '
+      - 'more-link--overview'
+    link_content: 'See all'
+    link_url: '#'
+teasers:
+  -
+    view_mode: frontpage
+    isPromoted: true
+    isSticky: false
+    bundle: blog
+    layouts:
+      header:
+        label: 'Header'
+        template: 'rs-header'
+        layout_reset: true
+        region_type: 'header'
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: true
+          after02: false
+      content:
+        label: 'Content'
+        template: 'rs-content'
+        layout_reset: true
+        region_type: false
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: false
+          after02: false
+    fields:
+      image:
+        label_hidden: true
+        field_name: field_media_canonical_image
+        field_type: entity_reference
+        bem_field_extra:
+          - 'blazy'
+          - 'blazy--field'
+          - 'blazy--field-media-canonical-image'
+        field_attributes:
+          'data-blazy': ''
+        settings:
+          lazy: true
+          use_loading: true
+        blazy_bem_modifiers:
+          - 'bundle--image'
+          - blazy
+          - image
+          - loading
+        image_src: 'https://placeimg.com/320/320/machine'
+        image_alt: 'A blog teaser image'
+        image_bem_extra:
+          - 'media__image'
+          - 'media__element'
+          - 'b-lazy'
+        image_attributes:
+          loading: "lazy"
+      created:
+        label_hidden: true
+        field_name: created
+        field_type: created
+        bem_field_modifiers:
+          - 'label-hidden'
+        items:
+          -
+            content: '06-07'
+      title:
+        heading_display: true
+        heading_level: 3
+        heading: Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt.
+        field_name: title
+        field_type: string
+        heading_url: '#'
+      description:
+        label_hidden: true
+        field_name: field_description
+        field_type: string_long
+        bem_field_modifiers:
+          - 'label-hidden'
+        bem_field_extra:
+          - 'field-description'
+        content: |
+          <p>Tria genera bonorum; Sed quae tandem ista ratio est? Itaque his sapiens semper vacabit. Quos nisi redarguimus, omnis virtus, omne decus, omnis vera laus</p>
+      more:
+        label_hidden: true
+        field_name: field_blog_display_canonical
+        field_type: rs_display_field
+        bem_field_modifiers:
+          - 'label-hidden'
+        href: '#'
+        title: 'Read more'
+  -
+    view_mode: frontpage
+    isPromoted: true
+    isSticky: false
+    bundle: blog
+    layouts:
+      header:
+        label: 'Header'
+        template: 'rs-header'
+        layout_reset: true
+        region_type: null
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: true
+          after02: false
+      content:
+        label: 'Content'
+        template: 'rs-content'
+        layout_reset: true
+        region_type: false
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: false
+          after02: false
+    fields:
+      image:
+        label_hidden: true
+        field_name: field_media_canonical_image
+        field_type: entity_reference
+        bem_field_extra:
+          - 'blazy'
+          - 'blazy--field'
+          - 'blazy--field-media-canonical-image'
+        field_attributes:
+          'data-blazy': ''
+        settings:
+          lazy: true
+          use_loading: true
+        blazy_bem_modifiers:
+          - 'bundle--image'
+          - blazy
+          - image
+          - loading
+        image_src: 'https://placeimg.com/320/320/coffee'
+        image_alt: 'A blog teaser image'
+        image_bem_extra:
+          - 'media__image'
+          - 'media__element'
+          - 'b-lazy'
+        image_attributes:
+          loading: "lazy"
+      created:
+        label_hidden: true
+        field_name: created
+        field_type: created
+        bem_field_modifiers:
+          - 'label-hidden'
+        items:
+          -
+            content: '06-07'
+      title:
+        heading_display: true
+        heading_level: 3
+        heading: Nondum autem explanatum satis, erat, quid maxime natura vellet
+        field_name: title
+        field_type: string
+        heading_url: '#'
+      description:
+        label_hidden: true
+        field_name: field_description
+        field_type: string_long
+        bem_field_modifiers:
+          - 'label-hidden'
+        bem_field_extra:
+          - 'field-description'
+        content: |
+          <p>Toicos roga. Mihi enim satis est, ipsis non satis. Illa enim, quae prosunt aut quae nocent, aut bona sunt aut mala, quae sint paria necesse est. At quicum ioca</p>
+      more:
+        label_hidden: true
+        field_name: field_blog_display_canonical
+        field_type: rs_display_field
+        bem_field_modifiers:
+          - 'label-hidden'
+        href: '#'
+        title: 'Read more'
+  -
+    view_mode: frontpage
+    isPromoted: true
+    isSticky: false
+    bundle: blog
+    layouts:
+      header:
+        label: 'Header'
+        template: 'rs-header'
+        layout_reset: true
+        region_type: null
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: true
+          after02: false
+      content:
+        label: 'Content'
+        template: 'rs-content'
+        layout_reset: true
+        region_type: false
+        modifier: null
+        extra_classes: null
+        settings: null
+        content:
+          content: true
+          before01: false
+          before02: false
+          after01: false
+          after02: false
+    fields:
+      image:
+        label_hidden: true
+        field_name: field_media_canonical_image
+        field_type: entity_reference
+        bem_field_extra:
+          - 'blazy'
+          - 'blazy--field'
+          - 'blazy--field-media-canonical-image'
+        field_attributes:
+          'data-blazy': ''
+        settings:
+          lazy: true
+          use_loading: true
+        blazy_bem_modifiers:
+          - 'bundle--image'
+          - blazy
+          - image
+          - loading
+        image_src: 'https://placeimg.com/320/320/tea'
+        image_alt: 'A blog teaser image'
+        image_bem_extra:
+          - 'media__image'
+          - 'media__element'
+          - 'b-lazy'
+        image_attributes:
+          loading: "lazy"
+      created:
+        label_hidden: true
+        field_name: created
+        field_type: created
+        bem_field_modifiers:
+          - 'label-hidden'
+        items:
+          -
+            content: '06-07'
+      title:
+        heading_display: true
+        heading_level: 3
+        heading: Quid autem habent admirationis, cum prope accesseris?
+        field_name: title
+        field_type: string
+        heading_url: '#'
+      description:
+        label_hidden: true
+        field_name: field_description
+        field_type: string_long
+        bem_field_modifiers:
+          - 'label-hidden'
+        bem_field_extra:
+          - 'field-description'
+        content: |
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed haec omittamus; Tu vero, inquam, ducas licet, si sequetur; Beatus sibi videtur esse moriens.</p>
+      more:
+        label_hidden: true
+        field_name: field_blog_display_canonical
+        field_type: rs_display_field
+        bem_field_modifiers:
+          - 'label-hidden'
+        href: '#'
+        title: 'Read more'
+

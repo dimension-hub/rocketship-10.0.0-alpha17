@@ -1,0 +1,21 @@
+{#
+/**
+ * This is strictly an example file to demonstrate markup in Storybook.
+ * It is not intended to be included in any other component.
+ */
+#}
+<div class="icons-demo" id="icons">
+  {% for item in items %}
+    <div class="icons-demo__item icon--{{item.value}}">
+      {% include "@rocketship-theme-flex-atoms/04-images/icons/_icon.twig" with {
+        icon_name: item.value,
+        icon_role: item.role,
+        icon_title: item.title,
+        icon_desc: item.desc,
+        icon_decorative: item.decorative,
+      } %}
+      <pre>{{ item.value }}</pre>
+    </div>
+  {% endfor %}
+</div>
+<br>

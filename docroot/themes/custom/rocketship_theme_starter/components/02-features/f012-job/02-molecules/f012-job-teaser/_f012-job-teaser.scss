@@ -1,0 +1,135 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.job--teaser {
+
+  // padding: rem($padding-jobs-teaser) rem($padding-jobs-teaser) rem($padding-jobs-teaser) rem($padding-jobs-teaser);
+  // background-color: $color-job-teaser-bg;
+
+  // ** title
+
+  h2 {
+    // @include h3;
+    // margin-bottom: rem($gap-vert);
+  }
+
+  // ** read more
+
+  .rs-canonical-link-formatter {
+    // a {
+    //   @include link-more;
+    // }
+  }
+
+  // ** date
+
+  .field--name-created,
+  .field--name-ds-time-ago {
+    // margin-top: rem(10);
+  }
+
+  // ** group the filters
+  .layout__content__row--bottom {
+
+    // ** make filter blocks go inline
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: rem(-20);
+    margin-top: rem($gap-vert);
+
+    .block {
+      margin-left: rem(20);
+    }
+
+    .field {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    h3 {
+      // @include font-size($font-size-base, $line-height-base);
+      margin: 0 rem(10) 0 0;
+    }
+
+    // ** make filter values an inline list by default
+
+    .field__items {
+      display: flex;
+      flex-wrap: wrap;
+      margin: rem(-5) rem(-2) 0 rem(-2);
+    }
+
+    .field__item {
+      display: flex;
+      align-items: flex-end;
+      margin: rem(5) rem(2) 0 rem(2);
+
+      &::after {
+        content: ", ";
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+        }
+      }
+    }
+
+    .field__item::before,
+    .field__item::after,
+    a {
+      // @include font-size($font-size-base, $line-height-base);
+    }
+
+    a {
+      // @include link-underline((color: $color-link, color-hover: $color-link-hover));
+    }
+  }
+
+  // ** filter 1
+
+  .field--name-field-job-property-one {
+    //
+  }
+
+  // ** filter 2
+
+  .field--name-field-job-category {
+    //
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .job--teaser {
+    //
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .job--teaser {
+    //
+  }
+
+}

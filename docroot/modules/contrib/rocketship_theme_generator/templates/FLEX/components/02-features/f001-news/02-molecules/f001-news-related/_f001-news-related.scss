@@ -1,0 +1,134 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * news related
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// * Related items, as part of a view (NOT a reference field)
+// =============================================================================
+
+.news--related {
+  h2,
+  h3,
+  h4 {
+    @include h4;
+    margin-bottom: 0;
+
+    a {
+      &,
+      &:visited {
+        color: $color-heading;
+      }
+
+      &:hover,
+      &:active {
+        color: $color-link;
+      }
+    }
+  }
+
+  .field--name-created {
+    @include small;
+    font-weight: $font-weight-bold;
+  }
+
+  .rs-canonical-link-formatter a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px;
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: horizontal phone only
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide-only {
+
+  .news--related {
+
+    // ** make a grid
+
+    .layout__cols {
+      @include flex-grid(12, 15);
+    }
+
+    .layout__sidebar {
+      @include flex-col(6, 12, 15);
+    }
+
+    .layout__content {
+      @include flex-col(6, 12, 15);
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .news--related {
+
+    // ** make a grid
+
+    .layout__cols {
+      @include flex-grid(12, 15);
+      margin-top: 0;
+    }
+
+    .layout__sidebar {
+      @include flex-col(4, 12, 15);
+    }
+
+    .layout__content {
+      @include flex-col(8, 12, 15);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .news--related {
+    .layout__sidebar {
+      @include flex-col(4, 12, 15);
+    }
+
+    .layout__content {
+      @include flex-col(8, 12, 15);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+  .news--related {
+    .layout__sidebar {
+      @include flex-col(4, 12, 15);
+    }
+
+    .layout__content {
+      @include flex-col(8, 12, 15);
+    }
+  }
+
+}

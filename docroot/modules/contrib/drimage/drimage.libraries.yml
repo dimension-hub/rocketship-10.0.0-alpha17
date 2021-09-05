@@ -1,0 +1,11 @@
+drimage:
+  css:
+    component:
+      css/drimage.css: {}
+    state:
+      css/drimage_loader.css: {}
+  js:
+    js/drimage.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/classList

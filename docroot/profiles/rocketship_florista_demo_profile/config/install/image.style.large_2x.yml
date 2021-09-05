@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: large_2x
+label: 'Large (480×480) 2x'
+effects:
+  92aaaed9-9a26-4e8e-9c93-52e80ad37cc2:
+    uuid: 92aaaed9-9a26-4e8e-9c93-52e80ad37cc2
+    id: image_scale
+    weight: 1
+    data:
+      width: 960
+      height: 960
+      upscale: false

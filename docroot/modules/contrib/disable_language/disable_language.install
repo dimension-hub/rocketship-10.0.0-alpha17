@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Let Drupal know that there is a new config available.
+ */
+function disable_language_update_8001() {
+  \Drupal::service('config.installer')
+    ->installDefaultConfig('module', 'disable_language');
+}

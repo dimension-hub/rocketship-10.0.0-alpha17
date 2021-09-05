@@ -1,0 +1,8 @@
+# Schema for configuration files of the ImageAPI Optimize module.
+
+imageapi_optimize.processor.resmushit:
+  type: mapping
+  mapping:
+    quality:
+      label: 'Quality'
+      type: integer

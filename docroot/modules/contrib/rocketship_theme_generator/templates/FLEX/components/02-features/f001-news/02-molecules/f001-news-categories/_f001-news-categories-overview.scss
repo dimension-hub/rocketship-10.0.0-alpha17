@@ -1,0 +1,104 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * News tags on top over overview page
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** make inline lists per filter block, by default
+
+[class*="block--facet-blocknews-"] {
+  display: flex; // make it go in 1 row, always if space for the content
+  flex-wrap: wrap;
+  padding-bottom: rem($gap-vert-top-xs);
+
+  .facets-widget-news_links {
+    width: 100%;
+  }
+
+  // ** Title
+
+  h2,
+  h3,
+  h4 {
+    @include font-size($font-size-base, $line-height-base);
+    font-weight: $font-weight-normal;
+
+    &::after {
+      content: ": ";
+      margin-right: rem(10);
+    }
+  }
+}
+
+
+// ** list of links
+
+.item-list__news_links {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: rem(-10) rem(-2.5) 0 rem(-2.5);
+
+  .facet-item {
+    display: block;
+    margin: rem(10) rem(2.5) 0 rem(2.5);
+  }
+
+  .facet-item--clear {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    padding-right: rem(18); // space for icon
+
+    a {
+      @include font-awesome((
+        icon: $fa-var-times-circle,
+        element: "after",
+        position: absolute,
+        top: rem(4),
+        right: rem(-18),
+        margin: 0,
+        size: 13
+      ));
+
+      &::after {
+        vertical-align: baseline;
+        transition: none;
+      }
+    }
+  }
+
+  a {
+    display: inline-block;
+    @include font-size($font-size-base, $line-height-base); // reset font-size
+    @include link-underline((color: $color-link, color-hover: $color-link-hover));
+  }
+
+  // can be used as an icon for active state
+  // but usually not needed, so we hide it
+  .news-facet-item__status {
+    display: none;
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // -- add spacing after filters
+
+  .view--news-overview .view__header {
+    padding-bottom: rem(40);
+  }
+
+}
+

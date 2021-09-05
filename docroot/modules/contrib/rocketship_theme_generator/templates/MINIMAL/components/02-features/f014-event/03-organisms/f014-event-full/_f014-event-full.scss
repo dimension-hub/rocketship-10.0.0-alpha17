@@ -1,0 +1,178 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event detail full: has its own view-mode of the news CT, with a DS template
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.event--full {
+  //
+}
+
+// ** header with image
+
+.event__top--full {
+  position: relative;
+  //
+
+  &,
+  h1,
+  h2,
+  h3,
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  .field {
+    //
+  }
+
+  // -- background image
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+
+    // prevent blazy wrappers from breaking positioning of absolute image
+    // so needs some styling to enable proper position and stretch of the img
+    // basically, match what the sidebar div is doing
+    .media {
+      position: static;
+    }
+
+    img {
+      //
+    }
+  }
+
+  // ** subregion for the title, location, …
+
+  .layout__subregion-01 {
+    position: relative;
+
+    // -- the stuff that goes under the title, usually just the location
+    //    (add a wrapper is more than 1 field)
+
+    .field--name-field-event-place {
+      //
+    }
+  }
+}
+
+// ** wrapper on top of content
+//     for fields such as map, extra remarks, …
+
+.event__header--full {
+
+  //
+
+  .block {
+    //
+  }
+
+  // -- address has label
+
+  .field--name-field-event-location {
+    & > h3:first-child {
+      //
+    }
+
+    .address__lines {
+      //
+    }
+
+    .address__locality,
+    .address__country {
+      //
+    }
+
+    .address__locality {
+      //
+    }
+
+    .address__country {
+      //
+    }
+  }
+
+  // -- remarks has label
+
+  .field--name-field-event-extra-remarks {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .event--full {
+    //
+  }
+
+  .event__top--full {
+    //
+
+    .layout__subregion-01 {
+      //
+    }
+  }
+
+  .event__header--full {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .event--full {
+    //
+  }
+
+  .event__top--full {
+    //
+  }
+
+  .event__header--full {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .event--full {
+    //
+  }
+
+  .event__top--full {
+    //
+  }
+
+  .event__header--full {
+    //
+  }
+
+}

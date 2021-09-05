@@ -1,0 +1,163 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Service frontpage overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** paragraph contaiing the view
+
+.overview--service-overview-front {
+
+  h2 {
+    margin-bottom: rem(34);
+    @include font-size(35, 40);
+    text-transform: uppercase;
+    color: $color-spot-1;
+  }
+
+  .more-link--overview {
+    margin-top: rem(20);
+    text-align: center;
+
+    a {
+      @include button-primary();
+      text-transform: uppercase;
+    }
+  }
+
+}
+
+// ** The view itself
+
+.view--display-service-overview-front {
+
+  .view__content {
+    margin-bottom: rem(-$grid-gap-hor);
+  }
+
+  .service--teaser {
+    margin-bottom: rem($grid-gap-hor);
+  }
+
+  //.view__footer {
+  //  margin-top: rem(20);
+  //}
+
+  //.field--name-field-block-button-link {
+  //
+  //  text-align: center;
+  //
+  //  a {
+  //    @include button-primary();
+  //    text-transform: uppercase;
+  //  }
+  //}
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .view--display-service-overview-front {
+
+    // ** make a grid
+
+    .view__content {
+      @include flex-grid();
+      margin-bottom: 0;
+    }
+
+    .service--teaser {
+      @include flex-col(6);
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .overview--service-overview-front {
+
+    .more-link--overview {
+      margin-top: rem(30);
+    }
+  }
+
+  .view--display-service-overview-front {
+
+    .service--teaser {
+      @include flex-col(4);
+    }
+    //
+    //.view__footer {
+    //  margin-top: rem(30);
+    //}
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .overview--service-overview-front {
+
+    h2 {
+      margin-bottom: rem(50);
+    }
+
+    .more-link--overview {
+      margin-top: rem(40);
+    }
+  }
+
+  //.view--display-service-overview-front {
+  //
+  //  .view__footer {
+  //    margin-top: rem(40);
+  //  }
+  //}
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .overview--service-overview-front {
+
+    h2 {
+      margin-bottom: rem(70);
+    }
+
+    .more-link--overview {
+      margin-top: rem(61);
+    }
+  }
+
+  //.view--display-service-overview-front {
+  //
+  //  .view__footer {
+  //    margin-top: rem(61);
+  //  }
+  //}
+
+}

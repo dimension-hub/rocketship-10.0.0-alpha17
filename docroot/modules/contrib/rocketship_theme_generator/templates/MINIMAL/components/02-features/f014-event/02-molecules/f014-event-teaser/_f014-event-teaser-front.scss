@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event teaser Front
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.event--frontpage {
+
+  // ** visual
+
+  .layout--rs-top {
+    //
+  }
+
+  // date on visual
+  .date-first-teaser {
+    //
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    //
+  }
+
+  // ** date & location
+
+  .layout__subregion-01 {
+    //
+  }
+
+  .date-wrapper {
+    //
+
+    .last-date {
+      //
+
+    }
+  }
+
+  .field--name-field-event-place {
+    //
+  }
+
+  .rs-canonical-link-formatter {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone and wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .event--frontpage {
+
+    .node__content {
+      //
+    }
+
+    .layout--rs-top {
+      //
+    }
+
+    .layout--rs-content {
+      //
+    }
+
+    .date-first-teaser {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .event--frontpage {
+
+    //
+
+    .layout--rs-top {
+      //
+    }
+
+    .layout--rs-content {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .event--frontpage {
+
+    //
+
+    .layout--rs-top {
+      //
+    }
+
+    .layout--rs-content {
+      //
+    }
+  }
+
+}

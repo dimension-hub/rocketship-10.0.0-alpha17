@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * Workaround for core bugs in display of entity title.
+ */
+
+// EntityViewController::buildTitle creates problems, see https://www.drupal.org/node/2941208.
+// It runs as a pre_render hook, difficult to alter it, see comment below for explanation.
+// Solution found was to override the _controller for routes using a route enhancer service.
+//
+// Sequence of events.
+// 1) Building
+// - EntityViewController::view
+// - EntityViewBuilder::view
+// - hook_entity_build_defaults_alter: can add OWN_entity_pre_render but Core
+//   pre_render not available to alter
+// 2) Rendering
+// - pre_render
+//   - OWN_entity_pre_render: too late to alter Core pre_render; no built fields to hook
+//   - EntityViewBuilder::build
+//     - hook_entity_view_display_alter XXXX ideal place, except can't detect whether the entity is on its own page
+//     - hook_entity_prepare_view XXXX acts on entities
+//     - EntityViewDisplay::buildMultiple formatter builds the output, so after this it's too late to swap to a different formatter
+//     - hook_entity_display_build_alter
+//     - hook_entity_view, hook_entity_view_alter
+//   - EntityViewController::buildTitle
+//     - title field: #pre_render, template_preprocess_field, hook_preprocess_field
+// - preprocess
+//   - node: #pre_render, template_preprocess_node, hook_preprocess_node
+//   - field: #pre_render, template_preprocess_field, hook_preprocess_field.
+
+/**
+ * Implements hook_entity_view_display_alter().
+ */
+// function manage_display_entity_view_display_alter(EntityViewDisplayInterface $display, array $context) {
+//   $label_field = Drupal::entityTypeManager()->getDefinition($context['entity_type'])->getKey('label');
+//   $options = [
+//     'label' => 'hidden',
+//     'type' => 'basic_string',
+//   ];
+//   $display->setComponent($label_field, $options);
+// }
+
+/**
+ * Implements hook_entity_view().
+ */
+// function manage_display_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+//   if ($entity instanceof FieldableEntityInterface) {
+//     $label_field = $entity->getEntityType()->getKey('label');
+//     if (isset($build[$label_field])) {
+//       $build[$label_field]['#pre_render'][] = 'manage_display_title_pre_render';
+//       @todo If want to keep the field in the entity.
+//       Requires a change to EntityViewController::buildTitle
+//       $build['#built_page_title'] = TRUE;
+//       @todo If also want to hide title block.
+//       But loses metadata - better to prevent only title block.
+//       $build['#title'] = '';
+//       ??$build['#title'] = new HtmlEscapedText($entity->label());
+//     }
+//   }
+// }
+
+/**
+ * Implements hook_theme().
+ */
+function manage_display_fix_title_theme() {
+  return [
+    'entity_page_title' => [
+      'variables' => [
+        'attributes' => [],
+        'title' => NULL,
+        'entity' => NULL,
+        'view_mode' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for entity_page_title.
+ * On behalf of quickedit.module.
+ */
+function quickedit_preprocess_entity_page_title(&$variables) {
+  $variables['#cache']['contexts'][] = 'user.permissions';
+  $entity = $variables['entity'];
+  if (!\Drupal::currentUser()->hasPermission('access in-place editing') || !$entity->isLatestRevision()) {
+    return;
+  }
+
+  $label_field = $entity->getEntityType()->getKey('label');
+  $variables['attributes']['data-quickedit-field-id'] = $entity->getEntityTypeId() . '/' . $entity->id() . '/' . $label_field . '/' . $entity->language()->getId() . '/' . $variables['view_mode'];
+}

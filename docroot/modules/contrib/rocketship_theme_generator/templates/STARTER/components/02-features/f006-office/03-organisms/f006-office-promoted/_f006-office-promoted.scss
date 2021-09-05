@@ -1,0 +1,153 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office detail: view-mode 'office-promoted'
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.office--office-promoted {
+  // ** sidebar
+  .layout__sidebar {
+    padding-bottom: rem($gap-vert-bottom-xs);
+  }
+
+  // ** main content
+  .layout__content {
+    //
+  }
+
+  // ** description
+  .layout__content__row--top {
+    margin-bottom: rem($gap-vert);
+  }
+
+  // -- address
+  .layout__content__row--main {
+    //
+  }
+
+  // -- office hours
+  .layout__content__row--bottom {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .office--office-promoted {
+
+    // ** sidebar
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** main content
+
+    .layout__content {
+      //
+    }
+
+    // ** groups
+
+    // -- text
+
+    .layout__content__row--top {
+      //
+    }
+
+    // -- address
+
+    .layout__content__row--main {
+      //
+    }
+
+    // -- office hours
+
+    .layout__content__row--bottom {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .office--office-promoted {
+
+    // ** sidebar
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** main content
+
+    .layout__content {
+      //
+    }
+
+    // ** groups
+
+    // -- text
+
+    .layout__content__row--top {
+      margin-bottom: rem($gap-vert-lg);
+    }
+
+    // -- address
+
+    .layout__content__row--main {
+      //
+    }
+
+    // -- office hours
+
+    .layout__content__row--bottom {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .office--office-promoted {
+
+    // ** sidebar
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** main content
+
+    .layout__content {
+      //
+    }
+  }
+
+}

@@ -1,0 +1,46 @@
+http_cache_control.settings:
+  type: config_object
+  label: 'HTTP Cache-Control Settings'
+  mapping:
+    cache:
+      type: mapping
+      label: 'Cache Control'
+      mapping:
+        http:
+          type: mapping
+          label: 'Page caching'
+          mapping:
+            s_maxage:
+              type: integer
+              label: 'Shared max age'
+            404_max_age:
+              type: integer
+              label: 'Shared max age'
+            302_max_age:
+              type: integer
+              label: 'Shared max age'
+            301_max_age:
+              type: integer
+              label: 'Shared max age'
+            5xx_max_age:
+              type: integer
+              label: 'Shared max age'
+            stale_while_revalidate:
+              type: integer
+              label: 'Shared max age'
+            stale_if_error:
+              type: integer
+              label: 'Shared max age'
+            vary:
+              type: string
+              label: 'Vary'
+        surrogate:
+          type: mapping
+          label: 'Surrogate-Control'
+          mapping:
+            maxage:
+              type: integer
+              label: 'Surrogate max age'
+            nostore:
+              type: boolean
+              label: 'Surrogate no-store'

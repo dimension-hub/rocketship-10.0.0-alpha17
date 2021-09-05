@@ -1,0 +1,536 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.realisation__header--full .layout__subregion-02 {
+  position: relative;
+  padding: 2.5rem 0 2.5rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.realisation__header--full .breadcrumb__item::before {
+  color: #fff;
+}
+
+.realisation__header--full .breadcrumb__item::after {
+  color: #fff;
+}
+
+.realisation__header--full .breadcrumb__link, .realisation__header--full .breadcrumb__link:visited {
+  border-bottom: 1px solid white;
+  color: #fff;
+}
+
+.realisation__header--full .breadcrumb__link:hover, .realisation__header--full .breadcrumb__link:active {
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .realisation__header--full .layout__subregion-02 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    color: #fff;
+  }
+  .realisation__header--full .layout__subregion-02 h3 {
+    color: #fff;
+  }
+  .realisation__header--full .layout__subregion-02 a, .realisation__header--full .layout__subregion-02 a:visited {
+    color: #fff;
+  }
+}
+
+.view--display-realisation-overview-front .realisation--teaser .field--image,
+.view--display-realisation-overview-front .realisation--teaser .field--name-field-media-canonical-image,
+.realisation--teaser-front .field--image,
+.realisation--teaser-front .field--name-field-media-canonical-image,
+.realisation--front .field--image,
+.realisation--front .field--name-field-media-canonical-image {
+  margin-bottom: 0.9375rem;
+}
+
+.view--display-realisation-overview-front .realisation--teaser h2,
+.view--display-realisation-overview-front .realisation--teaser h3,
+.view--display-realisation-overview-front .realisation--teaser h4,
+.realisation--teaser-front h2,
+.realisation--teaser-front h3,
+.realisation--teaser-front h4,
+.realisation--front h2,
+.realisation--front h3,
+.realisation--front h4 {
+  margin: 0 0 0.9375rem 0;
+  font-size: 1.6875rem;
+  line-height: 2.125rem;
+  color: #1e1e1f;
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .view--display-realisation-overview-front .realisation--teaser h2,
+  .view--display-realisation-overview-front .realisation--teaser h3,
+  .view--display-realisation-overview-front .realisation--teaser h4,
+  .realisation--teaser-front h2,
+  .realisation--teaser-front h3,
+  .realisation--teaser-front h4,
+  .realisation--front h2,
+  .realisation--front h3,
+  .realisation--front h4 {
+    font-size: 1.29808rem;
+    line-height: 1.63462rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 939px) {
+  .view--display-realisation-overview-front .realisation--teaser h2,
+  .view--display-realisation-overview-front .realisation--teaser h3,
+  .view--display-realisation-overview-front .realisation--teaser h4,
+  .realisation--teaser-front h2,
+  .realisation--teaser-front h3,
+  .realisation--teaser-front h4,
+  .realisation--front h2,
+  .realisation--front h3,
+  .realisation--front h4 {
+    font-size: 1.40625rem;
+    line-height: 1.77083rem;
+  }
+}
+
+@media (min-width: 940px) and (max-width: 1199px) {
+  .view--display-realisation-overview-front .realisation--teaser h2,
+  .view--display-realisation-overview-front .realisation--teaser h3,
+  .view--display-realisation-overview-front .realisation--teaser h4,
+  .realisation--teaser-front h2,
+  .realisation--teaser-front h3,
+  .realisation--teaser-front h4,
+  .realisation--front h2,
+  .realisation--front h3,
+  .realisation--front h4 {
+    font-size: 1.53409rem;
+    line-height: 1.93182rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .view--display-realisation-overview-front .realisation--teaser h2,
+  .view--display-realisation-overview-front .realisation--teaser h3,
+  .view--display-realisation-overview-front .realisation--teaser h4,
+  .realisation--teaser-front h2,
+  .realisation--teaser-front h3,
+  .realisation--teaser-front h4,
+  .realisation--front h2,
+  .realisation--front h3,
+  .realisation--front h4 {
+    font-size: 1.6875rem;
+    line-height: 2.125rem;
+  }
+}
+
+.view--display-realisation-overview-front .realisation--teaser h2 a,
+.view--display-realisation-overview-front .realisation--teaser h2 a:visited,
+.view--display-realisation-overview-front .realisation--teaser h3 a,
+.view--display-realisation-overview-front .realisation--teaser h3 a:visited,
+.view--display-realisation-overview-front .realisation--teaser h4 a,
+.view--display-realisation-overview-front .realisation--teaser h4 a:visited,
+.realisation--teaser-front h2 a,
+.realisation--teaser-front h2 a:visited,
+.realisation--teaser-front h3 a,
+.realisation--teaser-front h3 a:visited,
+.realisation--teaser-front h4 a,
+.realisation--teaser-front h4 a:visited,
+.realisation--front h2 a,
+.realisation--front h2 a:visited,
+.realisation--front h3 a,
+.realisation--front h3 a:visited,
+.realisation--front h4 a,
+.realisation--front h4 a:visited {
+  text-decoration: none;
+  color: #ef6c69;
+}
+
+.view--display-realisation-overview-front .realisation--teaser h2 a:hover,
+.view--display-realisation-overview-front .realisation--teaser h3 a:hover,
+.view--display-realisation-overview-front .realisation--teaser h4 a:hover,
+.realisation--teaser-front h2 a:hover,
+.realisation--teaser-front h3 a:hover,
+.realisation--teaser-front h4 a:hover,
+.realisation--front h2 a:hover,
+.realisation--front h3 a:hover,
+.realisation--front h4 a:hover {
+  text-decoration: underline;
+  color: #ef6c69;
+}
+
+.font-heading-01-loaded .view--display-realisation-overview-front .realisation--teaser h2, .font-heading-01-loaded
+.view--display-realisation-overview-front .realisation--teaser h3, .font-heading-01-loaded
+.view--display-realisation-overview-front .realisation--teaser h4, .font-heading-01-loaded
+.realisation--teaser-front h2, .font-heading-01-loaded
+.realisation--teaser-front h3, .font-heading-01-loaded
+.realisation--teaser-front h4, .font-heading-01-loaded
+.realisation--front h2, .font-heading-01-loaded
+.realisation--front h3, .font-heading-01-loaded
+.realisation--front h4 {
+  font-family: "AbrilFatface", "Poppins", "Arial", sans-serif;
+}
+
+.view--display-realisation-overview-block .realisation--teaser .field--image,
+.view--display-realisation-overview-block .realisation--teaser .field--name-field-media-canonical-image {
+  margin-bottom: 0.9375rem;
+}
+
+.view--display-realisation-overview-block .realisation--teaser h2,
+.view--display-realisation-overview-block .realisation--teaser h3,
+.view--display-realisation-overview-block .realisation--teaser h4 {
+  margin: 0 0 0.9375rem 0;
+  font-size: 1.6875rem;
+  line-height: 2.125rem;
+  color: #1e1e1f;
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .view--display-realisation-overview-block .realisation--teaser h2,
+  .view--display-realisation-overview-block .realisation--teaser h3,
+  .view--display-realisation-overview-block .realisation--teaser h4 {
+    font-size: 1.29808rem;
+    line-height: 1.63462rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 939px) {
+  .view--display-realisation-overview-block .realisation--teaser h2,
+  .view--display-realisation-overview-block .realisation--teaser h3,
+  .view--display-realisation-overview-block .realisation--teaser h4 {
+    font-size: 1.40625rem;
+    line-height: 1.77083rem;
+  }
+}
+
+@media (min-width: 940px) and (max-width: 1199px) {
+  .view--display-realisation-overview-block .realisation--teaser h2,
+  .view--display-realisation-overview-block .realisation--teaser h3,
+  .view--display-realisation-overview-block .realisation--teaser h4 {
+    font-size: 1.53409rem;
+    line-height: 1.93182rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .view--display-realisation-overview-block .realisation--teaser h2,
+  .view--display-realisation-overview-block .realisation--teaser h3,
+  .view--display-realisation-overview-block .realisation--teaser h4 {
+    font-size: 1.6875rem;
+    line-height: 2.125rem;
+  }
+}
+
+.view--display-realisation-overview-block .realisation--teaser h2 a,
+.view--display-realisation-overview-block .realisation--teaser h2 a:visited,
+.view--display-realisation-overview-block .realisation--teaser h3 a,
+.view--display-realisation-overview-block .realisation--teaser h3 a:visited,
+.view--display-realisation-overview-block .realisation--teaser h4 a,
+.view--display-realisation-overview-block .realisation--teaser h4 a:visited {
+  text-decoration: none;
+  color: #ef6c69;
+}
+
+.view--display-realisation-overview-block .realisation--teaser h2 a:hover,
+.view--display-realisation-overview-block .realisation--teaser h3 a:hover,
+.view--display-realisation-overview-block .realisation--teaser h4 a:hover {
+  text-decoration: underline;
+  color: #ef6c69;
+}
+
+.font-heading-01-loaded .view--display-realisation-overview-block .realisation--teaser h2, .font-heading-01-loaded
+.view--display-realisation-overview-block .realisation--teaser h3, .font-heading-01-loaded
+.view--display-realisation-overview-block .realisation--teaser h4 {
+  font-family: "AbrilFatface", "Poppins", "Arial", sans-serif;
+}
+
+.realisation__header--full {
+  position: relative;
+  margin: 0;
+  padding: 2.5rem 0 2.5rem 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 5;
+}
+
+.realisation__header--full:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  height: 100%;
+  margin-left: calc((-100vw + 100%) / 2);
+  width: 100vw;
+  background-color: #000000;
+}
+
+.realisation__header--full,
+.realisation__header--full h1,
+.realisation__header--full h2,
+.realisation__header--full h3,
+.realisation__header--full a,
+.realisation__header--full a:visited,
+.realisation__header--full a:hover,
+.realisation__header--full a:active,
+.realisation__header--full .field {
+  color: #fff;
+}
+
+.realisation__header--full .field--image,
+.realisation__header--full .field--name-field-media-canonical-image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  opacity: .5;
+}
+
+.realisation__header--full .field--image .media,
+.realisation__header--full .field--name-field-media-canonical-image .media {
+  position: static;
+}
+
+.realisation__header--full .field--image img,
+.realisation__header--full .field--name-field-media-canonical-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.realisation__header--full .layout__subregion-01 {
+  position: relative;
+  z-index: 1;
+}
+
+.realisation__header--full .layout__subregion-01 h1,
+.realisation__header--full .layout__subregion-01 h2 {
+  margin-bottom: 0;
+}
+
+.realisation__header--full .layout__subregion-01 .field--name-field-show-post-date {
+  margin-top: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  .realisation__header--full {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 16.875rem;
+    padding: 2.5rem 0 2.5rem 0;
+  }
+}
+
+@media (min-width: 940px) {
+  .realisation__header--full {
+    padding: 3.125rem 0 3.125rem 0;
+    height: 23.125rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .realisation__header--full {
+    padding: 4.6875rem 0 4.6875rem 0;
+    height: 29.375rem;
+  }
+}
+
+.overview--realisation-overview-front h2 {
+  margin-bottom: 2.125rem;
+  font-size: 2.1875rem;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+  color: #ef6c69;
+}
+
+.overview--realisation-overview-front .more-link--overview {
+  margin-top: -1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.overview--realisation-overview-front .more-link--overview a {
+  border-bottom: 0 none;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.4375rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -ms-word-break: keep-all;
+  word-break: keep-all;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.overview--realisation-overview-front .more-link--overview a::before {
+  content: "\f178";
+  display: inline-block;
+  margin: 0 0.3125rem 0 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: middle;
+  font-size: 1rem;
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-weight: 400;
+}
+
+.overview--realisation-overview-front .more-link--overview a::before {
+  position: relative;
+  top: -1px;
+  color: #ca2751;
+  transition: none;
+}
+
+.overview--realisation-overview-front .more-link--overview a, .overview--realisation-overview-front .more-link--overview a:visited {
+  color: #ef6c69;
+}
+
+.overview--realisation-overview-front .more-link--overview a:hover, .overview--realisation-overview-front .more-link--overview a:active {
+  color: #ca2751;
+}
+
+.view-display-id-realisation_overview_front .realisation--teaser {
+  margin-bottom: 1.875rem;
+}
+
+.view-display-id-realisation_overview_front .realisation--teaser:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 480px) {
+  .overview--realisation-overview-front .more-link--overview {
+    position: absolute;
+    top: 0.5625rem;
+    right: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .view-display-id-realisation_overview_front .view__content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow: hidden;
+    min-height: 1px;
+    margin-left: -0.9375rem;
+    margin-right: -0.9375rem;
+    margin-top: -1.875rem;
+  }
+  .view-display-id-realisation_overview_front .realisation--teaser {
+    position: relative;
+    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+    margin-top: 1.875rem;
+    min-height: 1px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(50% - 1.875rem);
+  }
+}
+
+@media (min-width: 940px) {
+  .view-display-id-realisation_overview_front .realisation--teaser {
+    position: relative;
+    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+    margin-top: 1.875rem;
+    min-height: 1px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(33.33333% - 1.875rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .overview--realisation-overview-front h2 {
+    margin-bottom: 3.75rem;
+  }
+}
+
+.view--display-realisation-overview-block .view__content {
+  margin-top: -1.875rem;
+}
+
+.view--display-realisation-overview-block .realisation--teaser {
+  margin-top: 1.875rem;
+}
+
+@media (min-width: 768px) {
+  .view--display-realisation-overview-block .view__content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow: hidden;
+    min-height: 1px;
+    margin-left: -0.9375rem;
+    margin-right: -0.9375rem;
+    margin-top: -1.875rem;
+  }
+  .view--display-realisation-overview-block .realisation--teaser {
+    position: relative;
+    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+    margin-top: 1.875rem;
+    min-height: 1px;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(33.33333% - 1.875rem);
+  }
+}

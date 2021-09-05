@@ -1,0 +1,9 @@
+name: 'Advanced CSS/JS Aggregation Bundler Testing'
+description: 'Provides assets for automated testing.'
+package: Testing
+type: module
+
+# Information added by Drupal.org packaging script on 2020-06-05
+version: '8.x-4.1'
+project: 'advagg'
+datestamp: 1591377167

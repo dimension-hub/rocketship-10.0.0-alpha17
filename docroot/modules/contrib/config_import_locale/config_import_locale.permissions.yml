@@ -1,0 +1,3 @@
+administer config import locale:
+  title: 'Administer Config import Locale'
+  description: 'Allows the user to access the Config import Locale settings'

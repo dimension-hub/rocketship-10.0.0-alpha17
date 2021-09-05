@@ -1,0 +1,131 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * event meta on full page: bar below the the header image & title
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.event__bar--full {
+
+  .field--name-field-event-price {
+    //
+  }
+
+  // ** date
+
+  .event-daterange-wrapper {
+    //
+  }
+
+  // ** Subscribe (if Advanced module)
+
+  .rs-scroll-to-formatter {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .event__bar--full {
+
+    top: 0; // needed for fixed animation
+
+    //
+    .layout-builder__region {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    // -- Center and inline the text with flexbox and space-between
+
+    .block--field-blocknodeeventfield-events {
+      display: flex;
+      flex-grow: 1; // push subscribe button to the end
+    }
+
+    .field--name-field-events {
+      display: flex; // make price & date go in 1 line
+      align-items: center; // center vertically
+      width: 100%; // for IE
+    }
+
+    // ** price
+
+    .field--name-field-event-price {
+      margin-bottom: 0;
+      margin-right: rem(25);
+      @include text-nobreak;
+    }
+
+    // ** date
+
+    .event-daterange-wrapper {
+
+      display: flex;
+      align-items: flex-end;
+
+      div {
+        display: inline;
+      }
+    }
+
+    // ** Subscribe (if Advanced module)
+
+    .rs-scroll-to-formatter {
+      margin-top: 0; // reset
+    }
+
+  }
+
+  // ** sticky bar
+
+  .event__bar--full.js-sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    @include z-index(header);
+
+    width: 100%;
+
+    padding-left: rem($container-padding);
+    padding-right: rem($container-padding);
+
+    transition: top $duration $easing;
+
+    // compensate for space made by fixed toolbar
+    // TO DO: in case of fixed header, need to add space then as well
+    .toolbar-fixed.toolbar-horizontal & {
+      top: rem(79);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .event__bar--full {
+
+    // ** price:
+
+    .field--name-field-event-price {
+      //
+    }
+
+    // ** date:
+
+    .event-daterange-wrapper {
+      //
+    }
+
+  }
+
+}

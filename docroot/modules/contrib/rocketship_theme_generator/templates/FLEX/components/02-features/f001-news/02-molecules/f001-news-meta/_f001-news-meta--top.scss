@@ -1,0 +1,127 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * News meta: group of filters, share, author, …
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Info next to the big image
+// =============================================================================
+
+.news__header--full {
+
+  .layout__sidebar__row {
+    padding-left: rem(10);
+    padding-top: rem($gap-vert-top-xs);
+    padding-bottom: rem($gap-vert-top-xs);
+  }
+
+  h1,
+  h2 {
+    margin-bottom: 0;
+  }
+
+  // social share
+
+  .social-widgets__title {
+    margin-bottom: rem(10);
+    width: 100%;
+  }
+
+  // date
+
+  .block--field-blocknodenewscreated {
+    font-weight: $font-weight-bold;
+  }
+
+  // author
+
+  .field--name-uid {
+    h3 {
+      display: inline-block;
+      margin: 0;
+      @include font-size($font-size-base, $line-height-base);
+      font-weight: $font-weight-normal;
+    }
+  }
+
+  // filters
+
+  .field--name-field-news-tags {
+    h3 {
+      @include h4;
+      margin-bottom: rem(10);
+      width: 100%;
+    }
+
+    .field__items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .field__item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      &::after {
+        content: ",";
+        margin-right: rem(4);
+      }
+
+      &:last-child::after {
+        content: "";
+        margin-right: 0;
+      }
+    }
+
+    a {
+      display: inline-block;
+      @include link-underline((color: $color-link, color-hover: $color-link-hover));
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .news__header--full {
+
+    .layout__sidebar__row {
+      padding-left: rem(10);
+      padding-top: rem($gap-vert-top-sm);
+      padding-bottom: rem($gap-vert-top-sm);
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .news__header--full {
+
+    .layout__sidebar__row {
+      padding-left: rem(20);
+    }
+
+  }
+
+}

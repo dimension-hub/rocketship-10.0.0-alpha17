@@ -1,0 +1,11 @@
+name: Unified Twig Extensions
+type: module
+description: Share Twig extensions across Pattern Lab and Drupal 8
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: Drupal Pattern Lab
+
+# Information added by Drupal.org packaging script on 2020-07-16
+version: '1.0.0'
+project: 'unified_twig_ext'
+datestamp: 1594897931

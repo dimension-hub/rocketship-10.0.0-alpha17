@@ -1,0 +1,37 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Forms: details
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+details {
+  margin: 0 0 rem($gap-vert) 0;
+  border: 1px solid $color-border;
+
+  summary {
+    padding: rem(8) rem(15);
+    color: $color-heading;
+    background: $color-border;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  .details-wrapper {
+    padding: rem(15) rem(15) 0;
+  }
+  // &[open] { }
+}
+
+summary {
+  cursor: pointer;
+}
+
+.details-description {
+  margin-bottom: rem($gap-vert);
+}
+
+.details__error-message {
+  margin-bottom: rem($gap-vert);
+  color: $color-error;
+}

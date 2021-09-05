@@ -1,0 +1,178 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Products main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** The paragraph
+
+.overview--product-overview {
+  //
+}
+
+// ** The block for the view itself
+
+.view--display-product-overview-block {
+
+  // ** product count
+
+  .view__header {
+    //
+  }
+
+  // ** grid
+
+  .view__content {
+    //
+  }
+
+  .product--teaser {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // ** The paragraph
+
+  .overview--product-overview {
+
+    // -- overview paragraph cols
+    .paragraph__cols {
+      //
+    }
+
+    // ** product BASIC
+
+    // content without sidebar
+    .paragraph__content:first-child {
+
+      .product--teaser {
+        //
+      }
+    }
+
+    // ** product ADVANCED
+
+    // -- overview sidebar column
+    .paragraph__sidebar {
+      //
+    }
+
+    // -- content with sidebar
+    .paragraph__sidebar + .paragraph__content {
+
+      .product--teaser {
+        //
+      }
+
+    }
+
+  }
+
+  // ** the block with the view itself
+
+  .view--display-product-overview-block {
+
+    // ** make a grid
+
+    .view__content {
+
+      //
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .overview--product-overview {
+
+    // ** product BASIC
+    //    no sidebar
+
+    // content without sidebar
+    .paragraph__content:first-child {
+      //
+    }
+
+    // ** product ADVANCED
+    //    we get a column for the filters
+    //    so the structure of the overview changes a bit
+
+    // -- overview sidebar column
+    .paragraph__sidebar {
+      padding-right: rem(20);
+      @include flex-col(4);
+      margin-top: 0;
+    }
+
+    // -- content with sidebar
+    .paragraph__sidebar + .paragraph__content {
+      @include flex-col(8);
+      margin-top: 0;
+
+      .product--teaser {
+        @include flex-col(6);
+      }
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .overview--product-overview {
+
+    // content without sidebar
+    .paragraph__content:first-child {
+
+      .product--teaser {
+        @include flex-col(6);
+      }
+    }
+
+    // ** PRODUCTS COMPLEX
+    //    we get a column for the filters
+    //    so the structure of the overview changes a bit
+
+    // -- overview sidebar column
+    .paragraph__sidebar {
+      padding-right: 0;
+      @include flex-col(3);
+      margin-top: 0;
+    }
+
+    // -- overview content column
+    .paragraph__sidebar + .paragraph__content {
+      @include flex-col(8);
+      @include flex-col-push(1);
+      margin-top: 0;
+
+      .product--teaser {
+        @include flex-col(4);
+      }
+    }
+
+
+  }
+
+}

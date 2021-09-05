@@ -1,0 +1,249 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Product Filters
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Facets in overview (product complex)
+// ===========================================================================
+
+// -- we get a column of Filters
+//    hidden on mobile, with some JS to fold out
+
+// load font-family after font loaded
+.font-text-01-loaded .overview--product-overview .block--provider-facets h2 {
+  font-family: $font-base;
+}
+
+.overview--product-overview {
+
+  // ** facet block by default
+
+  .block--provider-facets {
+    margin-bottom: rem($gap-vert-lg);
+
+    h2 {
+      margin-bottom: rem($gap-vert);
+      font-family: $font-fallback;
+      @include font-size($font-size-base, $line-height-base);
+      text-transform: none;
+      font-weight: $font-weight-bold;
+    }
+
+    // -- list default
+
+    ul[class*="item-list"] {
+      @include list-reset;
+    }
+
+    // -- list: checkboxes & radios: spacing & positioning for radio/checkbox
+
+    .item-list__checkbox,
+    .item-list__radio,
+    .item-list__radiobutton {
+
+      cursor: pointer;
+
+      .facet-item {
+        position: relative;
+        padding-left: rem(30);
+      }
+
+      input {
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    // -- list item by default
+
+    .facet-item {
+      @include list-reset;
+
+      // -- link
+      a {
+
+        display: flex;
+
+        &,
+        &:visited {
+          color: $color-base;
+        }
+
+        &:hover,
+        &:active,
+        &.is-active {
+          color: $color-link;
+        }
+      }
+
+      .product-facet-item__status {
+        display: none;
+      }
+
+      .product-facet-item__value {
+        flex-grow: 1; // push the number to the right edge
+      }
+
+      .product-facet-item__count {
+        margin-left: rem(10);
+      }
+    }
+
+  }
+
+  // ** Categories
+
+  .block--facet-blockproduct-categories {
+
+    [class*="facets-widget-"] {
+      padding: rem($padding-product-categories);
+      background-color: $color-product-categories-bg;
+    }
+
+    [class*="item-list"] {
+      margin-bottom: 0;
+    }
+  }
+
+  // ** Properties
+
+  // …
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: only on mobile
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-only {
+
+  // ** collapsible filters on mobile phone (because not a lot of room)
+
+  .overview--product-overview {
+
+    .block--provider-facets {
+      // margin-bottom: rem($gap-vert-lg);
+
+      h2 {
+        position: relative;
+        cursor: pointer;
+        margin-bottom: 0;
+        padding: 0 rem(25) 0 0;
+        transition: all $duration $easing;
+
+        @include font-awesome((
+          icon: $fa-var-chevron-down,
+          color: $color-base,
+          size: 16,
+          element: "before"));
+
+        // -- icon
+
+        &::before {
+          position: absolute;
+          right: 0;
+          top: rem(6);
+          transform: rotate(90deg);
+          transition: all $duration $easing;
+        }
+      }
+
+      // -- facets with a background-color
+      &.block--facet-blockproduct-categories [class*="facets-widget-"] {
+        padding: 0;
+        transition: all $duration $easing;
+      }
+
+      // -- default facet list items
+      .facet-item,
+      .form__dropdown {
+        overflow: hidden;
+        max-height: 0;
+        transition: all $duration $easing;
+      }
+
+      // ** states
+
+      &.js-open {
+
+        h2 {
+          margin-bottom: rem($gap-vert);
+          color: $color-spot-1;
+
+          &:hover {
+            color: $color-spot-1;
+          }
+
+          &::before {
+            transform: rotate(0);
+            transform-origin: center center;
+          }
+        }
+
+        // -- facets with a background-color
+        &.block--facet-blockproduct-categories [class*="facets-widget-"] {
+          padding: rem($padding-product-categories);
+        }
+
+        .facet-item,
+        .form__dropdown {
+          max-height: rem(100); // think of the heighest this could get when open
+        }
+
+        .facet-item {
+          margin-bottom: rem($gap-vert-xs);
+          min-height: rem(15);
+        }
+      }
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide-only {
+  //
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .overview--product-overview {
+
+    // ** facet block by default
+
+    .block--provider-facets {
+
+      // -- list: checkboxes & radios: spacing & positioning for radio/checkbox
+
+      .item-list__checkbox,
+      .item-list__radio,
+      .item-list__radiobutton {
+
+        .facet-item {
+          margin-bottom: rem($gap-vert-xs);
+          min-height: rem(15);
+        }
+      }
+    }
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+  //
+}

@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * DrImage core functions.
+ */
+
+use \Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drimage_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'drimage.image':
+      return '<p>' . t('For a full description of the module, visit the project page: https://drupal.org/project/drimage') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function drimage_theme() {
+  return [
+    'drimage_formatter' => [
+      'variables' => [
+        'item' => NULL,
+        'item_attributes' => NULL,
+        'image_style' => NULL,
+        'url' => NULL,
+        'alt' => NULL,
+        'width' => NULL,
+        'height' => NULL,
+        'data' => NULL,
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,12 @@
+# This bit of text has been prepended by Dropsolid Rocketship.
+# This is done automatically with core's scaffolding plugin and the
+# settings for managing the scaffolding of the robots.txt file can be
+# found in the toplevel composer.json file.
+#
+# The file you, as a developer, can change to add more text to the
+# beginning of the robots.txt file can be found in the
+# etc/scaffold-modifications/ folder.
+#
+# There is also an .append file for the robots.txt file you can use to
+# append extra lines to the robots.txt file.
+#

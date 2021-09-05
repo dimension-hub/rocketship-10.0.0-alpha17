@@ -1,0 +1,33 @@
+css_colors: 0
+css_structural: 0
+color_variants:
+  -
+    name: grey
+    foreground: '#1e1e1f'
+    background: '#f3f3f3'
+    link: '#ef6c69'
+    hover: '#ef6c69'
+  -
+    name: spot-1
+    foreground: '#ffffff'
+    background: '#ef6c69'
+    link: '#ffffff'
+    hover: '#ffffff'
+  -
+    name: spot-2
+    foreground: '#ffffff'
+    background: '#ca2751'
+    link: '#ffffff'
+    hover: '#ffffff'
+  -
+    name: spot-3
+    foreground: '#ffffff'
+    background: '#2b3470'
+    link: '#ffffff'
+    hover: '#ffffff'
+  -
+    name: black
+    foreground: '#ffffff'
+    background: '#000000'
+    link: '#ffffff'
+    hover: '#ffffff'

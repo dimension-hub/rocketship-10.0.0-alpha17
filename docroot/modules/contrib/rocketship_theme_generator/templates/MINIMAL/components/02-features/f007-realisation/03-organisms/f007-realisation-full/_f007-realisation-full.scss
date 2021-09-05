@@ -1,0 +1,114 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Realisation header
+// *
+// * Header is a node, with its own view-mode
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Styling
+// =============================================================================
+
+.realisation__header--full {
+  position: relative;
+
+  &,
+  h1,
+  h2,
+  h3,
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  .field {
+    //
+  }
+
+  // ** background image: make it stretch (like "cover")
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+
+    // prevent blazy wrappers from breaking positioning of absolute image
+    // so needs some styling to enable proper position and stretch of the img
+    // basically, match what the sidebar div is doing
+    .media {
+      position: static;
+    }
+
+    img {
+      //
+    }
+  }
+
+  // ** wrapper of that main content, in order to center using flexbox later on
+
+  .layout__subregion-01 {
+    position: relative;
+
+    h1,
+    h2 {
+      //
+    }
+
+    // -- the stuff that goes under the title
+
+    .field--name-field-show-post-date {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // * Realisation header
+  // =============================================================================
+
+  .realisation__header--full {
+
+    .layout__subregion-01 {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // * Realisation header
+  // =============================================================================
+
+  .realisation__header--full {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // * Realisation header
+  // =============================================================================
+
+  .realisation__header--full {
+    //
+  }
+
+}

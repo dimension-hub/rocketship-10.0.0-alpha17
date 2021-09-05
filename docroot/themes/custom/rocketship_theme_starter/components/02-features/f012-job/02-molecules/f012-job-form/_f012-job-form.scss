@@ -1,0 +1,105 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job page form: present in Panel footer or bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.job__bottom--full {
+
+  // ** webform container
+
+  .block--provider-webform {
+    padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+    @include full-bg ($color-gray-light-1, "before");
+  }
+
+  // ** text
+
+  .form-type--webform-markup {
+    //
+
+    p,
+    ul,
+    ol {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .job__bottom--full {
+
+    .block--provider-webform {
+      padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+    }
+
+    .webform-submission-apply-for-this-job-form {
+      // grouping
+
+      // text + button
+
+      .form-type--webform-markup {
+        //
+      }
+
+      .form-actions {
+        //
+      }
+
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .job__bottom--full {
+
+    .block--provider-webform {
+      padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .job__bottom--full {
+
+    .block--provider-webform {
+      padding: rem($gap-vert-top-lg-2) 0 rem($gap-vert-bottom-lg-2) 0;
+    }
+
+  }
+
+}

@@ -1,0 +1,187 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Product full - Images
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Styling
+// =============================================================================
+
+.product--full {
+
+
+  // * Arrows
+  // ===========================================================================
+
+  // ** all arrows
+
+  .slick-arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: rem(32);
+    font-size: 0; // hide text on button
+    color: $color-white;
+    background: rgba($color-product-arrows, .5);
+    transition: all $duration $easing;
+
+    &:hover {
+      background: rgba($color-product-arrows, 1);
+    }
+
+    &.slick-disabled {
+      opacity: 0;
+    }
+
+    .text {
+      @include hide;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+
+    @include font-awesome((
+      "icon": $fa-var-chevron-left,
+      "size": 18,
+      "color": $color-white,
+      "position": absolute,
+      "top": 50%,
+      "left": 50%
+    ));
+
+    &::before {
+      width: 100%;
+      text-align: center;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  .slick-next {
+    right: 0;
+
+    @include font-awesome((
+      "icon": $fa-var-chevron-right,
+      "element": "after",
+      "size": 18,
+      "color": $color-white,
+      "position": absolute,
+      "top": 50%,
+      "left": 50%
+    ));
+
+    &::after {
+      width: 100%;
+      text-align: center;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  // * Main Image
+  // ===========================================================================
+
+  .slick--main {
+
+    position: relative;
+    overflow: hidden; // hide the arrows
+    background: $color-product-slider-main-bg;
+
+    img {
+      max-height: rem(400);
+    }
+
+    // -- arrows
+
+    &:hover {
+      .slick-prev {
+        left: 0;
+      }
+
+      .slick-next {
+        right: 0;
+      }
+    }
+
+    .slick-prev {
+      left: rem(-32);
+    }
+
+    .slick-next {
+      right: rem(-32);
+    }
+
+    .slick-track {
+      display: flex;
+      align-items: center; // center pictures vertically
+    }
+  }
+
+  // * Thumbnails
+  // ===========================================================================
+
+  .slick--skin--asnavfor {
+
+    position: relative;
+    margin-top: rem($gap-vert);
+    overflow: hidden; // hide slides overflow when sliding
+
+    // -- arrows
+
+    .slick-arrow {
+      //
+    }
+
+    .slick-prev {
+      //
+    }
+
+    .slick-next {
+      //
+    }
+
+    // -- Images
+
+    .slick-list {
+      margin: 0 rem(-10);
+    }
+
+    .slide {
+      padding: 0 rem(10);
+    }
+  }
+
+}
+
+// * Colorbox
+// ===========================================================================
+
+// ** fix rendering conflicts with theme
+
+#cboxClose,
+#cboxPrevious,
+#cboxNext {
+  min-height: auto;
+  transition: none;
+}
+
+#cboxCurrent {
+  bottom: 0;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .slick--main {
+    img {
+      margin: 0 auto;
+      max-height: rem(600);
+    }
+  }
+
+}

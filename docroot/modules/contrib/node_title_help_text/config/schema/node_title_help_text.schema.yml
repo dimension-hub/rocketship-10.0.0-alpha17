@@ -1,0 +1,9 @@
+# Schema for the configuration files of the node title help module.
+
+node.type.*.third_party.node_title_help_text:
+  type: mapping
+  label: 'Title field help settings'
+  mapping:
+    title_help:
+      type: label
+      label: 'Title field help text'

@@ -1,0 +1,9 @@
+layout_builder.section.third_party.layout_builder_lock:
+  type: mapping
+  mapping:
+    lock:
+      label: 'Lock settings'
+      type: sequence
+      sequence:
+        type: integer
+        label: 'Lock value'

@@ -1,0 +1,99 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event page form: present in Panel footer or bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.node--event {
+
+  // ** webform container
+
+  .block--provider-webform {
+    //
+  }
+
+  // ** text next or above button
+
+  .form-type--processed-text {
+
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .node--event {
+
+    .block--provider-webform {
+      //
+    }
+
+    .webform-submission-event-subscription-form {
+
+      // groups and fields go here
+
+      // text
+
+      .form-type--processed-text {
+        //
+      }
+
+      // button
+      .form-actions {
+        //
+      }
+
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .node--event {
+
+    .block--provider-webform {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .node--event {
+
+    .block--provider-webform {
+      //
+    }
+
+  }
+
+}

@@ -1,0 +1,67 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.overview--job-overview .block--provider-facets .item-list__checkbox,
+.overview--job-overview .block--provider-facets .item-list__radio,
+.overview--job-overview .block--provider-facets .item-list__radiobutton {
+  cursor: pointer;
+}
+
+.overview--job-overview .block--search-redirect-block h2 {
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.9375rem 0;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  color: #303030;
+}
+
+.overview--job-overview .block--search-redirect-block h2 a,
+.overview--job-overview .block--search-redirect-block h2 a:visited {
+  text-decoration: none;
+  color: #de0055;
+}
+
+.overview--job-overview .block--search-redirect-block h2 a:hover {
+  text-decoration: underline;
+  color: #de0055;
+}
+
+@media (max-width: 767px) {
+  .overview--job-overview .block--provider-facets h2 {
+    cursor: pointer;
+  }
+  .overview--job-overview .block--provider-facets.block--facet-blockjob-category [class*="facets-widget-"] {
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .overview--job-overview .block--provider-facets .facet-item,
+  .overview--job-overview .block--provider-facets .form__dropdown {
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .overview--job-overview .block--provider-facets.js-open .facet-item,
+  .overview--job-overview .block--provider-facets.js-open .form__dropdown {
+    max-height: 6.25rem;
+  }
+}
+
+.job__header--full {
+  position: relative;
+}
+
+.job__header--full .field--image .media,
+.job__header--full .field--name-field-media-canonical-image .media {
+  position: static;
+}
+
+.job__header--full .layout__subregion-01 {
+  position: relative;
+}

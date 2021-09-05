@@ -1,0 +1,47 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.event__bar--full {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .event__bar--full {
+    top: 0;
+  }
+  .event__bar--full.js-sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 910;
+    transition: top 0.3s ease-in-out;
+  }
+  .toolbar-fixed.toolbar-horizontal .event__bar--full.js-sticky {
+    top: 4.9375rem;
+  }
+}
+
+.event__top--full .layout__subregion-02 {
+  position: relative;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.event__top--full {
+  position: relative;
+}
+
+.event__top--full .field--image .media,
+.event__top--full .field--name-field-media-canonical-image .media {
+  position: static;
+}
+
+.event__top--full .layout__subregion-01 {
+  position: relative;
+}

@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job meta on full page: bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.job__footer--full {
+  //
+
+  // ** included fields
+
+  .field--name-field-job-property-one,
+  .field--name-field-job-category {
+    //
+  }
+
+  // ** lists of links
+
+  .field__items {
+    //
+
+  }
+
+  // ** location
+
+  .field--name-field-job-property-one {
+    //
+  }
+
+  // ** business area
+
+  .field--name-field-job-category {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .job__footer--full {
+
+    //
+
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .job__footer--full {
+
+    //
+
+  }
+
+}

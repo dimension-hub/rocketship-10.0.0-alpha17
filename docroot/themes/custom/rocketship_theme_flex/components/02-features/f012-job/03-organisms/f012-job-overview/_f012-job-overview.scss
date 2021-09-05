@@ -1,0 +1,169 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * jobs main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** The paragraph
+
+.overview--job-overview {
+  //
+}
+
+// ** The block for the view itself
+
+.view--display-job-overview-block {
+
+  // ** count
+
+  .view__header {
+    font-weight: $font-weight-bold;
+    margin-bottom: rem($gap-vert);
+    //color: $color-spot-1;
+  }
+
+  // ** grid
+
+  .view__content {
+    margin-top: rem(-$grid-gap-hor);
+  }
+
+  .job--teaser {
+    margin-top: rem($grid-gap-hor);
+    overflow: hidden; // fix margins not collapsing
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // ** The paragraph
+
+  .overview--job-overview {
+
+    // ** job BASIC
+
+    // content without sidebar
+    .paragraph__content:first-child {
+
+      .job--teaser {
+        @include flex-col(6);
+      }
+    }
+
+    // ** job ADVANCED
+
+    // -- content with sidebar
+    .paragraph__sidebar + .paragraph__content {
+
+      .job--teaser {
+        @include flex-col(12);
+      }
+
+    }
+  }
+
+  // ** The block for the view itself
+
+  .view--display-job-overview-block {
+
+    // ** set up the grid wrapper
+
+    .view__content {
+      @include flex-grid();
+    }
+
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .overview--job-overview {
+
+    // -- overview paragraph cols
+    .paragraph__cols {
+      @include flex-grid();
+      margin-top: 0;
+    }
+
+    // ** job BASIC
+    //    no sidebar
+
+    // content without sidebar
+    .paragraph__content:first-child {
+      @include flex-col(12);
+      margin-top: 0;
+
+      // 3 columns
+      .job--teaser {
+        @include flex-col(4);
+      }
+    }
+
+    // ** job ADVANCED
+    //    we get a column for the filters
+    //    so the structure of the overview changes a bit
+
+    // -- overview sidebar column
+    .paragraph__sidebar {
+      padding-right: rem(20);
+      @include flex-col(4);
+      margin-top: 0;
+    }
+
+    // -- content with sidebar
+    .paragraph__sidebar + .paragraph__content {
+      @include flex-col(8);
+      margin-top: 0;
+
+      .job--teaser {
+        @include flex-col(12);
+      }
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .overview--job-overview {
+
+    // ** job ADVANCED
+    //    we get a column for the filters
+    //    so the structure of the overview changes a bit
+
+    // -- overview sidebar column
+    .paragraph__sidebar {
+      padding-right: 0;
+      @include flex-col(3);
+      margin-top: 0;
+    }
+
+    // -- overview content column
+    .paragraph__sidebar + .paragraph__content {
+      @include flex-col(8);
+      @include flex-col-push(1);
+      margin-top: 0;
+    }
+
+  }
+
+}

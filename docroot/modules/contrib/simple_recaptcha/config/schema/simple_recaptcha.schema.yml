@@ -1,0 +1,28 @@
+simple_recaptcha.config:
+  type: config_object
+  label: 'Simple reCAPTCHA config'
+  mapping:
+    form_ids:
+      type: text
+      label: 'Form IDs'
+    site_key:
+      type: text
+      label: 'Site key'
+    secret_key:
+      type: text
+      label: 'Secret key'
+    site_key_v3:
+      type: text
+      label: 'Secret key'
+    secret_key_v3:
+      type: text
+      label: 'Secret key v3'
+    recaptcha_type:
+      type: text
+      label: 'reCAPTCHA type'
+    v3_score:
+      type: integer
+      label: 'Desired v3 score'
+    recaptcha_use_globally:
+      type: boolean
+      label: 'Use reCAPTCHA globally'

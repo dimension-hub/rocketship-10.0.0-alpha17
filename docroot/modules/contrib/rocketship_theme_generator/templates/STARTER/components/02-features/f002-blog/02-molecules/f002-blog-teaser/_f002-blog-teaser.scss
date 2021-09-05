@@ -1,0 +1,156 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.blog--teaser {
+
+  // ** visual
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    // margin-bottom: rem($gap-vert-sm);
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    // @include h3;
+  }
+
+  // ** date/author
+
+  .layout__subregion {
+    // display: flex;
+    // margin-top: rem(-5);
+    // margin-bottom: rem($gap-vert-sm);
+  }
+
+  .field--name-uid {
+    // margin-left: rem(10);
+  }
+
+  // ** read more
+
+  .rs-canonical-link-formatter {
+    // margin-top: rem($gap-vert-sm);
+
+    a {
+      // @include link-more;
+    }
+  }
+
+  .field--name-field-blog-tags {
+
+    //** make inline list by default
+
+    .field__items {
+      display: flex;
+      flex-wrap: wrap;
+      margin: rem(-5) rem(-2) 0 rem(-2);
+    }
+
+    .field__item {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      margin: rem(5) rem(2) 0 rem(2);
+
+      &::after {
+        content: ", ";
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+        }
+      }
+    }
+
+    .field__item::before,
+    .field__item::after,
+    a {
+      // @include font-size(10, 14);
+      // text-transform: uppercase;
+    }
+
+    a {
+      // @include link-underline((color: $color-base, color-hover: $color-spot-1, inverse: true));
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .blog--teaser {
+
+    // display: flex; // needed to stretch the content
+
+    // .node__content {
+    //   display: flex; // needed to stretch some of the content
+    //   flex-direction: column;
+    //   width: 100% // IE
+    // }
+
+    // .layout--rs-header {
+    //   flex: 0 0 auto; // IE: prevent auto stretching
+    // }
+
+    // // ** grouping the readme + tags & pushing to the bottom
+
+    // .layout--rs-footer {
+    //   // needed to manipulate content with flex
+    //   display: flex;
+    //   flex-grow: 1;
+    //   align-items: flex-end;
+    //   align-content: flex-end;
+
+    //   // needed to manipulate content with flex
+    //   > .layout__region--type-footer {
+    //     display: flex;
+    //     flex: 0 1 100%; // stretch width
+    //     width: 100%; // IE
+    //   }
+
+    //   // push the readmore & tags to the end
+    //   .block {
+    //     display: flex;
+    //     align-items: flex-end;
+    //   }
+    // }
+
+    .field--image,
+    .field--name-field-media-canonical-image {
+      // margin-bottom: rem($gap-vert);
+    }
+
+    .field--name-node-author {
+      // margin-left: rem(20);
+    }
+
+    .field--name-node-link {
+      // margin-top: rem($gap-vert-sm);
+    }
+
+    .block--field-blocknodeblogfield-blog-tags {
+      // flex-grow: 1;
+      // justify-content: flex-end;
+      // margin-top: rem($gap-vert-sm);
+      // padding-left: rem(20);
+    }
+
+  }
+
+}

@@ -1,0 +1,6 @@
+services:
+  plugin.commands:
+    class: Drupal\plugin\Commands\PluginCommands
+    tags:
+      - { name: drush.command }
+    arguments: ['@plugin.plugin_type_manager']

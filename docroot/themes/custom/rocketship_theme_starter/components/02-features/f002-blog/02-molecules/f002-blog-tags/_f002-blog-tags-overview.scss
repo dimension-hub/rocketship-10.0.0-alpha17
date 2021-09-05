@@ -1,0 +1,61 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog tags on top over overview page
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** make inline list by default
+
+.block--facet-blocktags {
+  //
+}
+
+.item-list__blog_links {
+  //
+
+  .facet-item {
+    //
+  }
+
+  a {
+    //
+  }
+
+  // can be used as an icon for active state
+  // but usually not needed, so we hide it
+  .blog-facet-item__status {
+    display: none;
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .block--facet-blocktags {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .block--facet-blocktags {
+    //
+  }
+
+}

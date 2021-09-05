@@ -1,0 +1,14 @@
+{
+  "name": "drupal/field_limiter",
+  "type": "drupal-module",
+  "description": "Limit the number of field values rendered by a formatter.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/field_limiter",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/field_limiter",
+    "source": "http://cgit.drupalcode.org/field_limiter"
+  },
+  "require": { }
+}

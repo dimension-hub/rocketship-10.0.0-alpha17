@@ -1,0 +1,225 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Block: Related items
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.block--type-cb-related-items {
+
+  .field__item--name-field-cb-related-items {
+    margin-bottom: rem($cb-gap-vert);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    // ** image
+
+    .field--image,
+    .field--name-field-media-canonical-image {
+      margin-bottom: rem($cb-gap-vert-sm);
+    }
+
+    // ** item title
+
+    h2,
+    h3,
+    h4 {
+      @include h4;
+      margin-bottom: rem($cb-gap-vert-sm);
+
+      a {
+        &,
+        &:visited {
+          color: $color-heading;
+        }
+
+        &:hover,
+        &:active {
+          color: $color-link;
+        }
+      }
+    }
+
+    // ** item description
+
+    .field--name-field-description {
+
+      margin-bottom: rem($gap-vert);
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // ** if there is a readmore link
+
+    .field--name-node-link {
+      margin-top: rem($cb-gap-vert-sm);
+      a {
+        @include link-more;
+      }
+    }
+
+  }
+
+  @if ($structuralOnly == false) {
+
+    // ** keep same colors when on colored bg's
+    //    because the items are wrapped in colored blocks
+    .layout--bg--spot-1 &,
+    .layout--bg--spot-2 &,
+    .layout--bg--spot-3 & {
+
+      .field__item--name-field-cb-related-items {
+
+        h2,
+        h3,
+        h4 {
+
+          color: $color-white;
+
+          a {
+            &,
+            &:visited {
+              color: $color-white;
+            }
+
+            &:hover,
+            &:active {
+              color: $color-white;
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .block--type-cb-related-items {
+
+    .field--name-field-cb-related-items {
+
+      & > .field__items {
+        @include flex-grid(12, $gap-related);
+      }
+    }
+
+    .field__item--name-field-cb-related-items {
+      @include flex-col(6, 12, $gap-related);
+      display: flex;
+      margin-bottom: 0;
+
+      // ** push readmore link to the end
+
+      .node,
+      .node__content {
+        display: flex;
+        width: 100%;
+      }
+
+      .node__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .field--name-field-page-display-canonical:last-child {
+        display: flex;
+        flex-grow: 1;
+        align-items: flex-end;
+      }
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .block--type-cb-related-items {
+
+    .field__item--name-field-cb-related-items {
+      flex-basis: calc(#{100% / 3} - #{rem($gap-related)});
+      width: calc(#{100% / 3} - #{rem($gap-related)});
+    }
+
+    // ** 2 col layout override
+
+    .layout--2-col & {
+
+      .field__item--name-field-cb-related-items {
+        flex-basis: calc(#{100%} - #{rem($gap-related)});
+        width: calc(#{100%} - #{rem($gap-related)});
+
+      }
+
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .block--type-cb-related-items {
+    //
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .block--type-cb-related-items {
+
+    .field__item--name-field-cb-related-items {
+      flex-basis: calc(#{100% / 4} - #{rem($gap-related)});
+      width: calc(#{100% / 4} - #{rem($gap-related)});
+    }
+
+    .layout--2-col & {
+
+      .field__item--name-field-cb-related-items {
+        flex-basis: calc(#{100% / 2} - #{rem($gap-related)});
+        width: calc(#{100% / 2} - #{rem($gap-related)});
+      }
+    }
+
+    // ** small cols layout override
+
+    .layout__region--size-1-3 &,
+    .layout__region--size-1-4 & {
+
+      .field-cb-menu-overview__item {
+        flex-basis: calc(#{100%} - #{rem($gap-related)});
+        width: calc(#{100%} - #{rem($gap-related)});
+      }
+    }
+
+  }
+
+}

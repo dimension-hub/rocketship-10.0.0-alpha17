@@ -1,0 +1,9 @@
+# Note: this permission would probably make more sense to be renamed to
+# 'manage lock settings on default' but this is historical and I didn't
+# want to break existing installations.
+manage lock settings on sections:
+  title: 'Manage lock settings on default display'
+manage lock settings on overrides:
+  title: 'Manage lock settings on overrides'
+bypass lock settings on layout overrides:
+  title: 'Bypass lock settings on layout overrides'

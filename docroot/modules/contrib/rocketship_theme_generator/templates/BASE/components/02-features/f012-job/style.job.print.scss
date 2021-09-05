@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Print css: job
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// breakpoint markers already set in theme css
+$set-breakpoints: false;
+
+@import "../../00-theme/00-base/_libs.scss";
+@import "../../00-theme/00-base/00-config/**/*.scss";
+@import "../../00-theme/00-base/01-helpers/**/*.scss";
+
+// enable this one, if you want to use Fontawesome variables (icons)
+@import "../../00-theme/00-base/04-vendors/fontawesome/_variables.scss";
+
+@import "00-base/**/*.scss";
+
+@media print {
+
+  // overview
+  // =============================================================================
+
+  .view--job-overview {
+    .block--provider-facets {
+      display: none !important;
+    }
+  }
+
+  // detail
+  // =============================================================================
+
+  .job--header {
+    text-align: center;
+  }
+
+  .job--header .node__meta--full {
+    display: block !important;
+  }
+
+  .note__meta--job-full--top {
+
+    .field--name-field-job-tags {
+
+      display: block;
+      width: 100%;
+
+      .field__items {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      .field__item {
+        display: inline-block;
+      }
+    }
+  }
+
+}

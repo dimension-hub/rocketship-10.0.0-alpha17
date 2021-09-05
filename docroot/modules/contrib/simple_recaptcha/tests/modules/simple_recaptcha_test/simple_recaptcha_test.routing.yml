@@ -1,0 +1,7 @@
+simple_recaptcha_test.simple_recaptcha_test_form:
+  path: '/simple_recaptcha_test/form'
+  defaults:
+    _form: 'Drupal\simple_recaptcha_test\Form\SimpleRecaptchaTestForm'
+    _title: 'Simple reCAPTCHA test form'
+  requirements:
+    _access: 'TRUE'

@@ -1,0 +1,7 @@
+config_import_locale.settings:
+  path: '/admin/config/regional/translate/config-import-settings'
+  defaults:
+    _form: 'Drupal\config_import_locale\Form\ConfigImportSettingsForm'
+    _title: 'Config import translation settings'
+  requirements:
+    _permission: 'administer config import locale'

@@ -1,0 +1,12 @@
+name: Configuration Rewrite Test
+type: module
+description: 'Support module for Configuration Rewrite testing. Provides a content type.'
+core_version_requirement: ^8.7.7 || ^9
+package: Testing
+dependencies:
+ - node
+ - language
+# Information added by Drupal.org packaging script on 2021-01-27
+version: '8.x-1.4'
+project: 'config_rewrite'
+datestamp: 1611769144

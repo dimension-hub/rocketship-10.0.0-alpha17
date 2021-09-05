@@ -1,0 +1,114 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office page form: present in Panel footer or bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.office--full {
+
+  // ** space before webform
+  .layout--rs-content {
+    //
+  }
+
+  // ** webform container
+
+  .field--name-field-office-show-contact-form {
+    //
+  }
+
+  // the form itself
+  .webform-submission-office-contact-form {
+
+    // grouping form submit & other fields
+    .form-actions {
+      //
+    }
+  }
+
+  // -- captcha
+  .captcha {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    // ** space before webform
+    .layout--rs-content {
+      //
+    }
+
+    .field--name-field-office-show-contact-form {
+      //
+    }
+
+    .webform-submission-office-contact-form {
+      //
+
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    // ** space before webform
+    .layout--rs-content {
+      //
+    }
+
+    .field--name-field-office-show-contact-form {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    // ** space before webform
+    .layout--rs-content {
+      //
+    }
+
+    .field--name-field-office-show-contact-form {
+      //
+    }
+
+  }
+
+}

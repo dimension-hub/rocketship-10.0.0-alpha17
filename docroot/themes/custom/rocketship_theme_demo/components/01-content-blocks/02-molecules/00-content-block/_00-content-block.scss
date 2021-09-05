@@ -1,0 +1,430 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Content Blocks
+// *
+// * General styling for content blocks (whitespaces, general fields, ...)
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Generic styles & fields
+// =============================================================================
+
+.content-block {
+
+  position: relative;
+
+  // by default, we accept that blocks in a col will flow in a column
+  // space between the blocks mirrors == the minimal layout spacing option on layouts
+  margin-top: rem($cb-gap-vert-minimal);
+
+  // reset on first block (so it doesn't add to the layout bottom space)
+  &:first-child {
+    margin-top: 0;
+  }
+
+  // -- some resets for fields as lists
+  .field__items {
+    @include list-reset;
+  }
+
+  .field__item {
+    @include list-reset;
+  }
+
+  // alignment from a view mode (layout class on the block)
+  // can be overridden by CKE for individual parts of the text in a field that has CKEditor
+  // if a CKE text field is added
+  // Exception applies for centered layout
+  //
+
+  .field {
+    .text-align-centered {
+      text-align: center;
+    }
+
+    .text-align-right {
+      text-align: right;
+    }
+
+    .text-align-justify {
+      text-align: justify;
+    }
+  }
+
+  // -- Body text
+
+  .field--type-text-long,
+  .text-long {
+    > p,
+    > ul,
+    > ol {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @if ($structuralOnly == false) {
+
+    //
+
+  } @else {
+
+    .field img {
+      display: block;
+      margin: 0;
+    }
+
+  }
+
+  // needs better class name, but this is one that is inside b016
+  .info-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+}
+
+// ** recurring elements
+
+.field--name-field-cb-title {
+  h2,
+  h3 {
+    @include font-size($h2-size, $h2-line);
+    margin-bottom: rem($cb-gap-title-vert);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.field--name-field-cb-subtitle {
+  h3,
+  h4 {
+    @include font-size($h3-size, $h3-line);
+    margin-bottom: rem($cb-gap-subtitle-vert);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.field--name-field-cb-teaser {
+  margin-bottom: rem($cb-gap-teaser-vert);
+  font-weight: normal;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// space between field teaser or title or subtitle & fields after that
+// Note: by default this is the same space as the vertical space between blocks in 1 col layout,
+//       and the same space as 'minimal' vertical padding you can set on Layouts
+// .field--name-field-cb-title + .field:not(.field--name-field-cb-subtitle):not(.field--name-field-cb-teaser):not(.field--name-field-cb-button),
+.field--name-field-cb-subtitle + .field:not(.field--name-field-cb-teaser):not(.field--name-field-cb-button),
+.field--name-field-cb-teaser + .field:not(.field--name-field-cb-button) {
+  margin-top: rem($cb-gap-teaser-wide);
+}
+
+// -- Buttons
+
+.field--name-field-cb-button {
+
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: rem($cb-gap-buttons-vert - $cb-gap-button-vert);
+  text-align: left;
+
+  .button {
+    margin: rem($cb-gap-button-vert) rem($cb-gap-button-hor) 0 0;
+
+    @if ($structuralOnly == false) {
+
+      @include button-primary;
+
+      // -- make the other buttons look different
+
+      &:nth-child(n+2) {
+        @include button-secondary;
+      }
+
+      // -- more Examples:
+      //
+      //// 2nd button
+      //&:nth-child(2) {
+      //  @include button-secondary();
+      //}
+      //
+      //// 3rd button and all buttons after that
+      //&:nth-child(n+3) a {
+      //
+      //}
+    }
+  }
+
+}
+
+
+// * Backgrounds set on blocks
+// =============================================================================
+
+// ** eg. if has background or background-color, there should be padding
+//        as we have on a testimonial block for example
+
+// ***************************************************************************
+// Add your paragraph specific backgrounds here for the block content
+// See example below.
+// ***************************************************************************
+
+// ** background for content of a block (eg. Testimonial)
+//    you can use these to override stuff based on background-color changes as well
+//    eg. different button colors.
+
+// -- Grey box on a colored layout => make sure the box stays grey
+
+.cb--boxed > .cb-content,
+.content-bg--grey > .cb-content,
+.layout--bg--spot-1 .cb--boxed > .cb-content,
+.layout--bg--spot-2 .cb--boxed > .cb-content,
+.layout--bg--spot-1 .content-bg--grey > .cb-content,
+.layout--bg--spot-2 .content-bg--grey > .cb-content {
+
+  @if ($structuralOnly == false) {
+
+    color: $color-base; // override stuff set by the general bg-color class
+    background-color: $color-gray-light-1;
+
+    a {
+      &,
+      &:visited {
+        border-bottom: 1px solid rgba($color-link, 0);
+        color: $color-link;
+      }
+
+      &:hover,
+      &:active {
+        border-bottom: 1px solid rgba($color-link, 1);
+        color: $color-link;
+      }
+    }
+
+    .field--type-text-long,
+    .text-long {
+      &::before {
+        color: $color-base;
+      }
+    }
+
+    // CKE links
+    .text-long a:not(.button):not(.cke-button):not(.cke-button--secondary) {
+      @include link-underline((
+        color: $color-text-link,
+        color-hover: $color-text-link-hover,
+        color-active: $color-text-link-active
+      ));
+    }
+
+    .field--name-field-blog-tags,
+    .field--name-node-title,
+    .field--name-node-link,
+    .field--name-field-cb-link {
+      color: $color-base;
+
+      a {
+        &,
+        &:visited,
+        &:hover,
+        &:active {
+          color: $color-link;
+        }
+      }
+    }
+
+  }
+
+  // if background of the content
+  // need spacing
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: rem($cb-gap-content-hor);
+  padding-right: rem($cb-gap-content-hor);
+  padding-bottom: rem($cb-gap-content-vert);
+}
+
+// -- box with a specific bg color
+
+@if ($structuralOnly == false) {
+
+  // ** here we change the colors when main 3 colors are in use
+  //    change this as you see fit, or use as an example
+  //
+  // -- Grey box on a grey layout => change the box colors
+  // -- colored box on any layout => make sure the box colors stick
+
+  .layout--bg--grey .cb--boxed,
+  .layout--content-blocks .content-bg--spot-1,
+  .layout--content-blocks .content-bg--spot-2,
+  .layout--content-blocks .content-bg--spot-3 {
+
+    & > .cb-content {
+      color: $color-white;
+      background-color: $color-spot-1;
+
+      a {
+        &,
+        &:visited {
+          border-bottom: 1px solid rgba($color-white, 0);
+          color: $color-white;
+        }
+
+        &:hover,
+        &:active {
+          border-bottom: 1px solid rgba($color-white, 1);
+          color: $color-white;
+        }
+      }
+
+      // quote mark
+      .field--type-text-long,
+      .text-long {
+        &::before {
+          color: $color-white;
+        }
+      }
+
+      // CKE links
+      .text-long a:not(.button):not(.cke-button):not(.cke-button--secondary) {
+        @include link-underline((
+          color: $color-white,
+          color-hover: $color-white,
+          color-active: $color-white
+        ));
+      }
+
+      .field--name-field-blog-tags,
+      .field--name-node-title,
+      .field--name-node-link,
+      .field--name-field-cb-link {
+        color: $color-white;
+
+        a {
+          &,
+          &:visited,
+          &:hover,
+          &:active {
+            color: $color-white;
+          }
+        }
+      }
+    }
+  }
+
+  // ** this is for individual colors
+
+  .layout--content-blocks .content-bg--white > .cb-content {
+    background-color: $color-white;
+  }
+
+  .layout--content-blocks .content-bg--spot-1 > .cb-content {
+    background-color: $color-spot-1;
+  }
+
+  .layout--content-blocks .content-bg--spot-2 > .cb-content {
+    background-color: $color-spot-1;
+    background-color: $color-spot-2;
+  }
+
+  // .layout--content-blocks .content-bg--spot-3 > .cb-content {
+  //     background-color: $color-spot-3;
+  //}
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // * Spacing between blocks in a column
+  // =============================================================================
+
+  // by default, we accept that blocks in a col will flow in a column
+
+  .content-block {
+
+    // space between the blocks mirrors == the minimal layout spacing option on layouts
+    margin-top: rem($cb-gap-vert-minimal);
+
+    // reset on last block (so it doesn't add to the layout bottom space)
+    &.first-child,
+    &:first-child {
+      margin-top: 0;
+    }
+    // }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // * Spacing between blocks in a column
+  // =============================================================================
+
+  // by default, we accept that blocks in a col will flow in a column
+
+  .content-block {
+
+    // space between the blocks mirrors == the minimal layout spacing option on layouts
+    margin-top: rem($cb-gap-vert-minimal);
+
+    // reset on last block (so it doesn't add to the layout bottom space)
+    &.first-child,
+    &:first-child {
+      margin-top: 0;
+    }
+    // }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // * Spacing between blocks in a column
+  // =============================================================================
+
+  // by default, we accept that blocks in a col will flow in a column
+
+  .content-block {
+
+    // space between the blocks mirrors == the minimal layout spacing option on layouts
+    margin-top: rem($cb-gap-vert-minimal);
+
+    // reset on last block (so it doesn't add to the layout bottom space)
+    &.first-child,
+    &:first-child {
+      margin-top: 0;
+    }
+    // }
+  }
+
+}
+

@@ -1,0 +1,88 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Variables: basic colors
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// ** Palette
+// =============================================================================
+
+$color-spot-1:              #10bfff !default; // Bright blue
+$color-spot-2:              #de0055 !default; // Red
+
+$color-black:                #000;
+$color-white:                #fff;
+
+$color-off-white:            #f3f3f3;
+
+$color-gray-light-1:         #e5e5e5;
+$color-gray-light-2:         #d1d1d1;
+$color-gray-light-3:         #a2a2a2;
+$color-gray:                 #707070;
+
+
+// ** Main
+// =============================================================================
+
+$color-base:                #303030;
+$color-base-bg:             $color-white;
+
+$color-heading:             $color-base;
+
+// -- default link tag colors
+$color-link:                $color-spot-2 !default;
+$color-link-hover:          $color-spot-1;
+$color-link-active:         $color-spot-1 !default;
+
+$color-button:              $color-white;
+$color-button-bg:           $color-spot-1;
+$color-button-hover:        $color-white;
+$color-button-hover-bg:     $color-spot-2;
+
+$color-border:              $color-gray-light-2;
+
+
+// * Regions
+// =============================================================================
+
+$color-nav-submenu:           $color-off-white;
+
+
+// ** Tabs
+// =============================================================================
+
+$color-tabs-background:     #545454;
+$color-tab-text:            $color-white;
+$color-tab-bg:              $color-gray-light-1;
+$color-tab-bg-hover:        $color-link;
+$color-tab-bg-active:       $color-link;
+$color-tab-bg-active-2:     $color-white;
+
+
+// * Alerts
+// =============================================================================
+$color-error:             #e74c3c;
+$color-error-dark:        #c0392b;
+$color-status:            #3fc380;
+$color-status-dark:       #00b16a;
+$color-warning:           #eb9532;
+$color-warning-dark:      #f2784b;
+$color-neutral:           #0074bd;
+
+
+// ** Forms
+// =============================================================================
+
+$color-placeholder:          $color-gray-light-2;
+
+$color-form:                 $color-base;
+$color-form-border:          $color-border;
+
+$color-form-inactive:        rgba($color-gray, .6); //#b5b5b5;
+$color-form-active:          $color-spot-1 !default;
+$color-form-active-border:   lighten($color-spot-1, 10);
+
+$color-form-disabled:        $color-gray-light-1;
+$color-form-disabled-bg:     $color-white;
+$color-form-disabled-border: $color-gray-light-1;

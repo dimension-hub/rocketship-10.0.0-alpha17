@@ -1,0 +1,6 @@
+layout_builder_restrictions_by_role.default_layouts:
+  title: 'Layout Builder Restrictions By Role'
+  route_name: layout_builder_restrictions_by_role.default_layouts
+  parent: layout_builder_restrictions.restriction_plugin_config_form
+  description: 'Set up the default settings for Layout Builder Restrictions By Role'
+  weight: 10

@@ -1,0 +1,120 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Product overview: related
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Styling
+// =============================================================================
+
+.field--name-field-product-related-products {
+  margin-top: rem($gap-vert-top-xs);
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+
+  @include full-bg($color-product-view-related-bg);
+
+  // ** title
+  > h2,
+  > h3 {
+    //
+  }
+
+}
+
+.field__items--name-field-product-related-products {
+  //
+}
+
+.field__item--name-field-product-related-products {
+  //
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .field--name-field-product-related-products {
+    margin-top: rem($gap-vert-top-sm);
+    padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+
+    // ** title
+    > h2,
+    > h3 {
+      //
+    }
+
+  }
+
+  .field__items--name-field-product-related-products {
+    //
+  }
+
+  .field__item--name-field-product-related-products {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .field--name-field-product-related-products {
+    margin-top: rem($gap-vert-top-md);
+    padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+
+    // ** title
+    > h2,
+    > h3 {
+      //
+    }
+
+  }
+
+  .field__items--name-field-product-related-products {
+    //
+  }
+
+  .field__item--name-field-product-related-products {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .field--name-field-product-related-products {
+    margin-top: rem($gap-vert-top-lg);
+    padding: rem($gap-vert-top-lg-2) 0 rem($gap-vert-bottom-lg-2) 0;
+
+    // ** title
+    > h2,
+    > h3 {
+      //
+    }
+
+  }
+
+  .field__items--name-field-product-related-products {
+    //
+  }
+
+  .field__item--name-field-product-related-products {
+    //
+
+  }
+
+}

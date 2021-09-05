@@ -1,0 +1,6 @@
+block_content_add_action:
+  route_name: block_content.add_page
+  title: 'Add custom block'
+  appears_on:
+    - view.rocketship_content_block_library.page_1
+  class: \Drupal\dropsolid_rocketship_profile\Plugin\Menu\LocalAction\RocketshipBlockContentAddLocalAction

@@ -1,0 +1,6 @@
+services:
+  dropsolid_rocketship_drush.commands:
+    class: Drupal\dropsolid_rocketship_drush\Commands\DropsolidRocketshipCommands
+    arguments: ['@language_manager', '@config.storage', '@file_system']
+    tags:
+      - { name: drush.command }

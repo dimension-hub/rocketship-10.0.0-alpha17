@@ -1,0 +1,21 @@
+{
+  "name": "drupal/node_keep",
+  "description": "Adds a base field to all nodes to prevent accidental deletion by unauthorized users.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/node_keep",
+  "authors": [
+    {
+      "name": "Marek tyczynski",
+      "homepage": "https://www.drupal.org/u/sandboxpl"
+    },
+    {
+      "name": "Nick Vanpraet",
+      "homepage": "https://www.drupal.org/u/grayle"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/node_keep",
+    "source": "http://git.drupal.org/project/node_keep.git"
+  },
+  "license": "GPL-2.0+"
+}

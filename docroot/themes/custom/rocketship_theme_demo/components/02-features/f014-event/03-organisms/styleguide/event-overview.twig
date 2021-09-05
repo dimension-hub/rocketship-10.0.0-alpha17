@@ -1,0 +1,84 @@
+{% embed "@rocketship-theme-demo-molecules/00-block/_block.twig" with {
+    label: label,
+    configuration: configuration,
+    bem_block_modifiers: bem_block_modifiers,
+  } %}
+
+  {% block block_content %}
+
+    {# title field #}
+    {% include "@rocketship-theme-demo-atoms/02-text/00-headings/styleguide/heading-field.twig" with {
+        label: fields.title.label,
+        label_hidden: fields.title.label_hidden,
+        field_name: fields.title.field_name,
+        field_type: fields.title.field_type,
+        bem_field_modifiers: fields.title.bem_field_modifiers,
+        bem_field_extra: fields.title.bem_field_extra,
+        attributes: fields.title.attributes,
+        heading_display: fields.title.heading_display,
+        heading_level: fields.title.heading_level,
+        heading: fields.title.heading,
+        heading_id: fields.title.heading_id,
+        heading_url: fields.title.heading_url,
+        bem_heading_block : fields.title.heading_block,
+        bem_heading_element : fields.title.heading_element,
+      }
+    %}
+    {# /End title field #}
+
+    {# overview field: TODO - turn all this into components where possible #}
+    <div class="field field--name-field-overview field--type-overview-field field--label-hidden field-overview">
+      <div class="group views-element-container">
+        <div class="view view--event-overview view--display-event-overview-front view-event-overview view-id-event-overview view-display-id-event_overview_front js-view-dom-id-1816bf75ec473bef774e808f96c6c4270c7ff92e53026b2d3d5022f755631e28">
+          <div class="view__content">
+
+            {# teaser 1 #}
+            {% include "@rocketship-theme-demo-event-molecules/styleguide/event-teaser-front.twig" with {
+              view_mode: teasers[0].view_mode,
+              isPromoted: teasers[0].isPromoted,
+              isSticky: teasers[0].isSticky,
+              bundle: teasers[0].bundle,
+              layouts: teasers[0].layouts,
+              fields: teasers[0].fields,
+            } %}
+
+            {# teaser 2 #}
+            {% include "@rocketship-theme-demo-event-molecules/styleguide/event-teaser-front.twig" with {
+              view_mode: teasers[1].view_mode,
+              isPromoted: teasers[1].isPromoted,
+              isSticky: teasers[1].isSticky,
+              bundle: teasers[1].bundle,
+              layouts: teasers[1].layouts,
+              fields: teasers[1].fields,
+            } %}
+
+            {# teaser 3 #}
+            {% include "@rocketship-theme-demo-event-molecules/styleguide/event-teaser-front.twig" with {
+              view_mode: teasers[2].view_mode,
+              isPromoted: teasers[2].isPromoted,
+              isSticky: teasers[2].isSticky,
+              bundle: teasers[2].bundle,
+              layouts: teasers[2].layouts,
+              fields: teasers[2].fields,
+            } %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {# /End overview field #}
+
+    {# link field #}
+    {% include "@rocketship-theme-demo-atoms/01-links/00-link/styleguide/link-field.twig" with {
+      bem_field_modifiers: fields.link.bem_field_modifiers,
+      bem_field_extra: fields.link.bem_field_extra,
+      field_name: fields.link.field_name,
+      field_type: fields.link.field_type,
+      link_content: fields.link.link_content,
+      link_url: fields.link.link_url,
+    } %}
+    {# /End link field #}
+
+  {% endblock %}
+
+{% endembed %}

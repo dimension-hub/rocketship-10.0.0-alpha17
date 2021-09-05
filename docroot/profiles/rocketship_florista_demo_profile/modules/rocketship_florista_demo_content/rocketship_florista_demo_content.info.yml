@@ -1,0 +1,17 @@
+name: rocketship_florista_demo_content
+type: module
+core_version_requirement: '^8.8 || ^9'
+package: Rocketship
+dependencies:
+  - migrate_source_csv:migrate_source_csv
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+  - rocketship_core:rocketship_core
+  - rocketship_core:rocketship_page
+  - rocketship_core:rocketship_blocks
+  - rocketship_core:rocketship_social_widgets
+
+# Information added by Drupal.org packaging script on 2021-08-24
+version: '1.0.0-alpha7'
+project: 'rocketship_florista_demo_profile'
+datestamp: 1629799635

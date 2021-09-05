@@ -1,0 +1,63 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.view--display-event-overview-block,
+.view--display-event-archive-block {
+
+  .view__content {
+    margin-top: rem(-$grid-gap-hor);
+  }
+
+  .event--teaser {
+    margin-top: rem($grid-gap-hor);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-event-overview-block,
+  .view--display-event-archive-block {
+
+    // ** make a grid
+
+    .view__content {
+
+      @include flex-grid();
+    }
+
+    .event--teaser {
+      @include flex-col(6);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--display-event-overview-block,
+  .view--display-event-archive-block {
+
+    .event--teaser {
+      @include flex-col(4);
+    }
+  }
+
+}

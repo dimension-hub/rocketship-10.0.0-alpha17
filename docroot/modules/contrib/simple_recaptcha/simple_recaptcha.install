@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Installation hooks for simple_recaptcha module.
+ */
+
+/**
+ * Update module configuration and and populate values for new settings.
+ */
+function simple_recaptcha_update_8001(&$sandbox) {
+  \Drupal::configFactory()->getEditable('simple_recaptcha.config')
+    ->set('recaptcha_type', 'v2')
+    ->set('v3_score', '80')
+    ->save();
+}

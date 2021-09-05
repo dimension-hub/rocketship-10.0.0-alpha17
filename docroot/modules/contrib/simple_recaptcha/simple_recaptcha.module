@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * Provides common hooks and functions for simple_google_recaptcha module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\simple_recaptcha\SimpleReCaptchaFormManager;
+
+/**
+ * Implements hook_form_alter().
+ */
+function simple_recaptcha_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Check user permissions.
+  if (\Drupal::currentUser()->hasPermission('bypass simple_recaptcha')) {
+    return;
+  }
+
+  // Find matching form id in module configuration.
+  $config = \Drupal::configFactory()->get('simple_recaptcha.config');
+  $form_ids = explode(',', $config->get('form_ids'));
+
+  // Check if this form_id is on our list.
+  if (!SimpleReCaptchaFormManager::formIdInList($form_id, $form_ids)) {
+    return;
+  }
+
+  // Attach reCaptcha markup and libraries to the form form.
+  $info = $form_state->getBuildInfo();
+  switch ($config->get('recaptcha_type')) {
+    case 'v3':
+      $settings = [
+        'v3_score' => $config->get('v3_score'),
+        'recaptcha_action' => $info['form_id'],
+      ];
+      \Drupal::service('simple_recaptcha.form_manager')->addReCaptchaInvisible($form, $info['form_id'], $settings);
+      break;
+
+    case 'v2':
+    default:
+      \Drupal::service('simple_recaptcha.form_manager')->addReCaptchaCheckbox($form, $info['form_id']);
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_help().
+ */
+function simple_recaptcha_help($route_name, RouteMatchInterface $arg) {
+  switch ($route_name) {
+    case 'help.page.simple_recaptcha':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This Drupal 8 module provides reCAPTCHA v2 integration, it is crafted to work with different caching strategies, with multiple forms displayed on the same page.') . '</p>';
+
+      // Add a link to the Drupal.org project.
+      $output .= '<p>';
+      $output .= t('Visit the <a href=":project_link">Simple Google reCaptcha project pages</a> on Drupal.org for more information.', [
+        ':project_link' => Url::fromUri('https://www.drupal.org/project/simple_recaptcha')->toString(),
+      ]);
+      $output .= '</p>';
+
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_library_info_build().
+ */
+function simple_recaptcha_library_info_build() {
+  $config = \Drupal::configFactory()->get('simple_recaptcha.config');
+
+  $libraries = [];
+  // reCAPTCHA v3 requires site key added to URL when loading it,
+  // as site key is stored in config we need to build this library dynamically.
+  $url = 'https://www.google.com/recaptcha/api.js';
+
+  // Optionally serve api.js from recaptcha.net domain (based on configuration).
+  if($config->get('recaptcha_use_globally')) {
+    $url = 'https://www.recaptcha.net/recaptcha/api.js';
+  }
+
+  // Base library for reCAPTCHA v2.
+  $libraries['recaptcha'] = [
+    'js' => [
+      $url => [
+        'type' => 'external',
+        'minified' => TRUE,
+        'attributes' => [
+          'defer' => TRUE,
+          'async' => TRUE,
+        ],
+      ],
+    ],
+  ];
+
+  // Additional library for V3 if site key is provided.
+  if ($config->get('site_key_v3')) {
+    $url .= '?render=' . $config->get('site_key_v3');
+    $libraries['recaptcha_v3'] = [
+      'js' => [
+        $url => [
+          'type' => 'external',
+          'minified' => TRUE,
+          'attributes' => [
+            'defer' => TRUE,
+            'async' => TRUE,
+          ],
+        ],
+      ],
+    ];
+  }
+
+
+  return $libraries;
+}

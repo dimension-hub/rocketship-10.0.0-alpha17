@@ -1,0 +1,209 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.event--frontpage {
+
+  // ** visual
+
+  .layout--rs-top {
+    //
+  }
+
+  // date on visual
+  .date-first-teaser {
+    padding: rem(30) rem(20);
+    margin-bottom: rem(30);
+    border-bottom: 1px solid $color-spot-1;
+    text-align: center;
+
+    .day {
+      display: block;
+      @include font-size(50, 50);
+      font-weight: bold;
+      color: $color-spot-2;
+    }
+
+    .month {
+      display: block;
+      @include font-size(26, 26);
+      text-transform: uppercase;
+      color: $color-spot-1;
+    }
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    @include h3;
+
+    a {
+      &,
+      &:visited {
+        border-bottom: 1px solid rgba($color-spot-2, 0);
+        text-decoration: none;
+        color: $color-spot-1;
+      }
+
+      &:hover,
+      &:active {
+        border-bottom: 1px solid rgba($color-spot-2, 1);
+        text-decoration: none;
+        color: $color-spot-2;
+      }
+    }
+  }
+
+  // ** date & location
+
+  .layout__subregion-01 {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: rem(5);
+    @include font-size(13, 18);
+    border-bottom: 1px solid #e2e2e2;
+  }
+
+  .date-wrapper {
+    position: relative;
+    display: flex;
+    padding: rem(0) rem(28) rem(0) rem(21);
+    margin-right: rem(16);
+    border-right: 1px solid #e2e2e2;
+
+    @include font-awesome((
+      icon: $fa-var-calendar-alt,
+      size: 14,
+      type: "light",
+      color: $color-spot-2,
+      position: absolute,
+      left: 0,
+      top: 2px
+    ));
+
+    .last-date {
+      position: relative;
+
+      @include font-awesome((
+        icon: $fa-var-long-arrow-right,
+        size: 14,
+        type: "light",
+        color: $color-spot-2,
+        margin: 0 2px
+      ));
+
+    }
+  }
+
+  .field--name-field-event-place {
+    position: relative;
+    padding: 0 0 0 rem(18);
+
+    @include font-awesome((
+      icon: $fa-var-map-pin,
+      size: 14,
+      type: "light",
+      color: $color-spot-2,
+      position: absolute,
+      left: 0,
+      top: 2px
+    ));
+
+  }
+
+  .rs-canonical-link-formatter {
+    margin-top: rem(7);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone and wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .event--frontpage {
+
+    .node__content {
+      display: flex;
+      width: 100%; // IE
+    }
+
+    .layout--rs-top {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 auto;
+      width: rem(120);
+      padding: 0;
+      border-right: 2px solid $color-spot-1;
+    }
+
+    .layout--rs-content {
+      flex: 0 0 auto;
+      width: calc(100% - #{rem(112)});
+      padding: 0 0 0 rem(30);
+    }
+
+    .date-first-teaser {
+      margin: 0;
+      padding: 0;
+      border-bottom: 0 none;
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .event--frontpage {
+
+    //
+
+    .layout--rs-top {
+      padding: 0;
+      margin-left: rem(-40);
+      width: rem(150);
+    }
+
+    .layout--rs-content {
+      padding: 0 0 0 rem(54);
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .event--frontpage {
+
+    //
+
+    .layout--rs-top {
+      //
+    }
+
+    .layout--rs-content {
+      padding: 0 0 0 rem(54);
+    }
+  }
+
+}

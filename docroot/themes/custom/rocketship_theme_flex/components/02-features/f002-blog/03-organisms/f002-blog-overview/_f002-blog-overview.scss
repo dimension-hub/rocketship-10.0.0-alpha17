@@ -1,0 +1,60 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.view-display-id-blog_overview_block {
+
+  .view__content {
+    margin-top: rem(-$grid-gap-hor);
+  }
+
+  .blog--teaser {
+    margin-top: rem($grid-gap-hor);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view-display-id-blog_overview_block {
+
+    // ** make a grid
+
+    .view__content {
+
+      @include flex-grid();
+    }
+
+    .blog--teaser {
+      @include flex-col(6);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view-display-id-blog_overview_block {
+
+    .blog--teaser {
+      @include flex-col(4);
+    }
+  }
+
+}

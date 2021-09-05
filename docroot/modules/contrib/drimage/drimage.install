@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * DrImage installation and update functions.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function drimage_install() {
+  \Drupal::configFactory()->getEditable('drimage.settings')
+    // Browser are able to scale images with a small difference nicely.
+    ->set('threshold', 200)
+    // 1° of transformation is not visible.
+    ->set('ratio_distortion', 60)
+    // Assuming a mobile device as the min.
+    ->set('upscale', 320)
+    // Assuming a HD resolution width 2x multiplier as the max.
+    ->set('downscale', 3840)
+    ->set('multiplier', 1)
+    ->set('lazy_offset', 100)
+    ->save();
+}
+
+/**
+ * Set no cache as default value for proxy_cache_maximum_age.
+ */
+function drimage_update_8006(&$sandbox) {
+  \Drupal::configFactory()->getEditable('drimage.settings')
+    ->set('proxy_cache_maximum_age', 0)
+    ->save();
+}

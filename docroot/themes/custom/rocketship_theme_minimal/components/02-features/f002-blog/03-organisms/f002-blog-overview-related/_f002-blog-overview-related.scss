@@ -1,0 +1,100 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog overview: related
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Styling
+// =============================================================================
+
+.view--related-blogs {
+
+  // ** title
+  .view__header {
+    // h2 {
+    //   margin-bottom: rem($gap-vert-bottom-xs);
+    // }
+  }
+
+
+  .view__content {
+    //
+  }
+
+  .blog--related {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--related-blogs {
+
+    // ** title
+    .view__header {
+      // h2 {
+      //   margin-bottom: rem($gap-vert-bottom-sm);
+      // }
+    }
+
+    // ** make a grid
+
+    .view__content {
+      // @include flex-grid();
+    }
+
+    .blog--related {
+      // @include flex-col(6);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--related-blogs {
+
+    // ** title
+    .view__header {
+      // h2 {
+      //   margin-bottom: rem($gap-vert-bottom-md);
+      // }
+    }
+
+    .blog--related {
+      // @include flex-col(4);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .view--related-blogs {
+
+    // ** title
+    .view__header {
+      // h2 {
+      //   margin-bottom: rem(40);
+      // }
+    }
+  }
+
+}

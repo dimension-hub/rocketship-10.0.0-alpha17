@@ -1,0 +1,242 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Office variables
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// **
+// =============================================================================
+
+// ** Styling for contact information (address, phone, mail, …)
+//
+//    SETTINGS:
+//    - display: set elements inline or under each other
+//    - icons: with or without icons before the lines
+//    - font-size & line-height: some defaults for the font
+//
+//    USAGE:
+//    @include office-contact((display: block, icons, true, font-size: $font-size-sm, line-height: $line-height-sm);
+//
+@mixin office-contact($settings: null) {
+
+  // -- set some defaults
+
+  $display-default: block;
+  $icons-default: true;
+  $font-size-default: $font-size-sm;
+  $line-height-default: $line-height-sm;
+
+  $display: null;
+  $icons: null;
+  $font-size: null;
+  $line-height: null;
+
+  // -- try to get a list of variables from $settings
+  //    or fall back to the defaults
+
+  @if ($settings != null) {
+    $display: map-get($settings, display);
+    $icons: map-get($settings, icons);
+    $font-size: map-get($settings, font-size);
+    $line-height: map-get($settings, line-height);
+  }
+
+  @if ($display == null) {
+    $display: $display-default;
+  }
+
+  @if ($icons == null) {
+    $icons: $icons-default;
+  }
+
+  @if ($font-size == null) {
+    $font-size: $font-size-default;
+  }
+
+  @if ($line-height == null) {
+    $line-height: $line-height-default;
+  }
+
+  // -- styling
+
+  // inline display
+  @if ($display == inline or $display == "inline") {
+
+    // // reset font size and line-height bc inline-block auto spacing
+    // .field,
+    // .address,
+    // .address__name,
+    // .address__lines,
+    // .address__org,
+    // .address__line1,
+    // .address__line2,
+    // .address__locality,
+    // .address__locality-line1,
+    // .address__locality-line2,
+    // .address__country {
+    //   display: inline-block;
+    //   font-size: 0;
+    //   line-height: 0;
+    // }
+
+    // // set some font sizes and spacing
+
+    // .address__org,
+    // .address__line1,
+    // .address__line2,
+    // .address__locality span,
+    // .address__locality-line2,
+    // .address__country,
+    // .field__item--type-telephone,
+    // .field--type-email {
+    //   @include font-size($font-size, $line-height);
+    // }
+
+    // .address,
+    // .field__item--type-telephone,
+    // .field--type-email {
+    //   margin-right: rem(20);
+    // }
+
+    // .address__org,
+    // .address__line1,
+    // .address__line2,
+    // .address__locality-line1,
+    // .address__locality-line2 {
+    //   margin-right: rem(4);
+
+    //   &::after {
+    //     content: ", ";
+    //   }
+    // }
+
+    // .address__locality__postal-code {
+    //   margin-right: rem(4);
+    // }
+
+    // for block display
+  } @else {
+
+    @include font-size($font-size, $line-height);
+
+    // .address {
+    //   margin-bottom: rem($gap-vert);
+    // }
+  }
+
+  .address__lines,
+  .field__item--name-field-office-phone,
+  .field__item--name-field-office-fax,
+  .field__item--name-field-office-email {
+    @if ($icons) {
+      padding-left: rem(24);
+    }
+  }
+
+  .address__locality,
+  .address__country {
+    @if ($icons and ($display == block or $display == "block")) {
+      padding-left: rem(24);
+    }
+  }
+
+  .address__lines {
+    @if ($icons) {
+      position: relative;
+
+      @include font-awesome((
+        icon: $fa-var-map-marker,
+        size: 14,
+        type: "light",
+        position: absolute,
+        left: 0,
+        top: rem(2)
+      ));
+    }
+  }
+
+  .address__locality {
+    //
+  }
+
+  .address__country {
+    //
+  }
+
+  // -- phone & fax
+
+  .field--name-field-office-phone {
+    //
+  }
+
+  .field__item--name-field-office-phone {
+    @if ($icons) {
+      position: relative;
+
+      @include font-awesome((
+        icon: $fa-var-phone,
+        size: 14,
+        type: "light",
+        position: absolute,
+        left: 0,
+        top: rem(2)
+      ));
+    }
+  }
+
+  .field__item--name-field-office-fax {
+    position: relative;
+
+    @include font-awesome((
+      icon: $fa-var-fax,
+      size: 14,
+      type: "light",
+      position: absolute,
+      left: 0,
+      top: rem(2)
+    ));
+  }
+
+  // -- mail
+
+  .field--name-field-office-email {
+    //
+  }
+
+  .field__item--name-field-office-email {
+    position: relative;
+
+    @include font-awesome((
+      icon: $fa-var-envelope,
+      size: 14,
+      type: "light",
+      position: absolute,
+      left: 0,
+      top: rem(4)
+    ));
+  }
+
+}
+
+@mixin office-hours() {
+  @include font-size($font-size-sm, $line-height-sm);
+
+  .office-hours__item {
+    padding: rem(2) rem(10);
+
+    &:nth-child(2n + 1) {
+      background-color: $color-office-hours-bg;
+    }
+  }
+
+  .office-hours__item-comments {
+    display: block;
+    margin: rem(5) 0;
+    padding: rem(2) rem(5);
+    border: 1px solid $color-neutral;
+    font-style: italic;
+    color: $color-neutral;
+  }
+}

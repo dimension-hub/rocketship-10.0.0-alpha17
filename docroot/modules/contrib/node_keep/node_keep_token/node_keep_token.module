@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * @file
+ * Contains node_keep_token.module.
+ */
+
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function node_keep_token_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the node_keep_token module.
+    case 'help.page.node_keep_token':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Extends node_keep module with a machine name and exposes protected nodes via a service and as tokens') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function node_keep_token_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+
+  // Add a custom base field for a machine name to all node types.
+  if ($entity_type->id() === 'node') {
+    $fields['keeper_machine_name'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Machine name'))
+      ->setDescription(t('Enter a unique name to generate tokens for this entity.'))
+      ->setRevisionable(TRUE)
+      ->setTranslatable(FALSE)
+      ->setRequired(FALSE)
+      ->setSettings([
+        'default_value' => '',
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'textfield',
+        'weight' => 101,
+        'settings' => [
+          'display_label' => TRUE,
+        ],
+      ])
+      ->setDisplayConfigurable('form', TRUE);
+  }
+
+  return $fields;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function node_keep_token_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $user = \Drupal::currentUser();
+  if (!isset($form['node_keeper']) || !$user->hasPermission('access node_keep widget')) {
+    $form['keeper_machine_name']['#access'] = FALSE;
+    return;
+  }
+
+  $form['keeper_machine_name']['#group'] = 'node_keep_wrap';
+  $form['keeper_machine_name']['#states'] = [
+    'visible' => [
+      [':input[name="node_keeper[value]"]' => [['checked' => TRUE]]],
+    ],
+  ];
+
+  if (!$user->hasPermission('administer node_keep_token per node')) {
+    $form['keeper_machine_name']['#disabled'] = TRUE;
+  }
+
+  $form['#validate'][] = 'node_keep_token_validate';
+}
+
+/**
+ * Validate handler.
+ */
+function node_keep_token_validate(&$form, FormStateInterface $form_state) {
+  if ($form_state->hasValue('keeper_machine_name')) {
+    $machine_name = $form_state->getValue(['keeper_machine_name', 0, 'value']);
+
+    // Make sure the machine name is safe to be used in code and tokens.
+    $matches = [];
+    preg_match('/[^a-z0-9_]+/', $machine_name, $matches);
+    if (count($matches)) {
+      $form_state->setErrorByName('keeper_machine_name', t('The machine name can only contain letters, numbers and underscore.'));
+    }
+
+    /** @var \Drupal\node_keep_token\NodeKeepTokenService $keeper_helper */
+    $keeper_helper = \Drupal::service('node_keep_token.helper');
+    $node = $keeper_helper->getProtectedNodeByMachineName($machine_name);
+
+    // Make sure the machine name is unique.
+    if ($node && $node->id() !== $form_state->getformObject()->getEntity()->id()) {
+      $form_state->setErrorByName('keeper_machine_name', t('The machine name needs to be unique.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function node_keep_token_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_BASE_FORM_ID_alter') {
+    // We have to go after content_translation.
+    $group = $implementations['node_keep_token'];
+    unset($implementations['node_keep_token']);
+    $implementations['node_keep_token'] = $group;
+  }
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function node_keep_token_token_info() {
+
+  $info = [];
+  $info['types']['node-keep'] = [
+    'name' => t('Node Keep'),
+    'description' => t('Custom tokens for nodes marked with Node Keep.'),
+  ];
+
+  /** @var \Drupal\node_keep_token\NodeKeepTokenService $keeper_helper */
+  $keeper_helper = \Drupal::service('node_keep_token.helper');
+  $nodes = $keeper_helper->getProtectedNodes();
+  foreach ($nodes as $nid => $data) {
+    $machine_name = $data['machine_name'];
+    $label = $data['label'];
+    $info['tokens']['node-keep'][$machine_name . ':id'] = [
+      'name' => t($label . ' ID'),
+      'description' => t('ID of "' . $label . '" node.'),
+    ];
+    $info['tokens']['node-keep'][$machine_name . ':url'] = [
+      'name' => t($label . ' URL'),
+      'description' => t('URL path of "' . $label . '" node.'),
+    ];
+    $info['tokens']['node-keep'][$machine_name . ':uri'] = [
+      'name' => t($label . ' URI'),
+      'description' => t('URI of "' . $label . '" node.'),
+    ];
+  }
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function node_keep_token_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  if ($type == 'node-keep') {
+    /** @var \Drupal\path_alias\AliasManager $manager */
+    $manager = \Drupal::service('path_alias.manager');
+    /** @var \Drupal\node_keep_token\NodeKeepTokenService $keeper_helper */
+    $keeper_helper = \Drupal::service('node_keep_token.helper');
+    $machine_names = $keeper_helper->getProtectedMachineNames();
+    foreach ($tokens as $name => $original) {
+      if (in_array(str_replace(':url', '', $name), array_keys($machine_names))) {
+        $base_name = str_replace(':url', '', $name);
+        $nid = $machine_names[$base_name]['id'];
+        $replacements[$original] = $manager->getAliasByPath('/node/' . $nid);
+      }
+      elseif (in_array(str_replace(':uri', '', $name), array_keys($machine_names))) {
+        $base_name = str_replace(':uri', '', $name);
+        $nid = $machine_names[$base_name]['id'];
+        $replacements[$original] = 'node/' . $nid;
+      }
+      elseif (in_array(str_replace(':id', '', $name), array_keys($machine_names))) {
+        $base_name = str_replace(':id', '', $name);
+        $replacements[$original] = $machine_names[$base_name]['id'];
+      }
+    }
+  }
+
+  return $replacements;
+}

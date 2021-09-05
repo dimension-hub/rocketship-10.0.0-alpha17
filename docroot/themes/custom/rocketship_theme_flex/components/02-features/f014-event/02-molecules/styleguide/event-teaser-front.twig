@@ -1,0 +1,159 @@
+{# for some reason, some data in Storybook embedded templates seems to be permanent
+   so we need to reset it
+   Here we're doing that for the layout templates #}
+{% set bem_section_modifier = [] %}
+{% set bem_section_extra = [] %}
+{% set modifier = false %}
+{% set bem_region_modifier = [] %}
+{% set bem_region_extra = [] %}
+
+{% embed "@rocketship-theme-flex-organisms/00-node/_node.twig" with {
+  view_mode: view_mode,
+  isPromoted: isPromoted,
+  isSticky: isSticky,
+  bundle: bundle,
+} %}
+  {% block node_content %}
+
+    {# Section: top #}
+    {% embed "@rocketship-theme-flex-templates/styleguide/section/one-col.twig" with {
+      label: layouts.top.label,
+      template: layouts.top.template,
+      layout_reset: layouts.top.layout_reset,
+      region_type: layouts.top.region_type,
+      modifier: layouts.top.modifier,
+      extra_classes: layouts.top.extra_classes,
+      settings: layouts.top.settings,
+      content: layouts.top.content,
+    } %}
+
+      {% block section_content %}
+
+        <div class="block block--provider-layout-builder block--field-blocknodeeventfield-events block-layout_builder">
+
+          {# date teaser field #}
+          {% embed "@rocketship-theme-flex-atoms/00-field/_field.twig" with {
+            field_name: fields.date_teaser.field_name,
+            field_type: fields.date_teaser.field_type,
+            bem_field_modifiers: fields.date_teaser.bem_field_modifiers,
+            bem_field_extra: fields.date_teaser.bem_field_extra,
+            attributes: fields.date_teaser.field_attributes,
+            label_display: fields.date_teaser.label_display,
+          } %}
+
+            {% block field_content %}
+              <div class="date-first-teaser">
+                <span class="day">{{fields.date_teaser.day}}</span>
+                <span class="month">{{fields.date_teaser.month}}</span>
+              </div>
+            {% endblock %}
+
+          {% endembed %}
+          {# /End date teaser field #}
+
+        </div>
+
+      {% endblock %}
+
+    {% endembed %}
+    {# // End Section: top #}
+
+
+    {# Section: content #}
+    {% embed "@rocketship-theme-flex-templates/styleguide/section/one-col.twig" with {
+      label: layouts.content.label,
+      template: layouts.content.template,
+      layout_reset: layouts.content.layout_reset,
+      region_type: layouts.content.region_type,
+      modifier: layouts.content.modifier,
+      extra_classes: layouts.content.extra_classes,
+      settings: layouts.content.settings,
+      content: layouts.content.content,
+    } %}
+
+      {% block section_content %}
+
+        {# title field #}
+        {% include "@rocketship-theme-flex-atoms/02-text/00-headings/styleguide/heading-field.twig" with {
+            label: fields.title.label,
+            label_hidden: fields.title.label_hidden,
+            field_name: fields.title.field_name,
+            field_type: fields.title.field_type,
+            bem_field_modifiers: fields.title.bem_field_modifiers,
+            bem_field_extra: fields.title.bem_field_extra,
+            attributes: fields.title.attributes,
+            heading_display: fields.title.heading_display,
+            heading_level: fields.title.heading_level,
+            heading: fields.title.heading,
+            heading_id: fields.title.heading_id,
+            heading_url: fields.title.heading_url,
+            bem_heading_block : fields.title.heading_block,
+            bem_heading_element : fields.title.heading_element,
+          }
+        %}
+        {# /End title field #}
+
+      {% endblock %}
+
+      {% block section_after01 %}
+        {# date single field #}
+        {% embed "@rocketship-theme-flex-atoms/00-field/_field.twig" with {
+          field_name: fields.date_single.field_name,
+          field_type: fields.date_single.field_type,
+          bem_field_modifiers: fields.date_single.bem_field_modifiers,
+          bem_field_extra: fields.date_single.bem_field_extra,
+          attributes: fields.date_single.field_attributes,
+          label_display: fields.date_single.label_display,
+        } %}
+
+          {% block field_content %}
+            <div class="date-wrapper single-date">{{fields.date_single.day_month}}</div>
+          {% endblock %}
+
+        {% endembed %}
+        {# /End date single field #}
+
+        {# place field #}
+        {% include "@rocketship-theme-flex-atoms/00-field/_field.twig" with {
+          field_name: fields.place.field_name,
+          field_type: fields.place.field_type,
+          bem_field_modifiers: fields.place.bem_field_modifiers,
+          bem_field_extra: fields.place.bem_field_extra,
+          attributes: fields.place.field_attributes,
+          label_display: fields.place.label_display,
+          items: fields.place.items,
+        } %}
+        {# /End place field #}
+      {% endblock %}
+
+      {% block section_after02 %}
+        {# Readmore field #}
+        {% embed "@rocketship-theme-flex-atoms/00-field/_field.twig" with {
+          label: fields.more.label,
+          label_hidden: fields.more.label_hidden,
+          field_name: fields.more.field_name,
+          field_type: fields.more.field_type,
+          bem_field_modifiers: fields.more.bem_field_modifiers,
+          bem_field_extra: fields.more.bem_field_extra,
+          attributes: fields.more.attributes,
+        } %}
+
+          {% block field_content %}
+
+            <div class="rs-canonical-link-formatter">
+              <a href="{{fields.more.href}}" aria-label="Read more about {{fields.title.label}}" hreflang="en">{{fields.more.title}}</a>
+            </div>
+
+          {% endblock %}
+
+        {% endembed %}
+        {# /End Readmore field #}
+      {% endblock %}
+
+
+    {% endembed %}
+    {# // End Section: content #}
+
+  {% endblock %}
+
+{% endembed %}

@@ -1,0 +1,156 @@
+<?php
+
+/**
+ * @file
+ * Contains http_cache_control.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\Component\Utility\UrlHelper;
+
+/**
+ * Implements hook_help().
+ */
+function http_cache_control_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the responsive_favicons module.
+    case 'help.page.http_cache_control':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t("HTTP Cache Control module helps fine tune control of Drupal's Cache Control headers.") . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function http_cache_control_form_system_performance_settings_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $config = \Drupal::service('config.factory')->get('http_cache_control.settings');
+
+  // Regardless to whether s-maxage is used or not, this control will always
+  // dictate the cache lifetime shared by proxies and sometimes browsers.
+  $form['caching']['page_cache_maximum_age']['#title'] = t('Browser cache maximum age');
+  $form['caching']['page_cache_maximum_age']['#description'] = t('The maximum time a page can be cached by browsers. This is used as the value for max-age in Cache-Control headers.');
+
+  $form['caching']['http_s_maxage'] = [
+    '#type' => 'select',
+    '#title' => t('Shared cache max age'),
+    '#default_value' => $config->get('cache.http.s_maxage'),
+    '#options' => $form['caching']['page_cache_maximum_age']['#options'],
+    '#description' => t('The maximum time a page can be cached by proxies. This is used as the value for s-maxage in Cache-Control headers.'),
+  ];
+
+  $form['caching']['404_max_age'] = [
+    '#type' => 'select',
+    '#title' => t('404 cache maximum age'),
+    '#default_value' => $config->get('cache.http.404_max_age'),
+    '#options' => $form['caching']['page_cache_maximum_age']['#options'],
+    '#description' => t('The maximum time a 404 page can be cached by proxies. Browsers will inherit the browser cache maximum age.'),
+  ];
+
+  $form['caching']['302_max_age'] = [
+    '#type' => 'select',
+    '#title' => t('302 cache maximum age'),
+    '#default_value' => $config->get('cache.http.302_max_age'),
+    '#options' => $form['caching']['page_cache_maximum_age']['#options'],
+    '#description' => t('The maximum time a 302 Temporary Redirect can be cached by proxies. Browsers will inherit the browser cache maximum age.'),
+  ];
+
+  $form['caching']['301_max_age'] = [
+    '#type' => 'select',
+    '#title' => t('301 cache maximum age'),
+    '#default_value' => $config->get('cache.http.301_max_age'),
+    '#options' => $form['caching']['page_cache_maximum_age']['#options'],
+    '#description' => t('The maximum time a 301 Permanent Redirect can be cached by proxies. Browsers will inherit the browser cache maximum age.'),
+  ];
+
+  $form['caching']['5xx_max_age'] = [
+    '#type' => 'select',
+    '#title' => t('5xx cache maximum age'),
+    '#default_value' => $config->get('cache.http.5xx_max_age'),
+    '#options' => $form['caching']['page_cache_maximum_age']['#options'],
+    '#description' => t('The maximum time a 500 level response can be cached by proxies. Note: this is subject to Drupal being able to render the response.'),
+  ];
+
+  $form['surrogate'] = [
+      '#type' => 'details',
+      '#title' => t('Surrogate Control'),
+      '#open' => FALSE,
+    ];
+
+  $form['surrogate']['surrogate_maxage'] = [
+    '#type' => 'select',
+    '#title' => t('Surrogate max age'),
+    '#default_value' => $config->get('cache.surrogate.maxage'),
+    '#options' => $form['caching']['page_cache_maximum_age']['#options'],
+    '#description' => t('The maximum time a page can be cached by surrogate proxies. This is used as the value for maxage in Surrogate-Control headers.'),
+  ];
+
+  $form['surrogate']['surrogate_store'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Surrogate no-store'),
+    '#default_value' => $config->get('cache.surrogate.nostore', FALSE),
+    '#description' => t('Used to tell a surrogate proxy to note store cache.'),
+  ];
+
+  $form['revalidation'] = [
+      '#type' => 'details',
+      '#title' => t('Revalidation'),
+      '#open' => TRUE,
+    ];
+
+  $form['revalidation']['stale_if_error'] = [
+    '#type' => 'select',
+    '#title' => t('Stale if error'),
+    '#default_value' => $config->get('cache.http.stale_if_error'),
+    '#options' => $form['caching']['page_cache_maximum_age']['#options'],
+    '#description' => t('The length of time an expired cached item may be served from cache if an error is returned from origin (Drupal).'),
+  ];
+
+  $form['revalidation']['stale_while_revalidate'] = [
+    '#type' => 'select',
+    '#title' => t('Stale while revalidate'),
+    '#default_value' => $config->get('cache.http.stale_while_revalidate'),
+    '#options' => $form['caching']['page_cache_maximum_age']['#options'],
+    '#description' => t('The length of time an expired cached item may be served from cache while a revalidation to origin (Drupal) is in progress.'),
+  ];
+
+  $form['variation'] = [
+      '#type' => 'details',
+      '#title' => t('Variation'),
+      '#open' => TRUE,
+    ];
+
+  $form['variation']['vary'] = [
+    '#type' => 'textfield',
+    '#title' => t('Header variation'),
+    '#default_value' => $config->get('cache.http.vary'),
+    '#description' => t('Comma seperated list of headers to vary cache globally.'),
+  ];
+
+  $form['#submit'][] = 'http_cache_control_form_system_performance_settings_submit';
+}
+
+/**
+ * Additional form submit handler for System Performance Settings form.
+ */
+function http_cache_control_form_system_performance_settings_submit(&$form, FormStateInterface $form_state) {
+  $config = \Drupal::service('config.factory')->getEditable('http_cache_control.settings');
+  $config
+    ->set('cache.http.s_maxage', $form_state->getValue('http_s_maxage'))
+    ->set('cache.http.404_max_age', $form_state->getValue('404_max_age'))
+    ->set('cache.http.302_max_age', $form_state->getValue('302_max_age'))
+    ->set('cache.http.301_max_age', $form_state->getValue('301_max_age'))
+    ->set('cache.http.5xx_max_age', $form_state->getValue('5xx_max_age'))
+    ->set('cache.http.stale_while_revalidate', $form_state->getValue('stale_while_revalidate'))
+    ->set('cache.http.stale_if_error', $form_state->getValue('stale_if_error'))
+    ->set('cache.http.vary', $form_state->getValue('vary'))
+    ->set('cache.surrogate.maxage', $form_state->getValue('surrogate_maxage'))
+    ->set('cache.surrogate.nostore', $form_state->getValue('surrogate_nostore'))
+    ->save();
+}

@@ -1,0 +1,5 @@
+config_rewrite:
+  replace: ["is_admin", "permissions"]
+label: "Test 5 rewritten & replaced"
+permissions:
+  - 'change own username'

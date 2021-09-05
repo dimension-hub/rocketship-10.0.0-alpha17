@@ -1,0 +1,216 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Product detail full: has its own view-mode of the news CT, with a DS template
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.product--full {
+  //
+}
+
+.product__cols--full {
+
+  // ** content
+  .layout__content__row--main {
+    //
+  }
+
+  // ** Title
+  h2 {
+    //
+  }
+
+  // ** Properties & categories: Facet filters
+
+  .field--name-field-product-category,
+  .field--name-field-product-property-one,
+  .field--name-field-product-property-two,
+  .field--name-field-product-attributes {
+
+    // label
+    h3,
+    .label-value-item-label {
+      //
+    }
+
+    // value
+    a {
+      //
+    }
+  }
+
+  // ** Product attributes
+
+  .field--name-field-product-attributes {
+
+    .field__items {
+      //
+    }
+  }
+
+  .field__item--name-field-product-attributes {
+    //
+  }
+
+  // label
+
+  .label-value-item-label {
+    display: block;
+    font-weight: $font-weight-bold;
+    margin-bottom: rem(5);
+
+    @include text-nobreak;
+  }
+
+  // value
+
+  .label-value-item-value {
+    display: inline;
+  }
+
+  // ** description
+
+  .block--field-blocknodeproductfield-product-description {
+    //
+  }
+
+  // ** Buttons
+
+  .layout__content__row--bottom {
+    //
+  }
+
+  // PDF download
+
+  .field--name-field-media-file {
+
+    .file {
+      //
+    }
+
+    .icon {
+      //
+    }
+
+    a {
+      //
+    }
+  }
+
+  // Contact button
+
+  .rs-configurable-link-formatter {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .product--full {
+    //
+  }
+
+  .product__cols--full {
+
+    // ** picture
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** product info
+
+    .layout__content {
+      //
+    }
+
+    // ** content
+    .layout__content__row--main {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .product--full {
+    //
+  }
+
+  .product__cols--full {
+
+    // ** picture
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** product info
+
+    .layout__content {
+      //
+    }
+
+    // ** content
+    .layout__content__row--main {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .product--full {
+    //
+  }
+
+  .product__cols--full {
+
+    // ** picture
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** product info
+
+    .layout__content {
+      //
+    }
+
+    // ** content
+    .layout__content__row--main {
+      //
+    }
+
+  }
+
+}

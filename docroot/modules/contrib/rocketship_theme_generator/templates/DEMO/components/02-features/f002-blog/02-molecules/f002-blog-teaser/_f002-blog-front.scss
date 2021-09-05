@@ -1,0 +1,125 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers: front
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.blog--frontpage {
+
+  // ** visual
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    margin-bottom: rem($gap-vert-sm);
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    @include h3;
+
+    a {
+      &,
+      &:visited {
+        border-bottom: 1px solid rgba($color-spot-2, 0);
+        color: $color-spot-1;
+      }
+
+      &:hover,
+      &:active {
+        border-bottom: 1px solid rgba($color-spot-2, 1);
+        text-decoration: none;
+        color: $color-spot-2;
+      }
+    }
+  }
+
+  .layout--rs-header {
+    position: relative;
+  }
+
+  // ** date
+
+  .layout__subregion {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: rem(7) rem(16) rem(6) rem(11);
+    @include font-size(20, 24);
+    color: $color-white;
+    background: $color-spot-2;
+  }
+
+  .field--name-field-description {
+    margin-bottom: rem($gap-vert-sm);
+  }
+
+  .rs-canonical-link-formatter {
+
+    a {
+      &,
+      &:visited {
+        border-bottom: 1px solid rgba($color-spot-1, 1);
+        color: $color-spot-1;
+      }
+
+      &:hover,
+      &:active {
+        border-bottom: 1px solid rgba($color-spot-1, 0);
+        color: $color-spot-2;
+      }
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone and wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .blog--frontpage {
+
+    .node__content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start; // prevent equal height
+    }
+
+    .layout--rs-header {
+      flex: 0 0 auto;
+      width: rem(170);
+      padding: 0;
+    }
+
+    .layout--rs-content {
+      flex: 0 0 auto;
+      width: calc(100% - #{rem(170)});
+      padding: 0 0 0 rem(30);
+    }
+
+    .layout--rs-footer {
+      width: 100%;
+      padding-left: calc(#{rem(170)} + #{rem(30)});
+    }
+
+    .field--image,
+    .field--name-field-media-canonical-image {
+      margin-bottom: 0;
+    }
+
+    .field--name-field-description {
+      margin-bottom: rem(10);
+    }
+
+  }
+
+}

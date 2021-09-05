@@ -1,0 +1,22 @@
+status: true
+dependencies:
+  module:
+    - imageapi_optimize_binaries
+    - imageapi_optimize_resmushit
+name: default_recompression
+label: 'default recompression'
+processors:
+  e268594d-cccb-4741-a0b2-aa8ee7d2d772:
+    uuid: e268594d-cccb-4741-a0b2-aa8ee7d2d772
+    id: resmushit
+    weight: 1
+    data:
+      quality: 90
+  15111508-66b7-4318-b6a7-d1ae2198f1e9:
+    uuid: 15111508-66b7-4318-b6a7-d1ae2198f1e9
+    id: optipng
+    weight: 2
+    data:
+      manual_executable_path: /usr/bin/optipng
+      level: 5
+      interlace: false

@@ -1,0 +1,13 @@
+{
+  "name": "drupal/dropsolid_rocketship_drush",
+  "description": "Module that contains Rocketship drush commands.",
+  "type": "drupal-module",
+  "minimum-stability": "dev",
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9 || ^10"
+      }
+    }
+  }
+}

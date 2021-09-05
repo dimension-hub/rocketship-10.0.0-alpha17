@@ -1,0 +1,143 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office address: a field with multiple lines and elements
+// *
+// * In doormat
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.office--footer {
+
+  // -- contact styling
+  @include office-contact((
+    icons: true,
+    font-size: 17,
+    line-height: 23,
+    type: "regular",
+    color: $color-spot-2
+  ));
+
+  .address {
+    margin-bottom: rem($gap-vert);
+    @include font-size(17, 23);
+    font-weight: bold;
+
+    a {
+      @include link-underline((color: $color-spot-1, color-hover: $color-spot-1, inverse: true));
+    }
+  }
+
+  .address__lines {
+
+    @include font-awesome((
+      icon: $fa-var-map-marker,
+      size: 17,
+      type: "solid",
+      position: absolute,
+      left: 0,
+      top: rem(2),
+      color: $color-spot-2
+    ));
+
+    &::before {
+      line-height: rem(17);
+    }
+  }
+
+  .field__item--name-field-office-phone,
+  .field__item--name-field-office-fax,
+  .field__item--name-field-office-email {
+    margin-bottom: rem(4);
+    padding-left: rem(30);
+    @include font-size(17, 23);
+    font-weight: bold;
+
+    a {
+      @include link-underline((color: $color-spot-1, color-hover: $color-spot-1, inverse: true));
+    }
+  }
+
+  .field__item--name-field-office-phone {
+
+    @include font-awesome((
+      icon: $fa-var-phone,
+      size: 17,
+      type: "solid",
+      position: absolute,
+      left: 0,
+      top: rem(2),
+      color: $color-spot-2
+    ));
+
+    &::before {
+      line-height: rem(17);
+    }
+  }
+
+  .field__item--name-field-office-fax {
+
+    @include font-awesome((
+      icon: $fa-var-fax,
+      size: 17,
+      type: "solid",
+      position: absolute,
+      left: 0,
+      top: rem(2),
+      color: $color-spot-2
+    ));
+
+    &::before {
+      line-height: rem(17);
+    }
+  }
+
+  .field__item--name-field-office-email {
+
+    @include font-awesome((
+      icon: $fa-var-envelope,
+      size: 17,
+      type: "solid",
+      position: absolute,
+      left: 0,
+      top: rem(2),
+      color: $color-spot-2
+    ));
+
+    &::before {
+      line-height: rem(17);
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: only on phone (< 768)
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-only {
+
+  .office--footer {
+    // centered txt with icons near to text
+
+    .layout__region {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .address {
+      text-align: left;
+    }
+
+    .field__item--name-field-office-phone,
+    .field__item--name-field-office-fax,
+    .field__item--name-field-office-email {
+      .field__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+}

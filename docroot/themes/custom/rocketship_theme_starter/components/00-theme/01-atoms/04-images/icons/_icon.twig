@@ -1,0 +1,55 @@
+{#
+/**
+ * Available variables:
+ * - icon_bem_element - base class name
+ * - icon_bem_modifiers - modifiers for icons (array)
+ * - icon_bem_block - blockname prepended to the base classname
+ * - icon_name - the name of the icon
+ * - icon_role - a11y role
+ * - icon_title - a11y title
+ * - icon_desc - a11y description
+ */
+#}
+
+{# Inline SVG: re-enable the SVG code below is you're going to use your icon sprite in inline elements directly
+    Please read the documentation (images.mdx) with this component on how to use #}
+
+{% set icon_bem_element = icon_bem_element|default('icon') %}
+
+{# If `directory` is defined, set the path relative for Drupal.
+ # Otherwise, set the path relative to the Component Library.   #}
+{% set icon_url = directory ? '/' ~ directory ~ '/images/' : 'images/' %}
+
+{# IE 11 support for SVG use - remove if not needed.
+## See also theme.libraries.yml to remove library.
+
+{{ attach_library('rocketship_theme_starter/component_icon') }} #}
+
+{#
+<svg {{ bem(icon_bem_block, icon_bem_element, icon_bem_modifiers, icon_bem_extra) }}
+
+  {% if icon_decorative %}
+    aria-hidden="true" role="img"
+  {% elseif icon_role %}
+    role="{{ icon_role }}"
+  {% endif %}
+
+  {% if icon_title %}
+    aria-labelledby="title-{{ icon_name }}"
+  {% endif %}
+
+  {% if icon_desc %}
+    aria-describedby="desc-{{ icon_name }}"
+  {% endif %}
+>
+  {% if icon_title %}
+    <title id="title-{{ icon_name }}">{{ icon_title }}</title>
+  {% endif %}
+  {% if icon_desc %}
+    <desc id="desc-{{ icon_name }}">{{ icon_desc }}</desc>
+  {% endif %}
+
+  <use xlink:href="{{ icon_url }}generated/sprite.svg#{{ icon_name }}"></use>
+
+</svg>
+#}

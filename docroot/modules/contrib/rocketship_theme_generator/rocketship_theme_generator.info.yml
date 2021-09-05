@@ -1,0 +1,14 @@
+name: Rocketship Theme Generator
+type: module
+description: 'This is a module that adds a generator for component based D8 themes to work with Dropsolid Rocketship'
+core_version_requirement: ^8.9 || ^9
+package: Rocketship
+dependencies:
+  - responsive_image
+  - components
+  - unified_twig_ext
+
+# Information added by Drupal.org packaging script on 2021-08-31
+version: '3.3.4'
+project: 'rocketship_theme_generator'
+datestamp: 1630419583

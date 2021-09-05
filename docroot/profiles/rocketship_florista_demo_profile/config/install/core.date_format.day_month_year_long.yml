@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: day_month_year_long
+label: 'Day month year long'
+locked: false
+pattern: 'l j F Y'

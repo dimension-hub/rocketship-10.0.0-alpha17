@@ -1,0 +1,243 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.job--teaser {
+
+  padding: rem($padding-jobs-teaser) rem($padding-jobs-teaser) rem($padding-jobs-teaser) rem($padding-jobs-teaser);
+  background-color: $color-job-teaser-bg;
+
+  // ** title
+
+  h2 {
+    @include h3;
+    margin-bottom: rem($gap-vert);
+  }
+
+  // ** read more
+
+  .rs-canonical-link-formatter {
+    a {
+      @include link-more;
+    }
+  }
+
+  // ** jobs COMPLEX
+  //    the structure of the overview changes a bit
+  .advanced {
+
+    .rs-canonical-link-formatter {
+      margin-top: rem($gap-vert);
+
+      a {
+        @include button-primary;
+        &::after {
+          display: none; // remove the icon
+        }
+      }
+    }
+
+    .field--name-created,
+    .field--name-ds-time-ago {
+      display: block;
+      margin-top: rem(10);
+      font-style: italic;
+    }
+  }
+
+  // ** filters
+  .layout__content__row--bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: rem(-20);
+    margin-top: rem($gap-vert);
+
+    .block {
+      margin-left: rem(20);
+    }
+
+    .field {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    h3 {
+      @include font-size($font-size-base, $line-height-base);
+      margin: 0 rem(10) 0 0;
+    }
+
+    // ** make inline list by default
+
+    .field__items {
+      display: flex;
+      flex-wrap: wrap;
+      margin: rem(-5) rem(-2) 0 rem(-2);
+    }
+
+    .field__item {
+      display: flex;
+      align-items: flex-end;
+      margin: rem(5) rem(2) 0 rem(2);
+
+      &::after {
+        content: ", ";
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+        }
+      }
+    }
+
+    .field__item::before,
+    .field__item::after,
+    a {
+      @include font-size($font-size-base, $line-height-base);
+    }
+
+    a {
+      @include link-underline((color: $color-link, color-hover: $color-link-hover));
+    }
+  }
+
+  // ** location
+
+  .field--name-field-job-property-one {
+    $icon: (
+      icon: $fa-var-info-circle,
+      size: 16,
+      type: "solid",
+      element: "before",
+      position: absolute,
+      left: 0,
+      top: rem(2)
+    );
+    h3 {
+      position: relative;
+      padding-left: rem(20);
+      @include font-awesome($icon);
+    }
+  }
+
+  // ** business area
+
+  .field--name-field-job-category {
+    $icon: (
+      icon: $fa-var-info-circle,
+      size: 16,
+      type: "solid",
+      element: "before",
+      position: absolute,
+      left: 0,
+      top: rem(2)
+    );
+    h3 {
+      position: relative;
+      padding-left: rem(20);
+      @include font-awesome($icon);
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // ** the normal teaser
+
+  .job--teaser {
+
+    // all nested div wrappers the same flex settings
+    // in order to make content fill the height
+    &,
+    .node__content {
+      display: flex;
+    }
+
+    .node__content {
+      width: 100%; // IE
+    }
+
+    // ** Job BASIC
+
+    .basic {
+
+      // all nested div wrappers the same flex settings
+      // in order to make content fill the height
+      display: flex;
+
+      // no need for cols in basic version
+      .layout__content,
+      .layout__sidebar {
+        width: calc(100% - #{rem($gap-hor)});
+      }
+
+      // stretch and push content down
+      .layout__sidebar {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: flex-end;
+        justify-items: flex-end;
+        // align-items: flex-end;
+      }
+
+      // hide date
+      .block--field-blocknodejobcreated {
+        @include hide;
+      }
+    }
+
+    // ** job COMPLEX
+    //    the structure of the overview changes a bit
+
+    .advanced {
+
+      width: 100%; // IE
+
+      // -- field styling
+
+      .rs-canonical-link-formatter {
+        margin-top: 0;
+        text-align: right;
+
+        a {
+          @include button-primary;
+          @include text-nobreak;
+        }
+      }
+
+      .field--name-created,
+      .field--name-ds-time-ago {
+        display: block;
+        margin-top: rem(10);
+        text-align: right;
+      }
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .job--teaser {
+    //
+  }
+
+}

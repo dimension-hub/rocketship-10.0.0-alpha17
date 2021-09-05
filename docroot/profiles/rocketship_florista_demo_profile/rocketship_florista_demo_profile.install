@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Install file.
+ */
+
+use Drupal\captcha\Entity\CaptchaPoint;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function rocketship_florista_demo_profile_install() {
+
+  $configFactory = \Drupal::configFactory();
+
+  $systemSiteConfig = $configFactory->getEditable('system.site');
+  $systemSiteConfig->set('name', 'Florista');
+  $systemSiteConfig->set('mail', 'sites@example.com');
+  // Unset frontpage. /node won't exist, and we need something
+  // or else rocketship_seo's adding of "/" as a sitemap link will break
+  // all the things.
+  $systemSiteConfig->set('page.front', '/user');
+  $systemSiteConfig->save();
+
+  $account = User::load(1);
+  $account->roles[] = 'administrator';
+  $account->init = $account->mail = 'sites@example.com';
+  $account->activate();
+  $account->timezone = 'Europe/Brussels';
+  $account->pass = user_password(20);
+  $account->name = 'admin';
+  $account->save();
+
+  // Create webadmin.
+  $webadmin = User::create();
+  $webadmin->roles[] = 'webadmin';
+  $webadmin->init = $account->mail = 'webadmin@example.com';
+  $webadmin->activate();
+  $webadmin->timezone = 'Europe/Brussels';
+  $webadmin->pass = user_password(20);
+  $webadmin->name = 'webadmin';
+  $webadmin->save();
+
+  // Some config just does not want to properly get imported
+  // So we do it here manually. Else it freaks out for
+  // some reason.
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save();
+
+  \Drupal::configFactory()
+    ->getEditable('system.date')
+    ->set('country.default', 'BE')
+    ->set('first_day', 1)
+    ->set('timezone.default', 'Europe/Brussels')
+    ->set('timezone.user.configurable', FALSE)
+    ->set('timezone.user.warn', FALSE)
+    ->set('timezone.user.default', 0)
+    ->save();
+
+  // Create redirect from /admin/structure/block/block-content to
+  // /admin/content/blocks because after editing or adding a translation
+  // that's the standard redirect.
+  /** @var \Drupal\redirect\Entity\Redirect $redirect */
+  $redirect = \Drupal\redirect\Entity\Redirect::create();
+  $redirect->setSource('admin/structure/block/block-content');
+  $redirect->setRedirect('admin/content/blocks');
+  $redirect->setStatusCode(301);
+  $redirect->setLanguage(\Drupal\Core\Language\Language::LANGCODE_NOT_SPECIFIED);
+  $redirect->save();
+
+}

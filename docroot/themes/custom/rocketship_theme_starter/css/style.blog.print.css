@@ -1,0 +1,30 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+@media print {
+  .view--blog-overview .block--provider-facets {
+    display: none !important;
+  }
+  .blog--header {
+    text-align: center;
+  }
+  .blog--header .node__meta--full {
+    display: block !important;
+  }
+  .note__meta--blog-full--top .field--name-field-blog-tags {
+    display: block;
+    width: 100%;
+  }
+  .note__meta--blog-full--top .field--name-field-blog-tags .field__items {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .note__meta--blog-full--top .field--name-field-blog-tags .field__item {
+    display: inline-block;
+  }
+}

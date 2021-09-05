@@ -1,0 +1,13 @@
+edit:
+  version: VERSION
+  css:
+    theme:
+      css/layout-builder-lock.css: {}
+
+configure:
+  version: VERSION
+  js:
+    js/layout-builder-lock.admin.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

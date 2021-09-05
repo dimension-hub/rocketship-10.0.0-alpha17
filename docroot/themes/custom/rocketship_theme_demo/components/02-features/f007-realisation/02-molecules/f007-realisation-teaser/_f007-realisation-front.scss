@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * realisation teasers: frontpage
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.view--display-realisation-overview-front .realisation--teaser,
+.realisation--teaser-front,
+.realisation--front {
+
+  // ** visual
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    margin-bottom: rem($gap-vert-sm);
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    @include h3;
+  }
+
+  // ** date/author
+
+  // .node__meta {
+  //   display: flex;
+  //   margin-top: rem(-5);
+  //   margin-bottom: rem($gap-vert-sm);
+  // }
+
+  // .field--name-node-author {
+  //   margin-left: rem(10);
+  // }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  //
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+  //
+}

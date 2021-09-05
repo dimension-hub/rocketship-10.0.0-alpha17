@@ -1,0 +1,36 @@
+layout_builder_restrictions_by_role.allowed_blocks:
+  path: '/admin/layout-builder-restrictions/layout-builder-restrictions-by-role/allowed-blocks-form'
+  defaults:
+    _form: '\Drupal\layout_builder_restrictions_by_role\Form\AllowedBlocksForm'
+    _title: 'Allowed Blocks'
+  requirements:
+    _permission: 'configure layout builder restrictions'
+layout_builder_restrictions_by_role.layout_allowed_blocks:
+  path: '/admin/layout-builder-restrictions/layout-builder-restrictions-by-role/layout-allowed-blocks-form'
+  defaults:
+    _form: '\Drupal\layout_builder_restrictions_by_role\Form\AllowedBlocksPerLayoutForm'
+    _title: 'Allowed Blocks'
+  requirements:
+    _permission: 'configure layout builder restrictions'
+layout_builder_restrictions_by_role.default_allowed_blocks:
+  path: '/admin/layout-builder-restrictions/layout-builder-restrictions-by-role/default-allowed-blocks-form'
+  defaults:
+    _form: '\Drupal\layout_builder_restrictions_by_role\Form\DefaultAllowedBlocksForm'
+    _title: 'Allowed Blocks'
+  requirements:
+    _permission: 'configure layout builder restrictions'
+layout_builder_restrictions_by_role.default_layout_allowed_blocks:
+  path: '/admin/layout-builder-restrictions/layout-builder-restrictions-by-role/default-layout-allowed-blocks-form'
+  defaults:
+    _form: '\Drupal\layout_builder_restrictions_by_role\Form\DefaultAllowedBlocksPerLayoutForm'
+    _title: 'Allowed Blocks'
+  requirements:
+    _permission: 'configure layout builder restrictions'
+layout_builder_restrictions_by_role.default_layouts:
+  path: '/admin/config/content/layout-builder-restrictions/by-role'
+  defaults:
+    _form: '\Drupal\layout_builder_restrictions_by_role\Form\DefaultAllowedLayoutsForm'
+    _title: 'Configure Layouts By Role'
+  requirements:
+    _permission: 'configure layout builder restrictions'
+    _custom_access: '\Drupal\layout_builder_restrictions_by_role\Form\DefaultAllowedLayoutsForm::accessCheck'

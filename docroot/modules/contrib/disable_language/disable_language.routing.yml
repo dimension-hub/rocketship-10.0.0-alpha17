@@ -1,0 +1,10 @@
+disable_language.disable_language_settings:
+  path: '/admin/config/regional/language/disable_language'
+  defaults:
+    _form: '\Drupal\disable_language\Form\DisableLanguageSettings'
+    _title: 'Disable Language Settings'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+

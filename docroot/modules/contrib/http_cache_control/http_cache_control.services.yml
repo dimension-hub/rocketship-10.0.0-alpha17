@@ -1,0 +1,7 @@
+services:
+  s_max_age_event_subscriber:
+    class: Drupal\http_cache_control\EventSubscriber\CacheControlEventSubscriber
+    arguments:
+      - '@config.factory'
+    tags:
+      - {name: event_subscriber}

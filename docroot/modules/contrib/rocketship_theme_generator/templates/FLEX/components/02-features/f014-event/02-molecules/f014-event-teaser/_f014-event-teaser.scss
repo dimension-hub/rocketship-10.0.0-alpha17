@@ -1,0 +1,187 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.event--teaser {
+
+  // ** visual
+
+  .layout--rs-top,
+  .layout--rs-header {
+    position: relative;
+    margin-bottom: rem($gap-vert-sm);
+
+    // reset for nested layouts
+    .layout--rs-top {
+      margin-bottom: 0;
+    }
+  }
+
+  // date on visual
+  .date-first-teaser {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    padding: rem(17) rem(20) rem(13) rem(20);
+    min-width: rem(79);
+
+    text-align: center;
+    color: $color-white;
+    background-color: $color-spot-1;
+
+    .day,
+    .day-part-1 {
+      display: block;
+      margin-bottom: rem(3);
+      @include font-size(26, 28);
+      font-weight: bold;
+    }
+
+    .month,
+    .day-part-2 {
+      display: block;
+      @include font-size(13, 18);
+      text-transform: uppercase;
+    }
+  }
+
+  // date normal
+  .field--name-field-events {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: rem(10);
+    background: $color-gray-light-1;
+  }
+
+  // make separators for date and time if multiple
+  .time,
+  .date {
+
+    &:last-child {
+      &::before {
+        content: "- ";
+      }
+    }
+
+    &:first-child {
+      &::before {
+        content: "";
+      }
+    }
+  }
+
+  // image
+  .field--image,
+  .field--name-field-media-canonical-image {
+    margin-bottom: 0;
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    @include h3;
+  }
+
+  .layout__subregion-01 {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: rem(5);
+    @include font-size(13, 18);
+  }
+
+  .date-wrapper {
+    position: relative;
+    display: flex;
+    padding: rem(0) rem(15) rem(0) rem(21);
+    margin-right: rem(16);
+    border-right: 1px solid #e2e2e2;
+
+    @include font-awesome((
+      icon: $fa-var-calendar-alt,
+      size: 14,
+      type: "light",
+      color: $color-spot-2,
+      position: absolute,
+      left: 0,
+      top: 2px
+    ));
+
+    .last-date {
+      position: relative;
+
+      @include font-awesome((
+        icon: $fa-var-long-arrow-right,
+        size: 14,
+        type: "light",
+        color: $color-spot-2,
+        margin: 0 2px
+      ));
+
+    }
+  }
+
+  .field--name-field-event-place {
+    position: relative;
+    padding: 0 0 0 rem(18);
+
+    @include font-awesome((
+      icon: $fa-var-map-pin,
+      size: 14,
+      type: "light",
+      color: $color-spot-2,
+      position: absolute,
+      left: 0,
+      top: 2px
+    ));
+
+  }
+
+  // ** read more
+
+  .rs-canonical-link-formatter {
+    margin-top: rem($gap-vert-sm);
+
+    a {
+      @include link-more;
+    }
+  }
+
+  .field--name-field-event-tags {
+    margin-top: rem($gap-vert-sm);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .event--teaser {
+
+    .layout--rs-top,
+    .layout--rs-header {
+      margin-bottom: rem($gap-vert);
+
+      // reset for nested layouts
+      .layout--rs-top {
+        margin-bottom: 0;
+      }
+    }
+
+    .rs-canonical-link-formatter {
+      margin-top: rem($gap-vert);
+    }
+
+  }
+
+}

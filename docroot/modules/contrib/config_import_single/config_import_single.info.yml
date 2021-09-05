@@ -1,0 +1,10 @@
+name: 'Config import single'
+description: 'Used to import single files in the config'
+type: module
+core_version_requirement: ^8.8 || ^9
+package: Config
+
+# Information added by Drupal.org packaging script on 2021-07-27
+version: '1.0.2'
+project: 'config_import_single'
+datestamp: 1627415031

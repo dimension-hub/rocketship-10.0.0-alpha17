@@ -1,0 +1,69 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * event meta on full page: part of the header
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.event__top--full {
+
+  .layout__subregion-02 {
+    position: relative;
+    color: $color-white;
+    transition: all $duration $easing;
+  }
+
+  // ** breadcrumb
+
+  .breadcrumb__item {
+    //
+  }
+
+  .breadcrumb__link {
+    //
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .event__top--full {
+
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .event__top--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .event__top--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}

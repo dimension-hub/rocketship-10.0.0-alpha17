@@ -1,0 +1,163 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office detail full: 'full' view-mode
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.office--full {
+
+  // ** cols
+  .layout__cols {
+    // create space between header and content
+  }
+
+  // ** sidebar
+  .layout__sidebar {
+    //
+  }
+
+  // ** main content
+  .layout__content {
+    //
+  }
+
+  // ** groups
+  .layout__content__row--top {
+    //
+  }
+
+  // -- address
+  .layout__content__row--main {
+    //
+  }
+
+  // -- office hours
+  .layout__content__row--bottom {
+    //
+  }
+
+  // ** map
+
+  .field--name-field-office-geolocation {
+    //
+  }
+
+  // // full width map
+  //
+  // .geofield-google-map {
+  //   position: relative;
+  //   left: 50%;
+  //   transform: translateX(-50vw);
+  //   width: 100vw !important;
+  // }
+
+  // ** More button
+
+  .rs-more-offices-formatter {
+   //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    .layout__cols {
+      // create space between header and content
+    }
+
+    // ** sidebar
+
+    .layout__sidebar {
+      //
+    }
+
+    // ** main content
+
+    .layout__content {
+      //
+    }
+
+    // ** groups
+
+    // -- text
+
+    .layout__content__row--top {
+      //
+    }
+
+    // -- address
+
+    .layout__content__row--main {
+      //
+    }
+
+    // -- office hours
+
+    .layout__content__row--bottom {
+      //
+    }
+
+    // ** map
+
+    .field--name-field-office-geolocation {
+      //
+    }
+
+    // ** More button
+
+    .rs-more-offices-formatter {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    .layout__cols {
+      // create space between header and content
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    .layout__cols {
+      // create space between header and content
+    }
+
+  }
+
+}

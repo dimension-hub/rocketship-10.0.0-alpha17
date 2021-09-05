@@ -1,0 +1,6 @@
+administer node_keep per node:
+  title: 'Administer Node Keep per node'
+  description: 'Configure node keep functionality per node.'
+access node_keep widget:
+  title: 'Access Node Keep widget'
+  description: 'Ability to see the values of Node Keep form element (even if when widgets are disabled).'

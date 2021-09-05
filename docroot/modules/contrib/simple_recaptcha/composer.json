@@ -1,0 +1,23 @@
+{
+  "name": "drupal/simple_recaptcha",
+  "description": "Provides simple integration with Google reCaptcha, keeping forms and webforms secure.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "homepage": "https://drupal.org/project/simple_recaptcha",
+  "authors": [
+    {
+      "name": "sandboxpl",
+      "homepage": "https://www.drupal.org/u/sandboxpl",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/simple_recaptcha",
+    "source": "https://git.drupalcode.org/project/simple_recaptcha",
+    "docs": "https://git.drupalcode.org/project/simple_recaptcha/-/blob/8.x-1.x/README.md"
+  },
+  "require-dev": {
+    "drupal/webform": "~6.0"
+  }
+}

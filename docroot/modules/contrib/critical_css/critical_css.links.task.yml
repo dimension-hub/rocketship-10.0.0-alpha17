@@ -1,0 +1,4 @@
+critical_css.settings:
+  title: Critical CSS
+  route_name: critical_css.settings
+  base_route: system.performance_settings

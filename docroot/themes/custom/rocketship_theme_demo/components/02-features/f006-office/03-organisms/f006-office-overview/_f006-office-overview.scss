@@ -1,0 +1,112 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * offices main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** map view
+//
+// // full width map
+//
+// .view--display-satellite-offices {
+// .geofield-google-map {
+//   position: relative;
+//   left: 50%;
+//   transform: translateX(-50vw);
+//   width: 100vw !important;
+// }
+// }
+
+// ** satellite offices
+
+.view--display-satellite-offices {
+
+  // ** count
+
+  .view__header {
+    @include h5;
+    margin-bottom: rem($gap-vert);
+  }
+
+  // ** grid
+
+  .view__content {
+    margin-top: rem(-$grid-gap-hor);
+  }
+
+  .office--teaser {
+    margin-top: rem($grid-gap-hor);
+    overflow: hidden; // fix margins not collapsing
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // ** the block with the view itself
+
+  .view--display-satellite-offices {
+
+    .view__header {
+      //
+    }
+
+    // ** make a grid
+
+    .view__content {
+      @include flex-grid();
+    }
+
+    // normal overview is in 2 cols
+    .office--teaser {
+      @include flex-col(6);
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--display-satellite-offices {
+    //
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .view--display-satellite-offices {
+    //
+  }
+
+  // -- override the various overview paragraphs:
+  //    we want the spacing between top - map - regular view to be same, and not gigantic
+  //    so we need to override the default the paragraph paddings
+
+  .group--paragraphs__item {
+
+    .overview--office-overview-main-offices,
+    .overview--office-overview-offices-map,
+    .overview--office-overview-satellite-offices {
+      padding: rem($gap-vert-top-lg) 0 rem($gap-vert-bottom-lg) 0;
+    }
+  }
+
+}

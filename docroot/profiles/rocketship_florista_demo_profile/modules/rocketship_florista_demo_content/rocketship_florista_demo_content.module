@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * Implements hook_themes_installed().
+ */
+function rocketship_florista_demo_content_themes_installed($theme_list) {
+  /** @var \Drupal\Core\Extension\ThemeHandlerInterface $handler */
+  $handler = Drupal::service('theme_handler');
+
+  foreach ($theme_list as $theme) {
+    $info = $handler->getTheme($theme);
+    if (isset($info->info['package']) && $info->info['package'] == 'Rocketship Theme') {
+      _rocketship_florista_demo_content_place_default_blocks($info);
+    }
+  }
+}
+
+/**
+ * Place our blocks in the doormat region of the provided theme.
+ *
+ * @param \Drupal\Core\Extension\Extension $theme
+ *   Theme name.
+ */
+function _rocketship_florista_demo_content_place_default_blocks($theme) {
+  $regions = $theme->info['regions'];
+  if (isset($regions['footer'])) {
+    \Rocketship::placeBlock('block_content:0b497ec6-ceec-44a6-9435-7edbf20ac0ee', [
+      'region' => 'doormat',
+      'theme' => $theme->getName(),
+      'label' => 'Florista Logo',
+      'provider' => 'block_content',
+      'label_display' => 0,
+      'status' => TRUE,
+      'info' => '',
+      'view_mode' => 'full',
+    ]);
+    \Rocketship::placeBlock('system_menu_block:main', [
+      'region' => 'doormat_02',
+      'theme' => $theme->getName(),
+      'label_display' => 0,
+      'label' => 'Main navigation',
+      'provider' => 'system',
+      'level' => 1,
+      'depth' => 1,
+      'expand_all_items' => FALSE,
+    ]);
+    \Rocketship::placeBlock('block_content:fed14dfa-5ab7-4d3e-a052-374ae4ad549b', [
+      'region' => 'doormat_03',
+      'theme' => $theme->getName(),
+      'label' => 'Socials',
+      'provider' => 'block_content',
+      'label_display' => 0,
+      'status' => TRUE,
+      'info' => '',
+      'view_mode' => 'full',
+    ]);
+  }
+}
+
+/**
+ * Implements hook_migration_plugins_alter().
+ */
+function rocketship_florista_demo_content_migration_plugins_alter(&$definitions) {
+  $path = drupal_get_path('module', 'rocketship_florista_demo_content');
+  $migrations = _rocketship_florista_demo_content_content_migrates();
+
+  foreach ($migrations as $migration) {
+    if (isset($definitions[$migration]['source']['path'])) {
+      $definitions[$migration]['source']['path'] = $path . $definitions[$migration]['source']['path'];
+    }
+    if (isset($definitions[$migration]['source']['constants']['source_base_path'])) {
+      $definitions[$migration]['source']['constants']['source_base_path'] = $path . $definitions[$migration]['source']['constants']['source_base_path'];
+    }
+  }
+}
+
+/**
+ * @return string[]
+ */
+function _rocketship_florista_demo_content_content_migrates() {
+  return [
+    'rocketship_florista_demo_content_file_migrate',
+    'rocketship_florista_demo_content_media_image',
+    'rocketship_florista_demo_content_block_content_cb_focus',
+    'rocketship_florista_demo_content_block_content_cb_text',
+    'rocketship_florista_demo_content_block_content_block_usp',
+    'rocketship_florista_demo_content_block_content_cb_image',
+    'rocketship_florista_demo_content_block_content_cb_title',
+    'rocketship_florista_demo_content_block_content_cb_form',
+    'rocketship_florista_demo_content_node_page',
+    'rocketship_florista_demo_content_block_content_cb_related_items',
+    'rocketship_florista_demo_content_block_content_social_media',
+    'rocketship_florista_demo_content_menu_link_content_menu_link_content',
+  ];
+}
+
+/**
+ * Implements hook_modules_implements_alter().
+ *
+ * Make sure we go after block_themes_installed.
+ */
+function rocketship_florista_demo_content_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'migration_plugins_alter') {
+    $group = $implementations['rocketship_florista_demo_content'];
+    unset($implementations['rocketship_florista_demo_content']);
+    $implementations['rocketship_florista_demo_content'] = $group;
+  }
+}
+
+/**
+ * @param $string
+ *
+ * @return string
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function _rocketship_florista_demo_content_link_uuid_lookup($string) {
+  if (strpos($string, 'uuid:') !== 0) {
+    return $string;
+  }
+  $string = str_replace('uuid:', '', $string);
+  [$entity_type_id, $entity_uuid] = explode('/', $string);
+  $entity = \Drupal::entityTypeManager()->getStorage($entity_type_id)->loadByProperties(['uuid' => $entity_uuid]);
+  if ($entity) {
+    $entity = reset($entity);
+    return 'entity:' . $entity_type_id . '/' . $entity->id();
+  }
+}

@@ -1,0 +1,84 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * offices main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** satellite offices
+
+.view--display-satellite-offices {
+
+  // ** count
+
+  .view__header {
+    //
+  }
+
+  // ** grid
+
+  .view__content {
+    //
+  }
+
+  .office--teaser {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // ** the block with the view itself
+
+  .view--display-satellite-offices {
+
+    .view__header {
+      //
+    }
+
+    // ** make a grid
+
+    .view__content {
+      //
+    }
+
+    // normal overview is in 2 cols
+    .office--teaser {
+      //
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--display-satellite-offices {
+    //
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .view--display-satellite-offices {
+    //
+  }
+
+}

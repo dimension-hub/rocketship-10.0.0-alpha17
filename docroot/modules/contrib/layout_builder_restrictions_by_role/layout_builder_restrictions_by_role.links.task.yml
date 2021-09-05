@@ -1,0 +1,10 @@
+layout_builder_restrictions.admin_config:
+  route_name: layout_builder_restrictions.restriction_plugin_config_form
+  base_route: layout_builder_restrictions.restriction_plugin_config_form
+  title: 'Layout Builder Restrictions'
+  weight: 10
+'layout_builder_restrictions_by_role.default_layouts':
+  route_name: layout_builder_restrictions_by_role.default_layouts
+  base_route: layout_builder_restrictions.restriction_plugin_config_form
+  title: 'Configure Layouts By Role'
+  weight: 10

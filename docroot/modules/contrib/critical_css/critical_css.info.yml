@@ -1,0 +1,12 @@
+name: Critical CSS
+description: Inlines a critical CSS file in HTML head, and loads non-critical CSS asynchronously.
+package: Page Speed Optimization
+type: module
+configure: critical_css.settings
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+# Information added by Drupal.org packaging script on 2020-12-13
+version: '8.x-1.17'
+project: 'critical_css'
+datestamp: 1607847880

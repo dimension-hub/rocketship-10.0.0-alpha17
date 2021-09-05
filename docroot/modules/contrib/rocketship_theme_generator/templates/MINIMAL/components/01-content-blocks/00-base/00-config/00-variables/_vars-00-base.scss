@@ -1,0 +1,93 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Content block variables
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// ** Layout
+// =============================================================================
+
+// Horizontal spacing:
+// spacing on the sides or between elements in a row
+
+$cb-gap-hor: $gap-hor;
+
+// Vertical spacing:
+// space above and below certain elements: eg. paragraphs or blocks with a bg
+
+$cb-gap-vert: $gap-vert;
+
+$cb-gap-vert-xs: $gap-vert-xs;
+$cb-gap-vert-sm: $gap-vert-sm;
+$cb-gap-vert-lg: $gap-vert-lg;
+$cb-gap-vert-xl: $gap-vert-xl;
+
+// $cb-gap-vert-top-xs: $gap-vert-top-xs;
+// $cb-gap-vert-top-sm: $gap-vert-top-sm;
+// $cb-gap-vert-top-md: $gap-vert-top-md;
+// $cb-gap-vert-top-lg: $gap-vert-top-lg;
+// $cb-gap-vert-top-lg-2: $gap-vert-top-lg-2;
+
+// $cb-gap-vert-bottom-xs: $gap-vert-bottom-xs;
+// $cb-gap-vert-bottom-sm: $gap-vert-bottom-sm;
+// $cb-gap-vert-bottom-md: $gap-vert-bottom-md;
+// $cb-gap-vert-bottom-lg: $gap-vert-bottom-lg;
+// $cb-gap-vert-bottom-lg-2: $gap-vert-bottom-lg-2;
+
+// content padding (eg. in Testimonial)
+
+$cb-gap-content-hor: 80;
+$cb-gap-content-vert: 40;
+
+// fields spacing
+
+$cb-gap-title-vert: $cb-gap-vert-sm;
+$cb-gap-subtitle-vert: 20; // $cb-gap-vert-sm;
+$cb-gap-teaser-vert: $cb-gap-vert-sm;
+$cb-gap-teaser-wide: ($cb-gap-vert * 1.5); // space between group of title-subtitle-teaser & fields underneath
+
+// buttons spacing
+$cb-gap-buttons-vert: $cb-gap-vert;
+
+$cb-gap-button-hor: 10;
+$cb-gap-button-vert: 10;
+
+// Overrides for Vertical spacing on layouts
+// -- This one is the same space we have between blocks in the same region === space between p-tags
+$cb-gap-vert-minimal: $cb-gap-vert;
+// -- This one is the same space as for the gap between teaser & next fields
+$cb-gap-vert-medium: $cb-gap-teaser-wide;
+
+
+// ** Testimonial
+// =============================================================================
+
+$testimonial-image-size: 100;
+
+
+// ** p007 USP
+// =============================================================================
+
+$gap-usp: ($grid-gap-hor);
+$usp-image-2cols: 100;
+
+
+// ** Photo Gallery
+// =============================================================================
+
+$gap-gallery: 10;
+
+
+// ** Menu Overview
+// =============================================================================
+
+$gap-menu-overview: 20;
+
+
+// ** Related
+// =============================================================================
+
+$gap-related: $cb-gap-vert;
+

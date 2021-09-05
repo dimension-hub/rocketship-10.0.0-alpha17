@@ -1,0 +1,10 @@
+services:
+  simple_recaptcha.form_manager:
+    class: Drupal\simple_recaptcha\SimpleReCaptchaFormManager
+    arguments:
+      - '@config.factory'
+      - '@http_client'
+      - '@logger.factory'
+      - '@module_handler'
+      - '@session'
+      - '@renderer'

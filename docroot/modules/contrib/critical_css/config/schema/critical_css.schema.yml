@@ -1,0 +1,20 @@
+# Schema for the configuration files of the critical_css module.
+critical_css.settings:
+  type: config_object
+  label: 'Critical CSS settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    enabled_for_logged_in_users:
+      type: boolean
+      label: 'Enabled for logged-in users'
+    preload_non_critical_css:
+      type: boolean
+      label: 'Preload non-critical CSS'
+    dir_path:
+      type: string
+      label: 'Critical CSS base directory'
+    excluded_ids:
+      type: string
+      label: 'Excludes entity ids'

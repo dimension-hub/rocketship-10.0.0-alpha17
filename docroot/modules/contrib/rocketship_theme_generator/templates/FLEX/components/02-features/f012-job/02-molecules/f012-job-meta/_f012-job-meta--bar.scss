@@ -1,0 +1,122 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Bar with a colored background, under the header
+// *
+// * Usage: Can be used to display filters, for example
+// *   much like the bar on the Event detail page
+// *   this would require you to add new section,
+// *   in the full view mode, under the Header section
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.job__bar--full {
+  position: relative;
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+  color: $color-white;
+  transition: all $duration $easing;
+
+  // background-color
+  @include full-bg ($color-spot-1, "before");
+
+  h3 {
+    color: $color-white;
+  }
+
+  a {
+    &,
+    &:visited {
+      color: $color-white;
+
+    }
+  }
+
+  // ** included fields
+
+  .field--name-field-job-property-one,
+  .field--name-field-job-category {
+    h3 {
+      &::before {
+        color: $color-white;
+      }
+    }
+  }
+
+  // ** lists of links
+
+  .field__items {
+    a {
+      @include link-underline((color: $color-white, color-hover: $color-white));
+    }
+
+  }
+
+  // ** location
+
+  .field--name-field-job-property-one {
+    //
+  }
+
+  // ** business area
+
+  .field--name-field-job-category {
+    //
+  }
+
+  // ** Subscribe (if Advanced module)
+
+  .rs-scroll-to-formatter {
+    margin-top: rem(10);
+
+    a {
+      @include button-negative;
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .job__bar--full {
+
+    align-items: center; // vertical alignment
+
+    // ** location
+
+    .field--name-field-job-property-one {
+      //
+    }
+
+    .field--name-field-job-category {
+      margin-left: rem(40);
+    }
+
+    // ** Apply (if Advanced module)
+
+    .field--name-scroll-to-field {
+      display: flex;
+      // align button to the right
+      flex-grow: 1;
+      justify-content: flex-end;
+      margin-top: 0; // reset
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  //
+
+}
+

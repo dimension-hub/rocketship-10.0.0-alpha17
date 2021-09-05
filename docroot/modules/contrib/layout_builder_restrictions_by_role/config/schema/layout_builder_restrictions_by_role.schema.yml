@@ -1,0 +1,114 @@
+layout_builder_restrictions.entity_view_mode_restriction_per_role:
+  type: mapping
+  label: 'Per role Layout Builder Restrictions settings'
+  mapping:
+    layout_restriction:
+      type: string
+      label: 'Layout Restriction'
+    allowed_layouts:
+      type: sequence
+      label: 'Allowed layouts'
+      sequence:
+        type: sequence
+        label: 'Layout ID'
+        sequence:
+          type: string
+          label: Role
+    __blocks:
+      type: sequence
+      label: 'Blocks'
+      sequence:
+        type: sequence
+        label: 'Role'
+        sequence:
+          type: mapping
+          label: 'Category'
+          mapping:
+            restriction_type:
+              type: string
+              label: 'Restriction Type'
+            restrictions:
+              type: sequence
+              sequence:
+                type: string
+                label: 'Allowed blocks'
+    __layouts:
+      type: sequence
+      label: 'Layouts'
+      sequence:
+        type: sequence
+        label: 'Layout ID'
+        sequence:
+          type: sequence
+          label: 'Role'
+          sequence:
+            type: mapping
+            label: 'Category'
+            mapping:
+              restriction_type:
+                type: string
+                label: 'Restriction Type'
+              restrictions:
+                type: sequence
+                sequence:
+                  type: string
+                  label: 'Allowed blocks'
+    override_defaults:
+      type: boolean
+      label: 'Override defaults'
+
+layout_builder_restrictions_by_role.settings:
+  type: mapping
+  label: 'Per role Layout Builder Restrictions settings'
+  mapping:
+    layout_restriction:
+      type: string
+      label: 'Layout Restriction'
+    allowed_layouts:
+      type: sequence
+      label: 'Allowed layouts'
+      sequence:
+        type: sequence
+        label: 'Layout ID'
+        sequence:
+          type: string
+          label: Role
+    __blocks:
+      type: sequence
+      label: 'Blocks'
+      sequence:
+        type: sequence
+        label: 'Role'
+        sequence:
+          type: mapping
+          label: 'Category'
+          mapping:
+            restriction_type:
+              type: string
+              label: 'Restriction Type'
+            restrictions:
+              type: sequence
+              sequence:
+                type: string
+                label: 'Allowed blocks'
+    __layouts:
+      type: sequence
+      label: 'Layouts'
+      sequence:
+        type: sequence
+        label: 'Layout ID'
+        sequence:
+          type: sequence
+          label: 'Role'
+          sequence:
+            type: mapping
+            label: 'Category'
+            mapping:
+              restriction_type:
+                type: string
+                label: 'Restriction Type'
+              restrictions:
+                type: sequence
+                sequence:
+                  type: string
+                  label: 'Allowed blocks'

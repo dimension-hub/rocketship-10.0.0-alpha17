@@ -1,0 +1,28 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * News frontpage overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// ** paragraph contaiing the view
+
+.overview--news-overview-front {
+  //
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-news-overview-front {
+
+    .news--teaser {
+      @include flex-col(4);
+    }
+  }
+
+}
+

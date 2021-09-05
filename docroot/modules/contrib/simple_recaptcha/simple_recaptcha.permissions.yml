@@ -1,0 +1,6 @@
+administer simple_recaptcha:
+  title: 'Administer Simple Google reCaptcha'
+  description: 'Access configuration of Simple GOogle reCaptcha module.'
+bypass simple_recaptcha:
+  title: 'Bypass Simple Google reCaptcha verification'
+  description: 'Bypass Simple Google reCaptcha verification added to forms.'

@@ -1,0 +1,5 @@
+services:
+  route_enhancer.manage_display:
+    class: Drupal\manage_display_fix_title\Entity\ManageDisplayRouteEnhancer
+    tags:
+      - { name: route_enhancer }

@@ -1,0 +1,14 @@
+{
+    "name": "drupal/disable_language",
+    "type": "drupal-module",
+    "description": "Disable language lets you disable language",
+    "keywords": ["Drupal"],
+    "license": "GPL-2.0-or-later",
+    "homepage": "http://drupal.org/project/disable_language",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "http://drupal.org/project/issues/disable_language",
+        "source": "http://cgit.drupalcode.org/disable_language"
+    },
+    "require": { }
+}

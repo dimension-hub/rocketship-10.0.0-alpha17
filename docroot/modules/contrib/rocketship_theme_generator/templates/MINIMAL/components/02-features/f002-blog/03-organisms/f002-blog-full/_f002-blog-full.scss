@@ -1,0 +1,104 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog header
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Blog top region
+// =============================================================================
+
+.blog__top--full {
+  position: relative;
+
+  // color changes for the content
+
+  &,
+  h1,
+  h2,
+  h3,
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  .field {
+    // color: $color-white;
+  }
+
+  // ** background image: make it stretch (like "cover")
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+
+    // prevent blazy wrappers from breaking positioning of absolute image
+    // so needs some styling to enable proper position and stretch of the img
+    // basically, match what the sidebar div is doing
+    .media {
+      position: static;
+    }
+
+    img {
+      //
+    }
+  }
+
+  // ** subregion for title & date
+
+  .layout__subregion-01 {
+    position: relative;
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // * Blog top region
+  // =============================================================================
+
+  .blog__top--full {
+
+    .layout__subregion-01 {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // * Blog top region
+  // =============================================================================
+
+  .blog__top--full {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // * Blog top region
+  // =============================================================================
+
+  .blog__top--full {
+    //
+  }
+
+}

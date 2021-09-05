@@ -1,0 +1,78 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * product frontpage overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+// ** paragraph contaiing the view
+
+.overview--product-overview-front {
+  //
+}
+
+.view--display-product-overview-front {
+
+  .view__content {
+    //
+  }
+
+  .product--teaser {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-product-overview-front {
+
+    // ** make a grid
+
+    .view__content {
+
+      //
+    }
+
+    .product--teaser {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--display-product-overview-front {
+
+    .product--teaser {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .view--display-product-overview-front {
+    //
+  }
+
+}

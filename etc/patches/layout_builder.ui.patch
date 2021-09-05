@@ -1,0 +1,13 @@
+diff --git a/core/lib/Drupal/Core/Block/BlockPluginTrait.php b/core/lib/Drupal/Core/Block/BlockPluginTrait.php
+index cd4790e76e..78760a09c3 100644
+--- a/core/lib/Drupal/Core/Block/BlockPluginTrait.php
++++ b/core/lib/Drupal/Core/Block/BlockPluginTrait.php
+@@ -256,7 +256,7 @@ public function getMachineNameSuggestion() {
+    * {@inheritdoc}
+    */
+   public function getPreviewFallbackString() {
+-    return $this->t('"@block" block', ['@block' => $this->label()]);
++    return $this->t('@block', ['@block' => $this->label()]);
+   }
+ 
+   /**

@@ -1,0 +1,6 @@
+drimage.settings:
+  title: Drimage settings
+  description: 'Configure drimage global settings.'
+  route_name: drimage.settings
+  parent: system.admin_config_media
+  weight: -10

@@ -1,0 +1,137 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * jobs main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+// ** The paragraph
+
+.overview--job-overview {
+  //
+}
+
+// ** The block for the view itself
+
+.view--display-job-overview-block {
+
+  // ** count
+
+  .view__header {
+    //
+  }
+
+  // ** grid
+
+  .view__content {
+    //
+  }
+
+  .job--teaser {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .overview--job-overview {
+    //
+  }
+
+  // ** The block for the view itself
+
+  .view--display-job-overview-block {
+
+    // ** count
+
+    .view__header {
+      //
+    }
+
+    // ** grid
+
+    .view__content {
+      //
+    }
+
+    .job--teaser {
+      //
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .overview--job-overview {
+    //
+  }
+
+  // ** The block for the view itself
+
+  .view--display-job-overview-block {
+
+    // ** count
+
+    .view__header {
+      //
+    }
+
+    // ** grid
+
+    .view__content {
+      //
+    }
+
+    .job--teaser {
+      //
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .overview--job-overview {
+    //
+  }
+
+  // ** The block for the view itself
+
+  .view--display-job-overview-block {
+
+    // ** count
+
+    .view__header {
+      //
+    }
+
+    // ** grid
+
+    .view__content {
+      //
+    }
+
+    .job--teaser {
+      //
+    }
+  }
+
+}

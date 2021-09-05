@@ -1,0 +1,106 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Service teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.view--display-service-overview-block {
+
+  .service--teaser {
+
+    // ** visual
+
+    .field--image,
+    .field--name-field-media-canonical-image {
+      //
+    }
+
+    // ** title
+
+    h2,
+    h3,
+    h4 {
+      //
+    }
+
+    // ** read more
+
+    .rs-canonical-link-formatter {
+      //
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .view--display-service-overview-block {
+
+    .service--teaser {
+
+      .node__content {
+        //
+      }
+
+      .layout--rs-header,
+      .layout--rs-content {
+        //
+      }
+
+      .layout--rs-header {
+        //
+      }
+
+      .layout--rs-content {
+        //
+      }
+
+      // -- reset margin on image
+
+      .field--image,
+      .field--name-field-media-canonical-image {
+        //
+      }
+
+      // -- 'read more' as a button
+
+      .rs-canonical-link-formatter {
+
+        //
+      }
+
+    }
+
+    .layout__subregion-01 {
+      //
+    }
+
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-service-overview-block {
+
+    .service--teaser {
+
+      //
+
+    }
+
+  }
+
+}

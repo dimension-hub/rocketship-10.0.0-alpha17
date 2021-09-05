@@ -1,0 +1,194 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office page form: present in Panel footer or bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.office--full {
+
+  // ** space before webform
+  .layout--rs-content {
+    margin-top: rem($gap-vert-bottom-xs);
+  }
+
+  // ** webform container
+
+  .field--name-field-office-show-contact-form {
+    padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+    transition: all $duration $easing;
+
+    // background-color
+    @include full-bg ($color-office-form-bg, "before");
+  }
+
+  // the form itself
+  .webform-submission-office-contact-form {
+
+    // grouping form submit & other fields
+    .form-actions {
+      margin-top: rem($gap-vert);
+    }
+  }
+
+  // -- captcha
+  .captcha {
+    width: 100%;
+  }
+
+  // -- text with button
+
+  .form-type--webform-markup,
+  .form-type--processed-text {
+    // position: relative;
+    // display: flex;
+    // align-items: center;
+    // padding-left: rem(50);
+    // min-height: rem(40);
+
+    // @include font-awesome((icon: $fa-var-info-circle, size: 30, type: solid));
+
+    // &::before {
+    //   position: absolute;
+    //   left: rem(10);
+    //   top: rem(5);
+    // }
+
+    // p,
+    // ul,
+    // ol {
+    //   &:last-child {
+    //     margin-bottom: 0;
+    //   }
+    // }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    // ** space before webform
+    .layout--rs-content {
+      margin-top: rem($gap-vert-bottom-sm);
+    }
+
+    .field--name-field-office-show-contact-form {
+      padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+    }
+
+    .webform-submission-office-contact-form {
+
+      // display: flex;
+      // flex-direction: row;
+      // flex-wrap: wrap;
+
+      .form__row {
+        // display: flex;
+        // flex-direction: row;
+        // flex-wrap: wrap;
+        // margin: 0 rem(-10);
+        // width: calc(100% + 20px);
+
+        // shitty ajax wrappers
+        // & > div,
+        // & > .form__element,
+        // & > .form__group {
+        //   width: calc(50% - 20px);
+        //   margin-left: rem(10);
+        //   margin-right: rem(10);
+        // }
+      }
+
+      // grouping form submit with another element next to it
+      .form__row--submit {
+        // align-items: start;
+
+        // .form__group,
+        // .form__element,
+        // .form-actions {
+        //   width: auto;
+        // }
+
+        // // any form item you want next to the submit button
+        // .form__element {
+        //   flex-grow: 1;
+        // }
+
+        // // any text next to submit button
+        // .form-type--webform-markup,
+        // .form-type--processed-text {
+        //   flex: 1 0 0;
+        //   padding-left: rem(50); // extra space because of gutters
+        //   width: auto;
+        // }
+
+        // //// div with the submit button in it
+        // //.form-actions {
+        // //  margin-top: 0;
+        // //}
+      }
+
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    // ** space before webform
+    .layout--rs-content {
+      margin-top: rem($gap-vert-bottom-md);
+    }
+
+    .field--name-field-office-show-contact-form {
+      padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .office--full {
+
+    // ** space before webform
+    .layout--rs-content {
+      margin-top: rem($gap-vert-bottom-lg-2);
+    }
+
+    .field--name-field-office-show-contact-form {
+      padding: rem($gap-vert-top-lg-2) 0 rem($gap-vert-bottom-lg-2) 0;
+    }
+
+  }
+
+}

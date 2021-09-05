@@ -1,0 +1,113 @@
+{#
+/**
+ * This is strictly an example file to demonstrate markup in Storybook.
+ * It is not intended to be included in any other component.
+ */
+#}
+
+{% embed "@%theme_prefix%-molecules/00-block/_block.twig" with {
+    label: label,
+    configuration: configuration,
+    bem_block_modifiers: bem_block_modifiers,
+  } %}
+
+  {% block block_content %}
+
+    {# TO DO:  replace with templates for views, blocks and fields instead of hardcoded #}
+
+    <div class="group">
+      <div class="view view--footer-offices view--display-footer view-footer-offices view-id-footer-offices view-display-id-footer">
+        <div class="view__content">
+          <div class="views__row">
+            <article class="node node--promoted node-- node--view-mode-footer node--office promoted office--footer">
+              <span property="schema:name" content="Contact us" class="rdf-meta hidden"></span>
+              <div class="node__content">
+                <div class="layout--rs-content layout layout-section layout--label-rocketship-content">
+                  <div class="layout-builder__region layout__region">
+                    <div class="layout-builder__region layout__region">
+
+                      {# address #}
+                      {% embed "@%theme_prefix%-molecules/00-block/_block.twig" with {
+                        label: fields.address.block.label,
+                        configuration: fields.address.block.configuration,
+                        bem_block_modifiers: fields.address.block.bem_block_modifiers,
+                        bem_block_extra: fields.address.block.bem_block_extra,
+                      } %}
+
+                        {% block block_content %}
+                         {% include "@%theme_prefix%-atoms/contact/styleguide/address.twig" with {
+                            given_name: fields.address.field.given_name,
+                            family_name: fields.address.field.family_name,
+                            organization: fields.address.field.organization,
+                            address_line1: fields.address.field.address_line1,
+                            address_line2: fields.address.field.address_line2,
+                            postal_code: fields.address.field.postal_code,
+                            locality: fields.address.field.locality,
+                          } %}
+                        {% endblock %}
+                      {% endembed %}
+
+                      {# phone #}
+                      {% embed "@%theme_prefix%-molecules/00-block/_block.twig" with {
+                        label: fields.phone.block.label,
+                        configuration: fields.phone.block.configuration,
+                        bem_block_modifiers: fields.phone.block.bem_block_modifiers,
+                        bem_block_extra: fields.phone.block.bem_block_extra,
+                      } %}
+
+                        {% block block_content %}
+                          {% include "@%theme_prefix%-atoms/contact/styleguide/phone.twig" with {
+                            label: fields.phone.field.label,
+                            label_hidden: fields.phone.field.label_hidden,
+                            field_name: fields.phone.field.field_name,
+                            field_type: fields.phone.field.field_type,
+                            bem_field_modifiers: fields.phone.field.bem_field_modifiers,
+                            bem_field_extra: fields.phone.field.bem_field_extra,
+                            attributes: fields.phone.field.attributes,
+                            items: fields.phone.field.items,
+                            multiple: fields.phone.field.multiple,
+                          } %}
+
+                        {% endblock %}
+
+                      {% endembed %}
+
+                      {# email #}
+                      {% embed "@%theme_prefix%-molecules/00-block/_block.twig" with {
+                        label: fields.email.block.label,
+                        configuration: fields.email.block.configuration,
+                        bem_block_modifiers: fields.email.block.bem_block_modifiers,
+                        bem_block_extra: fields.email.block.bem_block_extra,
+                      } %}
+
+                        {% block block_content %}
+
+                          {% include "@%theme_prefix%-atoms/contact/styleguide/email.twig" with {
+                            label: fields.email.field.label,
+                            label_hidden: fields.email.field.label_hidden,
+                            field_name: fields.email.field.field_name,
+                            field_type: fields.email.field.field_type,
+                            bem_field_modifiers: fields.email.field.bem_field_modifiers,
+                            bem_field_extra: fields.email.field.bem_field_extra,
+                            attributes: fields.email.field.attributes,
+                            items: fields.email.field.items,
+                            multiple: fields.email.field.multiple,
+                          } %}
+
+                        {% endblock %}
+
+                      {% endembed %}
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}
+
+{% endembed %}

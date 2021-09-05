@@ -1,0 +1,116 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * event meta on full page: bar below the the header image & title
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.event__bar--full {
+  position: relative;
+
+  // ** price
+
+  .field--name-field-event-price {
+    //
+  }
+
+  // ** date
+
+  .event-daterange-wrapper {
+    //
+  }
+
+  // ** Subscribe (if Advanced module)
+
+  .rs-scroll-to-formatter {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .event__bar--full {
+
+    top: 0; // needed for fixed animation
+
+    //
+    .layout-builder__region {
+      //
+    }
+
+    .block--field-blocknodeeventfield-events {
+      //
+    }
+
+    .field--name-field-events {
+      //
+    }
+
+    // ** price
+
+    .field--name-field-event-price {
+      //
+    }
+
+    // ** date
+
+    .event-daterange-wrapper {
+      //
+    }
+
+    // ** Subscribe (if Advanced module)
+
+    .rs-scroll-to-formatter {
+      //
+    }
+
+  }
+
+  // ** sticky bar
+
+  .event__bar--full.js-sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    @include z-index(header);
+
+    transition: top $duration $easing;
+
+    // compensate for space made by fixed toolbar
+    // TO DO: in case of fixed header, need to add space then as well
+    .toolbar-fixed.toolbar-horizontal & {
+      top: rem(79);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .event__bar--full {
+
+    // ** price:
+
+    .field--name-field-event-price {
+      //
+    }
+
+    // ** date:
+
+    .event-daterange-wrapper {
+      //
+    }
+
+  }
+
+}
+

@@ -1,0 +1,22 @@
+services:
+  asset.css.collection_renderer.critical_css:
+    public: false
+    class: Drupal\critical_css\Asset\CssCollectionRenderer
+    decorates: asset.css.collection_renderer
+    arguments:
+      - '@asset.css.collection_renderer.critical_css.inner'
+      - '@config.factory'
+      - '@twig'
+      - '@critical_css'
+  critical_css:
+    public: true
+    class: Drupal\critical_css\Asset\CriticalCssProvider
+    arguments:
+      - '@module_handler'
+      - '@request_stack'
+      - '@config.factory'
+      - '@current_route_match'
+      - '@path.current'
+      - '@current_user'
+      - '@theme.manager'
+      - '@router.admin_context'

@@ -1,0 +1,13 @@
+diff --git a/src/SectionLibraryRender.php b/src/SectionLibraryRender.php
+index 2f84ca3..e40ec14 100644
+--- a/src/SectionLibraryRender.php
++++ b/src/SectionLibraryRender.php
+@@ -64,7 +64,7 @@ class SectionLibraryRender implements TrustedCallbackInterface {
+ 
+           $sections[$key]['choose_template_from_library'] = [
+             '#type' => 'link',
+-            '#title' => t('Import from Library'),
++            '#title' => t('Import section'),
+             '#url' => Url::fromRoute(
+               'section_library.choose_template_from_library',
+               [

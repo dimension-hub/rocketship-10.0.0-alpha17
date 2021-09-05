@@ -1,0 +1,155 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job meta on full page: bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.job__footer--full {
+  //
+
+  // ** included fields
+
+  .field--name-field-job-property-one,
+  .field--name-field-job-category {
+    font-weight: $font-weight-bold;
+
+    h3 {
+      display: flex;
+      margin: 0;
+      @include text-nobreak;
+      @include font-size($font-size-base, $line-height-base);
+
+      &::after {
+        content: ":";
+      }
+    }
+  }
+
+  // ** lists of links
+
+  .field__items {
+    display: flex;
+    padding: 0;
+    margin: rem(-10) rem(-5) 0 rem(-5);
+
+    .field__item {
+      display: inline-block;
+      margin: rem(10) rem(5) 0 rem(5);
+    }
+
+    a {
+      display: inline-block;
+      @include text-nobreak;
+    }
+
+  }
+
+  // ** location
+
+  .field--name-field-job-property-one {
+    margin-bottom: rem($gap-vert);
+    $icon: (
+      icon: $fa-var-info-circle,
+      size: 16,
+      type: "solid",
+      element: "before",
+      position: absolute,
+      left: 0,
+      top: rem(2)
+    );
+    h3 {
+      position: relative;
+      padding-left: rem(20);
+      @include font-awesome($icon);
+    }
+  }
+
+  // ** business area
+
+  .field--name-field-job-category {
+    $icon: (
+      icon: $fa-var-info-circle,
+      size: 16,
+      type: "solid",
+      element: "before",
+      position: absolute,
+      left: 0,
+      top: rem(2)
+    );
+    h3 {
+      position: relative;
+      padding-left: rem(20);
+      @include font-awesome($icon);
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .job__footer--full {
+
+
+    // -- inline the text with flexbox
+
+    display: flex;
+    flex-wrap: wrap;
+    // align-items: flex-end;
+    justify-content: center; // horizontal alignment
+
+    // if you want equal space between the 2 or fields:
+    // justify-content: space-between;
+
+    // ** location
+
+    .field--name-field-job-property-one {
+      display: flex;
+      margin-bottom: 0;
+
+      h3 {
+        margin-right: rem(5);
+      }
+    }
+
+    .field--name-field-job-category {
+      display: flex;
+
+      h3 {
+        margin-right: rem(5);
+      }
+    }
+
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .job__footer--full {
+
+    justify-content: flex-start; // horizontal alignment
+
+    // ** date
+
+    .field--name-ds-time-ago,
+    .field--name-created {
+      display: flex;
+      // push date & share to the right
+      // and align date to the right
+      flex-grow: 1;
+      justify-content: flex-end; // horizontal alignment
+
+    }
+
+  }
+
+}

@@ -1,0 +1,126 @@
+diff --git a/core/misc/dialog/dialog.position.es6.js b/core/misc/dialog/dialog.position.es6.js
+index d6394c471..fe106f886 100644
+--- a/core/misc/dialog/dialog.position.es6.js
++++ b/core/misc/dialog/dialog.position.es6.js
+@@ -79,38 +79,42 @@
+     let adjustedValue;
+     for (let n = 0; n < positionOptions.length; n++) {
+       option = positionOptions[n];
+-      optionValue = event.data.settings[option];
+-      if (optionValue) {
+-        // jQuery UI does not support percentages on heights, convert to pixels.
+-        if (
+-          typeof optionValue === 'string' &&
+-          /%$/.test(optionValue) &&
+-          /height/i.test(option)
+-        ) {
+-          // Take offsets in account.
+-          windowHeight -= displace.offsets.top + displace.offsets.bottom;
+-          adjustedValue = parseInt(
+-            0.01 * parseInt(optionValue, 10) * windowHeight,
+-            10,
+-          );
+-          // Don't force the dialog to be bigger vertically than needed.
++      if (typeof event.data !== 'undefined' && typeof event.data.settings !== 'undefined') {
++        optionValue = event.data.settings[option];
++        if (optionValue) {
++          // jQuery UI does not support percentages on heights, convert to pixels.
+           if (
+-            option === 'height' &&
+-            event.data.$element.parent().outerHeight() < adjustedValue
++            typeof optionValue === 'string' &&
++            /%$/.test(optionValue) &&
++            /height/i.test(option)
+           ) {
+-            adjustedValue = 'auto';
++            // Take offsets in account.
++            windowHeight -= displace.offsets.top + displace.offsets.bottom;
++            adjustedValue = parseInt(
++              0.01 * parseInt(optionValue, 10) * windowHeight,
++              10,
++            );
++            // Don't force the dialog to be bigger vertically than needed.
++            if (
++              option === 'height' &&
++              event.data.$element.parent().outerHeight() < adjustedValue
++            ) {
++              adjustedValue = 'auto';
++            }
++            adjustedOptions[option] = adjustedValue;
+           }
+-          adjustedOptions[option] = adjustedValue;
+         }
+       }
+     }
+     // Offset the dialog center to be at the center of Drupal.displace.offsets.
+-    if (!event.data.settings.modal) {
+-      adjustedOptions = resetPosition(adjustedOptions);
++    if (typeof event.data !== 'undefined') {
++      if (typeof event.data.settings !== 'undefined' && !event.data.settings.modal) {
++        adjustedOptions = resetPosition(adjustedOptions);
++      }
++      event.data.$element
++        .dialog('option', adjustedOptions)
++        .trigger('dialogContentResize');
+     }
+-    event.data.$element
+-      .dialog('option', adjustedOptions)
+-      .trigger('dialogContentResize');
+   }
+
+   $(window).on({
+diff --git a/core/misc/dialog/dialog.position.js b/core/misc/dialog/dialog.position.js
+index 552e1c596..ce437681a 100644
+--- a/core/misc/dialog/dialog.position.js
++++ b/core/misc/dialog/dialog.position.js
+@@ -34,27 +34,32 @@
+
+     for (var n = 0; n < positionOptions.length; n++) {
+       option = positionOptions[n];
+-      optionValue = event.data.settings[option];
+
+-      if (optionValue) {
+-        if (typeof optionValue === 'string' && /%$/.test(optionValue) && /height/i.test(option)) {
+-          windowHeight -= displace.offsets.top + displace.offsets.bottom;
+-          adjustedValue = parseInt(0.01 * parseInt(optionValue, 10) * windowHeight, 10);
++      if (typeof event.data !== 'undefined' && typeof event.data.settings !== 'undefined') {
++        optionValue = event.data.settings[option];
+
+-          if (option === 'height' && event.data.$element.parent().outerHeight() < adjustedValue) {
+-            adjustedValue = 'auto';
+-          }
++        if (optionValue) {
++          if (typeof optionValue === 'string' && /%$/.test(optionValue) && /height/i.test(option)) {
++            windowHeight -= displace.offsets.top + displace.offsets.bottom;
++            adjustedValue = parseInt(0.01 * parseInt(optionValue, 10) * windowHeight, 10);
++
++            if (option === 'height' && event.data.$element.parent().outerHeight() < adjustedValue) {
++              adjustedValue = 'auto';
++            }
+
+-          adjustedOptions[option] = adjustedValue;
++            adjustedOptions[option] = adjustedValue;
++          }
+         }
+       }
+     }
+
+-    if (!event.data.settings.modal) {
++    if (typeof event.data !== 'undefined' && typeof event.data.settings !== 'undefined' && !event.data.settings.modal) {
+       adjustedOptions = resetPosition(adjustedOptions);
+     }
+
+-    event.data.$element.dialog('option', adjustedOptions).trigger('dialogContentResize');
++    if (typeof event.data !== 'undefined') {
++      event.data.$element.dialog('option', adjustedOptions).trigger('dialogContentResize');
++    }
+   }
+
+   $(window).on({
+@@ -79,4 +84,4 @@
+       $(document).off('.dialogResize');
+     }
+   });
+-})(jQuery, Drupal, drupalSettings, Drupal.debounce, Drupal.displace);
+\ No newline at end of file
++})(jQuery, Drupal, drupalSettings, Drupal.debounce, Drupal.displace);

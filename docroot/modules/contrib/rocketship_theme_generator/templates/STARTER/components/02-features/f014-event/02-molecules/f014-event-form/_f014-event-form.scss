@@ -1,0 +1,113 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event page form: present in Panel footer or bottom
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.node--event {
+
+  // ** webform container
+
+  .block--provider-webform {
+    padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+    margin-top: rem($gap-vert-bottom-xs);
+    transition: all $duration $easing;
+
+    // background-color
+    @include full-bg ($color-gray-light-1, "before");
+  }
+
+  // ** text next of above button
+
+  .form-type--processed-text {
+
+    p,
+    ul,
+    ol {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .node--event {
+
+    .block--provider-webform {
+      padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+      margin-top: rem($gap-vert-bottom-sm);
+    }
+
+    .webform-submission-event-subscription-form {
+
+      // groups and fields go here
+
+      // text
+
+      .form-type--processed-text {
+        //
+      }
+
+      // button
+      .form-actions {
+        //
+      }
+
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .node--event {
+
+    .block--provider-webform {
+      padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+      margin-top: rem($gap-vert-bottom-md);
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .node--event {
+
+    .block--provider-webform {
+      padding: rem($gap-vert-top-lg-2) 0 rem($gap-vert-bottom-lg-2) 0;
+      margin-top: rem($gap-vert-bottom-lg);
+    }
+
+  }
+
+}

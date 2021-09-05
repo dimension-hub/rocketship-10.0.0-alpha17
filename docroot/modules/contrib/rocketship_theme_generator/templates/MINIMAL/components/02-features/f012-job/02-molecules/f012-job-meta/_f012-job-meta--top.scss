@@ -1,0 +1,74 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job meta on full page: part of the header
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.job__header--full {
+
+  .layout__subregion-02 {
+
+    // ** breadcrumb
+
+    .breadcrumb__item {
+      //
+    }
+
+    .breadcrumb__link {
+      //
+    }
+
+
+    // ** Apply (if Advanced module)
+
+    .rs-scroll-to-formatter {
+      //
+    }
+
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .job__header--full {
+
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .job__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .job__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}

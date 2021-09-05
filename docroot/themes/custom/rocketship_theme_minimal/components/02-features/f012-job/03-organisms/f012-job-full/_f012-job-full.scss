@@ -1,0 +1,79 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job detail full
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// ** header main content (contains the img, title, location, …)
+
+.job__header--full {
+  position: relative;
+
+  // -- background image: make it stretch (like "cover")
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+
+    // prevent blazy wrappers from breaking positioning of absolute image
+    // so needs some styling to enable proper position and stretch of the img
+    // basically, match what the sidebar div is doing
+    .media {
+      position: static;
+    }
+
+    img {
+      //
+    }
+  }
+
+  // ** wrapper of that main content, in order to center using flexbox later on
+
+  .layout__subregion-01 {
+    position: relative;
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .job__header--full {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .job__header--full {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .job__header--full {
+    //
+  }
+}

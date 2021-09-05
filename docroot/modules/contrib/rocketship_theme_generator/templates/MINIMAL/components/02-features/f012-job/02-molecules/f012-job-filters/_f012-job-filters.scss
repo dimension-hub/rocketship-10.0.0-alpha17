@@ -1,0 +1,209 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * jobs Filters
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Facets in overview (jobs complex)
+// ===========================================================================
+
+// -- we get a column of Filters
+//    hidden on mobile, with some JS to fold out
+
+.overview--job-overview {
+
+  // ** facet block by default
+
+  .block--provider-facets {
+
+    h2 {
+      //
+    }
+
+    // -- list default
+
+    ul[class*="item-list"] {
+      //
+    }
+
+    // -- list: checkboxes & radios: spacing & positioning for radio/checkbox
+
+    .item-list__checkbox,
+    .item-list__radio,
+    .item-list__radiobutton {
+
+      cursor: pointer;
+
+      .facet-item {
+        //
+      }
+
+      input {
+        //
+      }
+    }
+
+    // -- list item by default
+
+    .facet-item {
+      //
+
+      // -- link
+      a {
+
+        &,
+        &:visited {
+          //
+        }
+
+        &:hover,
+        &:active,
+        &.is-active {
+          //
+        }
+      }
+
+      .job-facet-item__status {
+        //
+      }
+
+      .job-facet-item__value {
+        //
+      }
+
+      .job-facet-item__count {
+        //
+      }
+    }
+
+    // -- dropdowns
+
+    .block-facet--dropdown {
+      //
+    }
+
+    .form__dropdown {
+      //
+    }
+
+    .facets-dropdown {
+      //
+    }
+
+  }
+
+  // ** Categories
+
+  .block--facet-blockjob-category {
+
+    [class*="facets-widget-"] {
+      //
+    }
+  }
+
+  // ** Search
+
+  .block--search-redirect-block {
+    //
+
+    h2 {
+      @include h3;
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: only on mobile
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-only {
+
+  // ** collapsible filters on mobile phone (because not a lot of room)
+
+  .overview--job-overview {
+
+    .block--provider-facets {
+
+      h2 {
+
+        cursor: pointer;
+
+        // -- icon
+
+        &::before {
+          //
+        }
+      }
+
+      // -- facets with a background-color
+      &.block--facet-blockjob-category [class*="facets-widget-"] {
+        padding: 0;
+        transition: all $duration $easing;
+      }
+
+      // -- target: default facet list items or dropdowns
+      .facet-item,
+      .form__dropdown {
+        overflow: hidden;
+        max-height: 0;
+        transition: all $duration $easing;
+      }
+
+      // ** states
+
+      &.js-open {
+
+        h2 {
+
+          &:hover {
+            //
+          }
+
+          &::before {
+            //
+          }
+        }
+
+        // -- facets with a background-color
+        &.block--facet-blockjob-category [class*="facets-widget-"] {
+          //
+        }
+
+        .facet-item,
+        .form__dropdown {
+          max-height: rem(100); // think of the heighest this could get when open
+        }
+      }
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone only
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide-only {
+  //
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+  //
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+  //
+}

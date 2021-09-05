@@ -1,0 +1,113 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * News overview: related
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Styling
+// =============================================================================
+
+.view--related-news {
+
+  padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+
+  // ** title
+  .view__header {
+    h2 {
+      margin-bottom: rem($gap-vert-bottom-xs);
+    }
+  }
+
+  @include full-bg($color-news-view-related-bg);
+
+  .view__content {
+    margin-bottom: rem(-15);
+  }
+
+  .news--related {
+    margin-bottom: rem(15);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--related-news {
+
+    padding: rem($gap-vert-top-sm) 0 rem($gap-vert-bottom-sm) 0;
+
+    // ** title
+    .view__header {
+      h2 {
+        margin-bottom: rem($gap-vert-bottom-sm);
+      }
+    }
+
+    // ** make a grid
+
+    .view__content {
+      @include flex-grid();
+      margin-top: 0;
+    }
+
+    .news--related {
+      @include flex-col(6);
+      margin-top: 0;
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--related-news {
+
+    padding: rem($gap-vert-top-md) 0 rem($gap-vert-bottom-md) 0;
+
+    // ** title
+    .view__header {
+      h2 {
+        margin-bottom: rem($gap-vert-top-md);
+      }
+    }
+
+    .news--related {
+      @include flex-col(4);
+      margin-top: 0;
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .view--related-news {
+
+    padding: rem($gap-vert-top-lg) 0 rem($gap-vert-bottom-lg) 0;
+
+    // ** title
+    .view__header {
+      h2 {
+        margin-bottom: rem(40);
+      }
+    }
+
+  }
+
+}

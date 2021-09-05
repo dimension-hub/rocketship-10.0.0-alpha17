@@ -1,0 +1,139 @@
+///////////////////////////////////////////////////////////////////////
+// *
+// * User
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Better login forms
+// =============================================================================
+
+.user-box {
+  //
+}
+
+.user-box__middle {
+  position: relative;
+  padding: rem(35) rem(20) rem(20) rem(20);
+  margin: rem(24) auto 0 auto; // keep space on top for lock icon
+  max-width: rem(350);
+  border: 1px solid $color-border;
+  background-color: $color-off-white;
+
+  @include font-awesome((icon: $fa-var-lock, color: $color-base, size: 18, element: "after", type: "light"));
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 50%;
+    display: block;
+    transform: translateX(-50%);
+  }
+
+  &::before {
+    content: "";
+    top: rem(-24);
+    width: rem(48);
+    height: rem(48);
+    border: 1px solid $color-border;
+    border-radius: 50%;
+    background-color: $color-white;
+  }
+
+  &::after {
+    top: rem(-8);
+  }
+
+  h1 {
+    @include h2;
+  }
+
+
+  .form__element {
+    margin: 0 0 rem(15) 0;
+  }
+
+  // -- buttons
+
+  input[type="submit"],
+  button[type="submit"] {
+    width: 100%;
+  }
+
+  // -- secondary header
+
+  .paragraph--type-simple-header::before {
+    display: none !important;
+  }
+}
+
+.user-box__links {
+  @include list-reset;
+  margin-top: rem($gap-vert);
+
+  li {
+    @include font-size(12, 14);
+    @include font-awesome((icon: $fa-var-chevron-right, color: $color-gray, margin: 0 5px 0 0, size: 9));
+  }
+}
+
+.user-box__bottom {
+  padding: rem(20);
+  text-align: center;
+}
+
+
+// ** registration page
+
+.user-box__middle--register {
+  padding: rem(35) rem(20) rem(20) rem(20);
+
+  max-width: $max-width-sm;
+
+  input[type="submit"],
+  button[type="submit"] {
+
+    @include bp-sm {
+      width: auto;
+    }
+  }
+}
+
+
+// * User create / edit page
+// =============================================================================
+
+.password-strength__meter {
+  margin-top: rem(10);
+  background: $color-off-white;
+}
+.password-strength__indicator {
+  background-color: $color-off-white;
+  transition: width $duration $easing;
+
+  &.is-weak {
+    background-color: $color-error;
+  }
+  &.is-fair {
+    background-color: $color-warning;
+  }
+  &.is-good {
+    background-color: $color-neutral;
+  }
+  &.is-strong {
+    background-color: $color-status;
+  }
+}
+
+.confirm-parent {
+
+  .password-confirm {
+    .ok {
+      color: $color-status;
+    }
+    .error {
+      color: $color-error;
+    }
+  }
+}
+

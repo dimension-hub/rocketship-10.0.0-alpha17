@@ -1,0 +1,116 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Service teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.view--display-service-overview-block {
+
+  .service--teaser {
+
+    // ** visual
+
+    .field--image,
+    .field--name-field-media-canonical-image {
+      //
+    }
+
+    // ** title
+
+    h2,
+    h3,
+    h4 {
+      @include h3;
+    }
+
+    // ** read more
+
+    .rs-canonical-link-formatter {
+      //
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .view--display-service-overview-block {
+
+    .service--teaser {
+
+      // ** make 2 cols
+
+      // &,
+      // .node__content {
+      //   display: flex;
+      // }
+
+      // .node__content {
+      //   width: 100%; // IE
+      // }
+
+      // .layout--rs-header,
+      // .layout--rs-content {
+      //   flex: 1 0 calc(50% - #{rem($gap-service-teaser / 2)});
+      //   width: calc(50% - #{rem($gap-service-teaser / 2)});
+      // }
+
+      // .layout--rs-header {
+      //   padding-right: #{rem($gap-service-teaser / 2)};
+      // }
+
+      // .layout--rs-content {
+      //   display: flex;
+      //   flex-direction: column;
+      //   padding-left: #{rem($gap-service-teaser / 2)};
+      // }
+
+      .field--image,
+      .field--name-field-media-canonical-image {
+        //
+      }
+
+      // -- Style 'read more' as a button
+
+      .rs-canonical-link-formatter {
+
+        //
+      }
+
+    }
+
+    // -- stretch and push actions down
+
+    .layout__subregion-01 {
+      //
+    }
+
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-service-overview-block {
+
+    .service--teaser {
+
+      //
+
+    }
+
+  }
+
+}

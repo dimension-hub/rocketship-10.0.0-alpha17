@@ -1,0 +1,77 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event frontpage overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+// ** paragraph contaiing the view
+
+.overview--event-overview-front {
+  //
+}
+
+.view--display-event-overview-front {
+
+  .view__content {
+    //
+  }
+
+  .event--frontpage {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-event-overview-front {
+
+    // ** make a grid
+
+    .view__content {
+      //
+    }
+
+    .event--frontpage {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--display-event-overview-front {
+
+    .event--frontpage {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large screen
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .view--display-event-overview-front {
+    //
+  }
+
+}

@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies: {  }
+id: whitelist
+label: Whitelist
+folder: ../config/splits/whitelist
+module: {  }
+theme: {  }
+blacklist:
+  - webform.webform.event_subscription
+  - webform.webform.apply_for_this_job
+  - webform.webform.office_contact
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: -99

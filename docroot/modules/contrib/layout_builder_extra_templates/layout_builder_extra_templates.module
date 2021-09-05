@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Adds additional template suggestions to for custom and layout builder blocks.
+ */
+
+use Drupal\layout_builder_extra_templates\Action;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function layout_builder_extra_templates_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  Action\AddExtraThemeSuggestions::add($variables, $suggestions);
+}

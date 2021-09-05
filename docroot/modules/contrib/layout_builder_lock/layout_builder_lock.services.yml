@@ -1,0 +1,10 @@
+services:
+  layout_builder_perms.route_subscriber:
+    class: Drupal\layout_builder_lock\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+  access_check.entity.layout_builder_lock_access:
+    class: Drupal\layout_builder_lock\Access\LayoutBuilderLockAccessCheck
+    arguments: ['@current_route_match']
+    tags:
+      - { name: access_check, applies_to: _layout_builder_lock_access }

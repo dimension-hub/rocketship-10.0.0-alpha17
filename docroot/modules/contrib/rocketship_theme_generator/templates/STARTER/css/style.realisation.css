@@ -1,0 +1,105 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.realisation__header--full .layout__subregion-02 {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .realisation__header--full .layout__subregion-02 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.realisation__header--full {
+  position: relative;
+  margin: 0;
+  padding: 1.5rem 0 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 5;
+}
+
+.realisation__header--full:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  height: 100%;
+  margin-left: calc((-100vw + 100%) / 2);
+  width: 100vw;
+  background-color: #000;
+}
+
+.realisation__header--full .field--image,
+.realisation__header--full .field--name-field-media-canonical-image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  opacity: .5;
+}
+
+.realisation__header--full .field--image .media,
+.realisation__header--full .field--name-field-media-canonical-image .media {
+  position: static;
+}
+
+.realisation__header--full .field--image img,
+.realisation__header--full .field--name-field-media-canonical-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.realisation__header--full .layout__subregion-01 {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 940px) {
+  .realisation__header--full {
+    padding: 2.5rem 0 2.5rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .realisation__header--full {
+    padding: 6.875rem 0 6.875rem 0;
+  }
+}

@@ -1,0 +1,84 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog related
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// * Related items, as part of a view (NOT a reference field)
+// =============================================================================
+
+.news--related {
+  h2,
+  h3,
+  h4 {
+
+    a {
+      //
+    }
+  }
+
+  .field--name-node-link a {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: wide phone and bigger
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide {
+
+  .news--related {
+
+    // ** make a grid
+    .layout__cols {
+      //
+    }
+
+    .layout__sidebar {
+      //
+    }
+
+    .layout__content {
+      //
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .news--related {
+
+    // ** make a grid
+    .layout__cols {
+      //
+    }
+
+    .layout__sidebar {
+      //
+    }
+
+    .layout__content {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  //
+
+}

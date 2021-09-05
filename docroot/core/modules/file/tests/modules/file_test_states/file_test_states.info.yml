@@ -1,0 +1,7 @@
+name: 'File test states'
+type: module
+description: 'Provides a simple form with file fields using states.'
+package: Testing
+version: VERSION
+dependencies:
+  - drupal:file

@@ -1,0 +1,152 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.office--full .layout--rs-content {
+  margin-top: 1.5rem;
+}
+
+.office--full .field--name-field-office-show-contact-form {
+  padding: 1.5rem 0 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 5;
+}
+
+.office--full .field--name-field-office-show-contact-form:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  height: 100%;
+  margin-left: calc((-100vw + 100%) / 2);
+  width: 100vw;
+  background-color: #e5e5e5;
+}
+
+.office--full .webform-submission-office-contact-form .form-actions {
+  margin-top: 1.5rem;
+}
+
+.office--full .captcha {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .office--full .layout--rs-content {
+    margin-top: 1.5rem;
+  }
+  .office--full .field--name-field-office-show-contact-form {
+    padding: 1.5rem 0 1.5rem 0;
+  }
+}
+
+@media (min-width: 940px) {
+  .office--full .layout--rs-content {
+    margin-top: 2.5rem;
+  }
+  .office--full .field--name-field-office-show-contact-form {
+    padding: 2.5rem 0 2.5rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .office--full .layout--rs-content {
+    margin-top: 6.875rem;
+  }
+  .office--full .field--name-field-office-show-contact-form {
+    padding: 6.875rem 0 6.875rem 0;
+  }
+}
+
+.office--teaser .layout__content__row--bottom {
+  margin-top: 1.5rem;
+}
+
+.office--full .layout__cols {
+  padding-top: 1.5rem;
+}
+
+.office--full .layout__content {
+  margin-top: 1.5rem;
+}
+
+.office--full .layout__content__row--top {
+  margin-bottom: 1.5rem;
+}
+
+.office--full .field--name-field-office-geolocation {
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+.office--full .rs-more-offices-formatter {
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .office--full .layout__cols {
+    padding-top: 1.5rem;
+  }
+  .office--full .layout__content {
+    margin-top: 1.5rem;
+  }
+  .office--full .field--name-field-office-geolocation {
+    padding: 1.5rem 0 1.5rem 0;
+  }
+  .office--full .rs-more-offices-formatter {
+    margin: 1.5rem 0 1.5rem 0;
+  }
+}
+
+@media (min-width: 940px) {
+  .office--full .layout__cols {
+    padding-top: 2.5rem;
+  }
+  .office--full .layout__content {
+    margin-top: 1.5rem;
+  }
+  .office--full .layout__content__row--top {
+    margin-bottom: 2.5rem;
+  }
+  .office--full .field--name-field-office-geolocation {
+    padding: 2.5rem 0 2.5rem 0;
+  }
+  .office--full .rs-more-offices-formatter {
+    margin: 2.5rem 0 2.5rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .office--full .layout__cols {
+    padding-top: 3.125rem;
+  }
+  .office--full .field--name-field-office-geolocation {
+    padding: 3.125rem 0 3.125rem 0;
+  }
+  .office--full .rs-more-offices-formatter {
+    margin: 3.125rem 0 3.125rem 0;
+  }
+}
+
+.office--office-promoted .layout__sidebar {
+  padding-bottom: 1.5rem;
+}
+
+.office--office-promoted .layout__content__row--top {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 940px) {
+  .office--office-promoted .layout__content__row--top {
+    margin-bottom: 2.5rem;
+  }
+}

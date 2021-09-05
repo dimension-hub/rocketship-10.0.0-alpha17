@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Webform confirmation (and other related pages)
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * General
+// =============================================================================
+
+.webform-confirmation,
+.webform-submission {
+  padding-top: rem($gap-vert-top-xs);
+  padding-bottom: rem($gap-vert-bottom-xs);
+}
+
+.webform-confirmation__message {
+  @include h2;
+}
+
+.webform-confirmation__back {
+  @include link-back;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .webform-confirmation,
+  .webform-submission {
+    padding-top: rem($gap-vert-top-sm);
+    padding-bottom: rem($gap-vert-bottom-sm);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .webform-confirmation,
+  .webform-submission {
+    padding-top: rem($gap-vert-top-md);
+    padding-bottom: rem($gap-vert-bottom-md);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .webform-confirmation,
+  .webform-submission {
+    padding-top: rem($gap-vert-top-lg-2);
+    padding-bottom: rem($gap-vert-bottom-lg-2);
+  }
+}

@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office address: a field with multiple lines and elements
+// *
+// * In doormat
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.office--footer {
+
+  // -- contact styling
+  // @include office-contact((
+  //   icons: true,
+  //   font-size: 17,
+  //   line-height: 23,
+  //   type: "regular",
+  //   color: $color-spot-2
+  // ));
+
+  .address {
+    //
+  }
+
+  .address__lines {
+
+    &::before {
+      //
+    }
+  }
+
+  .field__item--name-field-office-phone,
+  .field__item--name-field-office-fax,
+  .field__item--name-field-office-email {
+
+    &::before {
+      //
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: only on phone (< 768)
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-only {
+
+  .office--footer {
+    // centered txt with icons near to text
+
+    .address {
+      //
+    }
+
+    .field__item--name-field-office-phone,
+    .field__item--name-field-office-fax,
+    .field__item--name-field-office-email {
+      .field__items {
+        //
+      }
+    }
+  }
+
+}

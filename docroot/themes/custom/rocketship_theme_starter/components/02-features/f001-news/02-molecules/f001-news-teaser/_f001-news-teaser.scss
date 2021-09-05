@@ -1,0 +1,308 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+// *
+// =============================================================================
+
+.news--teaser {
+
+  // ** visual
+
+  .field--image,
+  .field--name-field-media-canonical-image {
+    margin-bottom: rem($gap-vert-sm);
+  }
+
+  // ** title
+
+  h2,
+  h3,
+  h4 {
+    @include h3;
+  }
+
+  // ** date/author
+
+  // wrapper around date
+  .block--field-blocknodenewscreated {
+    float: left;
+    margin-right: rem(10);
+  }
+
+  .field--name-node-post-date,
+  .field--name-created {
+    font-weight: $font-weight-bold;
+  }
+
+  .block--field-blocknodenewsauthor {
+    margin-left: rem(10);
+  }
+
+  // ** group stuff
+  .layout__content__row--bottom {
+    margin-top: rem($gap-vert-sm);
+  }
+
+  // ** read more
+
+  .field--name-node-link,
+  .rs-canonical-link-formatter {
+    a {
+      @include link-more;
+    }
+  }
+
+  // wrapper around tags
+  .block--field-blocknodenewsfield-news-tags {
+    //
+  }
+
+  .field--name-field-news-tags {
+
+    .field__items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .field__item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      &::after {
+        content: ",";
+        margin-right: rem(4);
+      }
+
+      &:last-child::after {
+        content: "";
+        margin-right: 0;
+      }
+    }
+
+    a {
+      @include link-underline((color: $color-spot-1, color-hover: $color-spot-1, inverse: true));
+      @include font-size(14, 18);
+    }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide-only {
+
+  // normal overview is visual + content in 2 cols
+
+  .news--teaser {
+
+    // display: flex; // needed to stretch some of the content
+    // width: 100%; // IE
+
+    // .node__content {
+    //   display: flex;
+    //   width: 100%; // IE
+    // }
+
+    // .layout--rs-two-col {
+    //   width: 100%; // IE
+    // }
+
+    // // ** override grid
+
+    // .layout__cols {
+    //   @include flex-grid();
+    // }
+
+    // .layout__sidebar {
+    //   @include flex-col(6);
+    // }
+
+    // .layout__content {
+    //   @include flex-col(6);
+
+    //   // needed to manipulate content with flex
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+
+    // // stretch and push content down
+    // .layout__content__row--bottom {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   flex-direction: row;
+    //   flex-grow: 1;
+    //   align-items: flex-end; // align at the end
+    //   align-content: flex-end; // space together at the end
+    // }
+
+    // .field--name-node-link,
+    // .rs-canonical-link-formatter {
+    //   padding-right: rem(15);
+
+    //   a {
+    //     @include text-nobreak;
+    //   }
+    // }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .news--teaser {
+
+    .node__filters {
+      // flex-grow: 1;
+      // justify-content: flex-end;
+    }
+
+    // all except the first 3 items
+    &:not(:nth-child(1)),
+    &:not(:nth-child(2)),
+    &:not(:nth-child(3)) {
+
+      // display: flex;
+
+      // .node__content {
+      //   width: 100%; // IE
+      // }
+
+      // .layout--rs-two-col {
+      //   width: 100%; // IE
+      // }
+
+      // // ** make a grid
+      // .layout__cols {
+      //   @include flex-grid();
+      // }
+
+      // .layout__sidebar {
+      //   @include flex-col(4);
+      // }
+
+      // .layout__content {
+      //   @include flex-col(8);
+
+      //   // needed to manipulate content with flex
+      //   display: flex;
+      //   flex-direction: column;
+      // }
+
+      // // stretch and push content down
+      // .slayout__sidebar__row--bottom {
+      //   display: flex;
+      //   flex-wrap: wrap;
+      //   flex-direction: row;
+      //   flex-grow: 1;
+      //   align-items: flex-end; // align at the end
+      //   align-content: flex-end; // space together at the end
+      // }
+
+      // .field--name-node-link,
+      // .rs-canonical-link-formatter {
+      //   padding-right: rem(15);
+
+      //   a {
+      //     @include text-nobreak;
+      //   }
+      // }
+
+    }
+
+    // first 3 teasers have their visual and content in 1 col
+    // so we switch to flex column and reset the flex properties and sizing
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+
+      //   display: flex;
+
+      // ** stretching of heights
+      // .node__content {
+      //   width: 100%; // IE
+      //   display: flex;
+      // }
+
+      // .layout--rs-two-col {
+      //   width: 100%; // IE
+      //   display: flex;
+      // }
+
+      // .layout__cols {
+      //   flex-direction: column;
+      //   margin: 0;
+      //   width: 100%;
+      //   overflow: visible;
+      // }
+
+      // .layout__sidebar {
+      //   flex: 0 1 auto;
+      //   margin: 0;
+      //   width: 100%; // IE
+      // }
+
+      //   .layout__content {
+      //     flex: 1 0 auto;
+      //     margin: 0;
+      //     width: auto;
+      //   }
+
+      //   .field--name-node-post-date,
+      //   .block--field-blocknodenewscreated {
+      //     @include hide;
+      //   }
+      // }
+    }
+
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .news--teaser {
+
+    // ** equal position of 'readme' + alingment of filters
+
+    // .layout__content {
+    //   display: flex;
+    // }
+
+    // .layout__content__row--bottom {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   flex-grow: 1;
+    //   align-items: flex-end;
+
+    //   .block--field-blocknodenewsfield-news-display-field:first-child {
+    //     flex-grow: 1; //push filters to the right
+    //   }
+    // }
+
+    .field--name-node-link,
+    .rs-canonical-link-formatter {
+      //
+    }
+
+  }
+
+}

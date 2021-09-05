@@ -1,0 +1,85 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Event teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.event--teaser {
+
+  // ** visual
+
+  .layout--rs-top,
+  .layout--rs-header {
+    //
+  }
+
+  // date on visual
+  .date-first-teaser {
+    //
+  }
+
+  // date normal
+  .field--name-field-events {
+    //
+  }
+
+  // make separators for date and time if multiple
+  .time,
+  .date {
+    //
+  }
+
+  // image
+  .field--image,
+  .field--name-field-media-canonical-image {
+    //
+  }
+
+  // ** title
+
+  .layout__subregion-01 {
+    //
+  }
+
+  .date-wrapper {
+    //
+
+    .last-date {
+      //
+    }
+  }
+
+  .field--name-field-event-place {
+    //
+  }
+
+  // ** read more
+
+  .rs-canonical-link-formatter {
+    //
+  }
+
+  .field--name-field-event-tags {
+    //
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .event--teaser {
+
+    .layout--rs-top,
+    .layout--rs-header {
+      //
+    }
+
+  }
+
+}

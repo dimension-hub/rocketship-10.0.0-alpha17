@@ -1,0 +1,171 @@
+{# for some reason, some data in Storybook embedded templates seems to be permanent
+   so we need to reset it
+   Here we're doing that for the layout templates #}
+{% set bem_section_modifier = [] %}
+{% set bem_section_extra = [] %}
+{% set modifier = false %}
+{% set bem_region_modifier = [] %}
+{% set bem_region_extra = [] %}
+
+{% embed "@rocketship-theme-demo-organisms/00-node/_node.twig" with {
+  view_mode: view_mode,
+  isPromoted: isPromoted,
+  isSticky: isSticky,
+  bundle: bundle,
+} %}
+  {% block node_content %}
+
+    {# Section: header #}
+    {% embed "@rocketship-theme-demo-templates/styleguide/section/one-col.twig" with {
+      label: layouts.header.label,
+      template: layouts.header.template,
+      layout_reset: layouts.header.layout_reset,
+      region_type: layouts.header.region_type,
+      modifier: layouts.header.modifier,
+      extra_classes: layouts.header.extra_classes,
+      settings: layouts.header.settings,
+      content: layouts.header.content,
+    } %}
+
+      {% block section_after01 %}
+        <div class="block block--provider-layout-builder block--field-blocknodeblogcreated block-layout_builder">
+
+          {# date created field #}
+          {% include "@rocketship-theme-demo-atoms/00-field/_field.twig" with {
+            field_name: fields.created.field_name,
+            field_type: fields.created.field_type,
+            bem_field_modifiers: fields.created.bem_field_modifiers,
+            bem_field_extra: fields.created.bem_field_extra,
+            attributes: fields.created.field_attributes,
+            label_display: fields.created.label_display,
+            items: fields.created.items,
+          } %}
+          {# /End date created field #}
+
+        </div>
+      {% endblock %}
+
+      {% block section_content %}
+
+        {# image field, with blazy #}
+        {% embed "@rocketship-theme-demo-atoms/00-field/_field.twig" with {
+          field_name: fields.image.field_name,
+          field_type: fields.image.field_type,
+          bem_field_modifiers: fields.image.bem_field_modifiers,
+          bem_field_extra: fields.image.bem_field_extra,
+          attributes: fields.image.field_attributes,
+          label_display: fields.image.label_display,
+        } %}
+
+          {% block field_content %}
+            {% include "@rocketship-theme-demo-atoms/04-images/styleguide/blazy.twig" with {
+              label_display: fields.image.label_display,
+              field_name: fields.image.field_name,
+              field_type: fields.image.field_type,
+              field_attributes: fields.image.field_attributes,
+              settings: fields.image.settings,
+              bem_field_modifiers: fields.image.bem_field_modifiers,
+              bem_field_extra: fields.image.bem_field_extra,
+              blazy_bem_block: fields.image.blazy_bem_block,
+              blazy_bem_modifiers: fields.image.blazy_bem_modifiers,
+              blazy_attributes: fields.image.blazy_attributes,
+              image_src: fields.image.image_src,
+              image_alt: fields.image.image_alt,
+              image_bem_modifiers: fields.image.image_bem_modifiers,
+              image_bem_extra: fields.image.image_bem_extra,
+              attributes: fields.image.image_attributes,
+            } %}
+          {% endblock %}
+
+        {% endembed %}
+        {# /End image field #}
+
+      {% endblock %}
+
+    {% endembed %}
+    {# // End Section: header #}
+
+
+    {# Section: content #}
+    {% embed "@rocketship-theme-demo-templates/styleguide/section/one-col.twig" with {
+      label: layouts.content.label,
+      template: layouts.content.template,
+      layout_reset: layouts.content.layout_reset,
+      region_type: layouts.content.region_type,
+      modifier: layouts.content.modifier,
+      extra_classes: layouts.content.extra_classes,
+      settings: layouts.content.settings,
+      content: layouts.content.content,
+    } %}
+
+      {% block section_content %}
+
+        {# title field #}
+        {% include "@rocketship-theme-demo-atoms/02-text/00-headings/styleguide/heading-field.twig" with {
+            label: fields.title.label,
+            label_hidden: fields.title.label_hidden,
+            field_name: fields.title.field_name,
+            field_type: fields.title.field_type,
+            bem_field_modifiers: fields.title.bem_field_modifiers,
+            bem_field_extra: fields.title.bem_field_extra,
+            attributes: fields.title.attributes,
+            heading_display: fields.title.heading_display,
+            heading_level: fields.title.heading_level,
+            heading: fields.title.heading,
+            heading_id: fields.title.heading_id,
+            heading_url: fields.title.heading_url,
+            bem_heading_block : fields.title.heading_block,
+            bem_heading_element : fields.title.heading_element,
+          }
+        %}
+        {# /End title field #}
+
+        {# description field #}
+      {% embed "@rocketship-theme-demo-atoms/00-field/_field.twig" with {
+        label: fields.description.label,
+        label_hidden: fields.description.label_hidden,
+        field_name: fields.description.field_name,
+        field_type: fields.description.field_type,
+        bem_field_modifiers: fields.description.bem_field_modifiers,
+        bem_field_extra: fields.description.bem_field_extra,
+        attributes: fields.description.attributes,
+      } %}
+
+        {% block field_content %}
+
+          {{ fields.description.content | raw }}
+
+        {% endblock %}
+
+      {% endembed %}
+      {# /End description field #}
+
+      {# Readmore field #}
+      {% embed "@rocketship-theme-demo-atoms/00-field/_field.twig" with {
+        label: fields.more.label,
+        label_hidden: fields.more.label_hidden,
+        field_name: fields.more.field_name,
+        field_type: fields.more.field_type,
+        bem_field_modifiers: fields.more.bem_field_modifiers,
+        bem_field_extra: fields.more.bem_field_extra,
+        attributes: fields.more.attributes,
+      } %}
+
+        {% block field_content %}
+
+          <div class="rs-canonical-link-formatter">
+            <a href="{{fields.more.href}}" aria-label="Read more about {{fields.title.heading}}" hreflang="en">{{fields.more.title}}</a>
+          </div>
+
+        {% endblock %}
+
+      {% endembed %}
+      {# /End Readmore field #}
+
+      {% endblock %}
+    {% endembed %}
+    {# // End Section: content #}
+
+  {% endblock %}
+
+{% endembed %}

@@ -1,0 +1,3 @@
+field.widget.settings.metatag_async_widget_firehose:
+  type: field.widget.settings.metatag_firehose
+  label: 'Advanced meta tags form (async)'

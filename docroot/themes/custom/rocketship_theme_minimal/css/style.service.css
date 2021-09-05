@@ -1,0 +1,21 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.service__header--full {
+  position: relative;
+}
+
+.service__header--full .field--image .media,
+.service__header--full .field--name-field-media-canonical-image .media {
+  position: static;
+}
+
+.service__header--full .layout__subregion-01 {
+  position: relative;
+}

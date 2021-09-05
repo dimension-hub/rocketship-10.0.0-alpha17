@@ -1,0 +1,37 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Vars: grid
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// * Grid settings
+// =============================================================================
+
+$grid-columns: 12;
+
+// usually the same as the basic gap, change here if you need it to be different
+$grid-gap-hor: $gap-hor; // gutter, or gap between columns
+$grid-gap-vert: $gap-hor; // gap between rows
+
+// for container sizing
+$max-width: 1200px;
+$max-width-md: $max-width;
+$max-width-sm: 940px;
+$max-width-xs: none;
+
+
+// * Visual Grid (for debug purposes only)
+// =============================================================================
+
+// -- Show visual breakpoint indicators if true
+$visual-indicators: false;
+
+// -- Show grid overlay if true
+$visual-grid: false;
+
+// -- Grid more settings
+$visual-grid-color: red;
+$visual-grid-index: front; // or back
+$visual-grid-opacity: 0.5;

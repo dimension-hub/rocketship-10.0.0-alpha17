@@ -1,0 +1,11 @@
+name: Dropsolid Node Keeper
+description: 'Adds a base field to all nodes to prevent accidental deletion by unauthorized users.'
+type: module
+package: Node Keep
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - drupal:node
+# Information added by Drupal.org packaging script on 2020-11-09
+version: '2.1.0'
+project: 'node_keep'
+datestamp: 1604954126

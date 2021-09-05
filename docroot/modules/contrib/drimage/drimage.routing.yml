@@ -1,0 +1,14 @@
+drimage.image:
+  path: '/drimage/{width}/{height}/{fid}/{filename}'
+  defaults: 
+    _controller: '\Drupal\drimage\Controller\DrImageController::image'
+  requirements:
+    _permission: 'access content'
+
+drimage.settings:
+  path: /admin/config/media/drimage
+  defaults:
+    _form: '\Drupal\drimage\Form\DrimageSettingsForm'
+    _title: 'Drimage settings'
+  requirements:
+    _permission: 'administer image styles'

@@ -1,0 +1,50 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Breadcrumbs
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+.breadcrumb {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.breadcrumb__item {
+  display: flex;
+  align-items: baseline;
+  @include font-size($font-size-base, $line-height-base);
+
+  .font-text-01-loaded & {
+    font-family: $font-base;
+  }
+
+  @include font-awesome((icon: $fa-var-chevron-right, color: $color-link, size: 8, margin: 0 5px));
+
+  &::before {
+    vertical-align: baseline;
+  }
+
+  &:first-child::before {
+    display: none;
+  }
+}
+
+.breadcrumb__element {
+  //
+}
+
+.breadcrumb__link {
+  @include link-underline((
+    color: $color-spot-1,
+    color-hover: $color-spot-2,
+    inverse: true
+  ));
+
+  &::after {
+    bottom: 1px;
+  }
+}

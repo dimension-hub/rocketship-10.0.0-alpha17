@@ -1,0 +1,168 @@
+<?php
+
+/**
+ * @file
+ * Contains node_keep.module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function node_keep_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+
+  // Add a custom base field to all node types.
+  if ($entity_type->id() === 'node') {
+    $fields['node_keeper'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Prevent this node from being deleted'))
+      ->setDescription(t('This option will prevent node deletion to avoid accidents. Only users with "administer node_keep per node" permission will be able to remove this node.'))
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setRequired(FALSE)
+      ->setSettings([
+        'default_value' => 0,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'boolean_checkbox',
+        'weight' => 100,
+        'settings' => [
+          'display_label' => TRUE,
+        ],
+      ])
+      ->setDisplayConfigurable('form', TRUE);
+
+    if (\Drupal::moduleHandler()->moduleExists('pathauto')) {
+      // Add an alias_keeper field as well, which will restrict unauthorized
+      // roles from changing aliases.
+      $fields['alias_keeper'] = BaseFieldDefinition::create('boolean')
+        ->setLabel(t("Prevent this node's alias from being changed"))
+        ->setDescription(t('This option will prevent node alias changes to avoid accidents. Only users with "administer node_keep per node" permission will be able to change this node alias.'))
+        ->setRevisionable(TRUE)
+        ->setTranslatable(TRUE)
+        ->setRequired(FALSE)
+        ->setSettings([
+          'default_value' => 0,
+        ])
+        ->setDisplayOptions('form', [
+          'type' => 'boolean_checkbox',
+          'weight' => 100,
+          'settings' => [
+            'display_label' => TRUE,
+          ],
+        ])
+        ->setDisplayConfigurable('form', TRUE);
+    }
+
+
+  }
+
+  return $fields;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function node_keep_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $user = \Drupal::currentUser();
+
+  if (isset($form['node_keeper']) || isset($form['alias_keeper'])) {
+
+    if(!$user->hasPermission('access node_keep widget')) {
+      $form['node_keeper']['#access'] = FALSE;
+      $form['alias_keeper']['#access'] = FALSE;
+      return;
+    }
+
+    $form['#cache']['contexts'][] = 'user.permissions';
+
+    $build_info = $form_state->getBuildInfo();
+    $node = $build_info['callback_object']->getEntity();
+    $permission = $user->hasPermission('administer node_keep per node');
+
+    // Wrap node keeper field into advanced section.
+    $form['node_keep_wrap'] = [
+      '#type' => 'details',
+      '#title' => t('Node keep'),
+      '#group' => 'advanced',
+      '#attributes' => [
+        'class' => ['node-form-node-keep-options'],
+      ],
+      '#weight' => 100,
+      '#optional' => TRUE,
+    ];
+
+    // Node keeper logic.
+    if (isset($form['node_keeper'])) {
+      $form['node_keeper']['#group'] = 'node_keep_wrap';
+      if (!$permission) {
+        // People without access can't change node keeper value.
+        $form['node_keeper']['#disabled'] = TRUE;
+        // If it is also checked, they can't delete the node.
+        if ($node->get('node_keeper')->value) {
+          $form['actions']['delete']['#access'] = FALSE;
+          $form['actions']['delete_translation']['#access'] = FALSE;
+        }
+      }
+    }
+    // Alias keeper logic.
+    if (isset($form['alias_keeper'])) {
+      $form['alias_keeper']['#group'] = 'node_keep_wrap';
+      if (!$permission) {
+        // People without access can't change alias keeper value.
+        $form['alias_keeper']['#disabled'] = TRUE;
+        // If it is also checked, and the path alias widget exists, they also
+        // can't change that.
+        if (isset($form['path']['widget'][0]) && $node->get('alias_keeper')->value) {
+          $form['path']['#access'] = FALSE;
+          // Also set the automatic alias checkbox to false.
+          $form['path']['widget'][0]['pathauto']['#default_value'] = 0;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function node_keep_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_BASE_FORM_ID_alter') {
+    // We have to go after content_translation.
+    $group = $implementations['node_keep'];
+    unset($implementations['node_keep']);
+    $implementations['node_keep'] = $group;
+  }
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * Make sure node_keeper nodes can't be deleted by people without the
+ * right permissions.
+ */
+function node_keep_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  if ($op == 'delete') {
+    if (!$account->hasPermission('administer node_keep per node') && $node->get('node_keeper')->value) {
+      $message = 'This content has limited access permissions. You can preview, edit and update it, but it can only be removed by an administrator.';
+      $route_name = \Drupal::routeMatch()->getRouteName();
+      if (in_array($route_name, [
+        'entity.node.edit_form',
+        'entity.node.delete_form',
+      ])) {
+        // Users should see this message on the edit and delete page.
+        \Drupal::messenger()->addMessage(t($message), 'warning');
+      }
+      return AccessResult::forbidden($message)
+        ->addCacheContexts(['user.permissions', 'url.path']);
+    }
+  }
+  return AccessResult::neutral()
+    ->addCacheContexts(['user.permissions']);
+}

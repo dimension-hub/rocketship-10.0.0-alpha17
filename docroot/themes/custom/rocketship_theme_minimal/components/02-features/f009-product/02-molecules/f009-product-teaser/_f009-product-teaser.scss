@@ -1,0 +1,199 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Blog teasers
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.product--teaser {
+  //
+
+  // ** visual
+
+  .layout__sidebar {
+    //
+  }
+
+  // ** content
+
+  .layout__content {
+    //
+  }
+
+  // ** title
+
+  h2,
+  h3 {
+    //
+  }
+
+  // ** description
+
+  .field--name-field-product-teaser {
+    @include hide;
+  }
+
+  // ** Properties & categories: Facet filters
+
+  .field--name-field-product-category,
+  .field--name-field-product-property-one,
+  .field--name-field-product-property-two,
+  .field--name-field-product-attributes {
+
+    // label
+
+    h3,
+    h4,
+    .label-value-item-label {
+      //
+    }
+
+    // value
+    a {
+      //
+    }
+  }
+
+  // ** Product attributes
+
+  .field--name-field-product-attributes {
+
+    .field__items {
+      //
+    }
+  }
+
+  .field__item--name-field-product-attributes {
+    //
+  }
+
+  .label-value-item {
+    //
+  }
+
+  .label-value-item-label {
+    //
+  }
+
+  .label-value-item-value {
+    //
+  }
+
+  // ** read more
+
+  .layout__content__row--bottom {
+    //
+  }
+
+  .field--name-node-link {
+    //
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-wide-only {
+
+  .product--teaser {
+
+    .node__content {
+      //
+    }
+
+    .layout__cols {
+
+      //
+    }
+
+    .layout__sidebar {
+      //
+    }
+
+    .layout__content {
+      //
+    }
+
+    // push the actions to the end
+    .layout__content__row--bottom {
+      //
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .product--teaser {
+
+    .node__content {
+      //
+    }
+
+    .layout__cols {
+
+      //
+    }
+
+    .layout__sidebar {
+      //
+    }
+
+    .layout__content {
+      //
+    }
+
+    // push the actions to the end
+    .layout__content__row--bottom {
+      //
+    }
+  }
+
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .product--teaser {
+
+    .node__content {
+      //
+    }
+
+    .layout__cols {
+
+      //
+    }
+
+    .layout__sidebar {
+      //
+    }
+
+    .layout__content {
+      //
+    }
+
+    // push the actions to the end
+    .layout__content__row--bottom {
+      //
+    }
+
+  }
+
+}

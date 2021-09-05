@@ -1,0 +1,152 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * service meta on full page: part of the header
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.service__header--full {
+
+  .layout__subregion-02 {
+    position: relative;
+    padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+    transition: all $duration $easing;
+  }
+
+  // ** breadcrumb
+
+  .breadcrumb__item {
+
+    // &::before {
+    //   color: $color-white;
+    // }
+
+    // &::after {
+    //   color: $color-white;
+    // }
+  }
+
+  .breadcrumb__link {
+
+    // &,
+    // &:visited {
+    //   border-bottom: 1px solid rgba($color-white, 1);
+    //   color: $color-white;
+    // }
+
+    // &:hover,
+    // &:active {
+    //   border-bottom: 1px solid rgba($color-white, 0);
+    //   color: $color-white;
+    // }
+  }
+
+  // ** Taxonomy terms (if there are any)
+  //
+  // .field--name-field-service-tags {
+  //   display: flex; // make it go in 1 row, always if space for the content
+  //   flex-wrap: wrap;
+
+  //   // ** make inline list by default
+
+  //   .field__items {
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     margin: rem(-5) rem(-2) 0 rem(-2);
+  //   }
+
+  //   .field__item {
+  //     display: flex;
+  //     align-items: flex-end;
+  //     margin: rem(5) rem(2) 0 rem(2);
+
+  //     &::after {
+  //       content: ", ";
+  //     }
+
+  //     &:last-child {
+  //       &::after {
+  //         content: "";
+  //       }
+  //     }
+  //   }
+
+  //   .field__item::before,
+  //   .field__item::after,
+  //   a {
+  //     @include font-size($font-size-base, $line-height-base);
+  //   }
+
+  //   a {
+  //     @include link-underline((color: $color-white, color-hover: $color-white));
+  //   }
+  // }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .service__header--full {
+
+    .layout__subregion-02 {
+
+      // ** Positioning
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 5; // go over the header img and bg
+
+      // spread items evenly in 1 row
+      display: flex;
+      justify-content: space-between;
+
+      width: 100%;
+
+      // -- Example: set a background-color
+      // @include full-bg ($color-spot-1, "before");
+
+      h3 {
+        //
+      }
+
+      a {
+        //
+      }
+
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .service__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .service__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}

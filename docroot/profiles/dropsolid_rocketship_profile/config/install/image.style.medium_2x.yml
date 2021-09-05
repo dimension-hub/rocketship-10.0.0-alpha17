@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: medium_2x
+label: 'Medium (220×220) 2x'
+effects:
+  e2bae4be-55f0-46bd-b3fe-f340ad656256:
+    uuid: e2bae4be-55f0-46bd-b3fe-f340ad656256
+    id: image_scale
+    weight: 1
+    data:
+      width: 440
+      height: 440
+      upscale: false

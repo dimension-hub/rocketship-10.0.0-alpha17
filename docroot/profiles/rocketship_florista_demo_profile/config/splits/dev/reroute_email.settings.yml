@@ -1,0 +1,6 @@
+enable: true
+description: false
+message: false
+mailkeys: ''
+address: sites@example.com
+whitelist: ''

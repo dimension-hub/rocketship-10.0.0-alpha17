@@ -1,0 +1,131 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.service__header--full .layout__subregion-02 {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .service__header--full .layout__subregion-02 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.view--display-service-overview-block .service--teaser h2,
+.view--display-service-overview-block .service--teaser h3,
+.view--display-service-overview-block .service--teaser h4 {
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.9375rem 0;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  color: #303030;
+}
+
+.view--display-service-overview-block .service--teaser h2 a,
+.view--display-service-overview-block .service--teaser h2 a:visited,
+.view--display-service-overview-block .service--teaser h3 a,
+.view--display-service-overview-block .service--teaser h3 a:visited,
+.view--display-service-overview-block .service--teaser h4 a,
+.view--display-service-overview-block .service--teaser h4 a:visited {
+  text-decoration: none;
+  color: #de0055;
+}
+
+.view--display-service-overview-block .service--teaser h2 a:hover,
+.view--display-service-overview-block .service--teaser h3 a:hover,
+.view--display-service-overview-block .service--teaser h4 a:hover {
+  text-decoration: underline;
+  color: #de0055;
+}
+
+.service__header--full {
+  position: relative;
+  margin: 0;
+  padding: 1.5rem 0 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 5;
+}
+
+.service__header--full:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  height: 100%;
+  margin-left: calc((-100vw + 100%) / 2);
+  width: 100vw;
+  background-color: #000;
+}
+
+.service__header--full .field--image,
+.service__header--full .field--name-field-media-canonical-image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  opacity: .5;
+}
+
+.service__header--full .field--image .media,
+.service__header--full .field--name-field-media-canonical-image .media {
+  position: static;
+}
+
+.service__header--full .field--image img,
+.service__header--full .field--name-field-media-canonical-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.service__header--full .layout__subregion-01 {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 940px) {
+  .service__header--full {
+    padding: 2.5rem 0 2.5rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .service__header--full {
+    padding: 6.875rem 0 6.875rem 0;
+  }
+}

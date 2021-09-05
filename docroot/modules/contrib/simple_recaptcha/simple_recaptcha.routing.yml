@@ -1,0 +1,7 @@
+simple_recaptcha.settings:
+  path: '/admin/config/services/simple_recaptcha'
+  defaults:
+    _form: '\Drupal\simple_recaptcha\Form\SimpleRecaptchaSettingsForm'
+    _title: 'reCAPTCHA settings'
+  requirements:
+    _permission: 'administer simple_recaptcha'

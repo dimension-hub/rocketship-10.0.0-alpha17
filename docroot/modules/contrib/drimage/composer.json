@@ -1,0 +1,11 @@
+{
+  "name": "drupal/drimage",
+  "description": "Image formatter that will generate image styles on the fly on the front end.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/drimage",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/drimage",
+    "source": "https://git.drupalcode.org/project/drimage"
+  }
+}

@@ -1,0 +1,10 @@
+name: critical_css_test
+type: theme
+description: 'A test theme for critical_css module.'
+core: 8.x
+base theme: stark
+
+# Information added by Drupal.org packaging script on 2020-12-13
+version: '8.x-1.17'
+project: 'critical_css'
+datestamp: 1607847880

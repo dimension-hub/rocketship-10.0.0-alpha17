@@ -1,0 +1,59 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Realisation main overview
+// *
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// *
+// =============================================================================
+
+.view--display-realisation-overview-block {
+
+  .view__content {
+    margin-top: rem(-$grid-gap-hor);
+  }
+
+  .realisation--teaser {
+    margin-top: rem($grid-gap-hor);
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .view--display-realisation-overview-block {
+
+    // ** make a grid
+
+    .view__content {
+
+      @include flex-grid();
+    }
+
+    .realisation--teaser {
+      @include flex-col(4);
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .view--display-realisation-overview-block {
+
+    //
+
+  }
+
+}

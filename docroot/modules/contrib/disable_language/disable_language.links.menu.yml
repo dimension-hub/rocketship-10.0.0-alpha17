@@ -1,0 +1,6 @@
+disable_language.disable_language_settings:
+  title: 'Disable Language settings'
+  route_name: disable_language.disable_language_settings
+  description: 'Configure the Disable Language module settings'
+  parent: entity.configurable_language.collection
+  weight: 99

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: day_month
+label: 'day-month (digits)'
+locked: false
+pattern: 'd-m'

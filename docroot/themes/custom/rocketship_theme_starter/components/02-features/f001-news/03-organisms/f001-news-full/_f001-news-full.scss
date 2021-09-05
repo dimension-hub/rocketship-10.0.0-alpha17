@@ -1,0 +1,115 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * News fu
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.news--full {
+  padding: rem($gap-vert-top-xs) 0 0 0;
+  transition: all $duration $easing;
+}
+
+// ** Top
+
+.news__top--full {
+  position: relative;
+  z-index: 1;
+}
+
+// ** picture + info
+
+.news__header--full {
+  position: relative;
+  transition: all $duration $easing;
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  // *
+  // =============================================================================
+
+  .news--full {
+    padding: rem($gap-vert-top-sm) 0 0 0;
+  }
+
+  // ** picture + info
+
+  .news__header--full {
+
+    // ** picture
+
+    .layout__content {
+      // @include flex-col(8);
+    }
+
+    // ** meta info
+
+    .layout__sidebar {
+      // @include flex-col(4);
+    }
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  // *
+  // =============================================================================
+
+  .news--full {
+    padding: rem($gap-vert-top-md) 0 0 0;
+  }
+
+  // ** picture + info
+
+  .news__header--full {
+
+    //
+
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  // *
+  // =============================================================================
+
+  .news--full {
+    //
+  }
+
+  // ** picture + info
+  .news__header--full {
+    //
+
+    // ** picture
+
+    .layout__content {
+      // @include flex-col(9);
+    }
+
+    // ** meta info
+
+    .layout__sidebar {
+      // @include flex-col(3);
+    }
+  }
+
+}

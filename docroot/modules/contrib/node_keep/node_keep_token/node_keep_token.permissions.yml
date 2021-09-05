@@ -1,0 +1,3 @@
+administer node_keep_token per node:
+  title: 'Administer Node Keep machine name per node'
+  description: 'Configure node keep machine name functionality per node.'

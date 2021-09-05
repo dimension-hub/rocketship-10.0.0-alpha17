@@ -1,0 +1,6 @@
+# Uncomment if you want to use debug mode for local development
+#parameters:
+#  twig.config:
+#    debug: true
+#    auto_reload: true
+#    cache: false

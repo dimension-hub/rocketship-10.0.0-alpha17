@@ -1,0 +1,172 @@
+<?php
+
+/**
+ * @file
+ * Layout Builder Lock module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\layout_builder\OverridesSectionStorageInterface;
+use Drupal\layout_builder_lock\LayoutBuilderLock;
+
+/**
+ * Implements hook_element_info_alter().
+ *
+ * @param array $info
+ */
+function layout_builder_lock_element_info_alter(array &$info) {
+  if (!empty($info['layout_builder'])) {
+    $info['layout_builder']['#pre_render'][] = [LayoutBuilderLock::class, 'preRender'];
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the configure layout builder section form.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function layout_builder_lock_form_layout_builder_configure_section_alter(&$form, FormStateInterface $form_state) {
+
+  $override = FALSE;
+
+  // This is a hacky workaround, as the Layout Builder ConfigureSectionForm
+  // has no public methods to expose if the user is adding or editing an
+  // existing section.
+  // So we check this in a similar way as the buildForm method:
+  // if a plugin is passed as argument, the section is a new one.
+  // A better solution would obviously be to check this by a public method on
+  // the ConfigureSectionForm.
+  //
+  // @see \Drupal\layout_builder\Form\ConfigureSectionForm::buildForm()
+  if (isset($form_state->getBuildInfo()['args'][2])) {
+    $form['layout_builder_lock_info']['#markup'] = '<p>' .  t('Locks can be configured when the section has been added.') . '</p>';
+    return;
+  }
+
+  // Get delta from route params.
+  $delta = \Drupal::routeMatch()->getParameter('delta');
+
+  // Default lock value.
+  $default_lock_value = LayoutBuilderLock::NO_LOCK;
+
+  if ($formObject = $form_state->getFormObject()) {
+
+    /** @var Drupal\layout_builder\SectionStorageInterface $sectionStorage */
+    try {
+      $sectionStorage = $formObject->getSectionStorage();
+      $default_lock_value = array_filter($sectionStorage
+        ->getSection($delta)
+        ->getThirdPartySetting('layout_builder_lock', 'lock', LayoutBuilderLock::NO_LOCK));
+
+      if ($sectionStorage instanceof OverridesSectionStorageInterface) {
+        $override = TRUE;
+      }
+
+    }
+    catch (\Exception $ignored) {
+      // No section yet, do not go further.
+      $form['layout_builder_lock_info']['#markup'] = '<p>' .  t('Locks can be configured when the section has been added.') . '</p>';
+      return;
+    }
+  }
+
+  // Do not add the settings form when the user does not have permission.
+  if (!$override && !\Drupal::currentUser()->hasPermission('manage lock settings on sections')) {
+    if (isset($form['layout_builder_lock_info'])) {
+      $form['layout_builder_lock_info']['#access'] = FALSE;
+    }
+    return;
+  }
+
+  // Do not show settings in case the user has no permission to override them.
+  if ($override && !\Drupal::currentUser()->hasPermission('manage lock settings on overrides')) {
+    return;
+  }
+
+  $form['#attached']['library'][] = 'layout_builder_lock/configure';
+
+  $form['layout_builder_lock'] = [
+    '#title' => t('Lock settings'),
+    '#type' => 'checkboxes',
+    '#weight' => 0,
+    '#options' => [
+      LayoutBuilderLock::LOCKED_BLOCK_UPDATE => t('Do not allow updating default blocks'),
+      LayoutBuilderLock::LOCKED_BLOCK_DELETE => t('Do not allow deleting default blocks'),
+      LayoutBuilderLock::LOCKED_BLOCK_MOVE => t('Do not allow moving default blocks'),
+      LayoutBuilderLock::LOCKED_BLOCK_ADD => t('Do not allow adding new blocks'),
+      LayoutBuilderLock::LOCKED_SECTION_CONFIGURE => t('Do not allow configuring the section'),
+      LayoutBuilderLock::LOCKED_SECTION_BEFORE => t('Do not allow adding a new section before this section'),
+      LayoutBuilderLock::LOCKED_SECTION_AFTER => t('Do not allow adding a new section after this section'),
+      LayoutBuilderLock::LOCKED_SECTION_BLOCK_MOVE => t('Do not allow moving blocks into this section'),
+    ],
+    '#default_value' => $default_lock_value,
+    '#attributes' => ['class' => ['layout-builder-lock-section-settings']],
+    '#description' => t('New blocks, when allowing to add them, will be placed under any default blocks. Users will be able to update, move and delete these blocks. Blocks from other sections can be moved into this section then, so the \'Move blocks from other sections into this section\' lock setting will not apply anymore.'),
+  ];
+
+  $form['layout_builder_lock_delta'] = [
+    '#type' => 'value',
+    '#value' => $delta,
+  ];
+
+  // Our submit handler must execute before the default one, because the default
+  // handler stores the section & component data in the tempstore and we need to
+  // update those objects before that happens.
+  array_unshift($form['#submit'], 'layout_builder_lock_form_section_configure_submit');
+}
+
+/**
+ * Submit handler for the configure section form.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *
+ * @see layout_builder_lock_form_layout_builder_configure_section_alter().
+ */
+function layout_builder_lock_form_section_configure_submit($form, FormStateInterface $form_state) {
+  if ($formObject = $form_state->getFormObject()) {
+    $settings = array_filter($form_state->getValue('layout_builder_lock'));
+    $formObject
+      ->getSectionStorage()
+      ->getSection($form_state->getValue('layout_builder_lock_delta'))
+      ->setThirdPartySetting('layout_builder_lock', 'lock', $settings);
+  }
+}
+
+/**
+ * Implements hook_contextual_links_view_alter().
+ *
+ * @param $element
+ * @param $items
+ */
+function layout_builder_lock_contextual_links_view_alter(&$element, $items) {
+  foreach (layout_builder_lock_block_operations() as $item_key => $link_key) {
+    if (isset($items[$item_key]['metadata']['layout_builder_lock'])) {
+      $to_remove = explode(':', $items[$item_key]['metadata']['layout_builder_lock']);
+      foreach ($to_remove as $key) {
+        if ($item_key == $key) {
+          unset($element['#links'][$link_key]);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Returns the layout builder block operations.
+ *
+ * The key is the PHP key in the contextual link array, the value is the key
+ * in the '#links' array section of the element.
+ *
+ * @return array
+ */
+function layout_builder_lock_block_operations() {
+  return [
+    'layout_builder_block_update' => 'layout-builder-block-update',
+    'layout_builder_block_move' => 'layout-builder-block-move',
+    'layout_builder_block_remove' => 'layout-builder-block-remove'
+  ];
+}

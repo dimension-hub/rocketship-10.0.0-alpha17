@@ -1,0 +1,431 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+.overview--job-overview .block--provider-facets h2 {
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.9375rem 0;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #303030;
+}
+
+.overview--job-overview .block--provider-facets h2 a,
+.overview--job-overview .block--provider-facets h2 a:visited {
+  text-decoration: none;
+  color: #de0055;
+}
+
+.overview--job-overview .block--provider-facets h2 a:hover {
+  text-decoration: underline;
+  color: #de0055;
+}
+
+.overview--job-overview .block--provider-facets ul[class*="item-list"] {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.overview--job-overview .block--provider-facets .item-list__checkbox,
+.overview--job-overview .block--provider-facets .item-list__radio,
+.overview--job-overview .block--provider-facets .item-list__radiobutton {
+  cursor: pointer;
+}
+
+.overview--job-overview .block--provider-facets .item-list__checkbox .facet-item,
+.overview--job-overview .block--provider-facets .item-list__radio .facet-item,
+.overview--job-overview .block--provider-facets .item-list__radiobutton .facet-item {
+  position: relative;
+  padding-left: 1.875rem;
+  margin-bottom: 0.3125rem;
+}
+
+.overview--job-overview .block--provider-facets .item-list__checkbox input,
+.overview--job-overview .block--provider-facets .item-list__radio input,
+.overview--job-overview .block--provider-facets .item-list__radiobutton input {
+  position: absolute;
+  left: 0;
+}
+
+.overview--job-overview .block--provider-facets .facet-item {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.overview--job-overview .block--provider-facets .facet-item a {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.overview--job-overview .block--provider-facets .facet-item .job-facet-item__status {
+  display: none;
+}
+
+.overview--job-overview .block--provider-facets .facet-item .job-facet-item__count {
+  margin-left: 0.625rem;
+}
+
+.overview--job-overview .block--search-redirect-block h2 {
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.9375rem 0;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  color: #303030;
+}
+
+.overview--job-overview .block--search-redirect-block h2 a,
+.overview--job-overview .block--search-redirect-block h2 a:visited {
+  text-decoration: none;
+  color: #de0055;
+}
+
+.overview--job-overview .block--search-redirect-block h2 a:hover {
+  text-decoration: underline;
+  color: #de0055;
+}
+
+@media (max-width: 767px) {
+  .overview--job-overview .block--provider-facets h2 {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0;
+    padding: 0 1.5625rem 0 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .overview--job-overview .block--provider-facets h2::before {
+    position: absolute;
+    right: 0;
+    top: 0.375rem;
+    content: "\f078";
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    vertical-align: middle;
+    font-size: 1rem;
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 900;
+    color: #303030;
+  }
+  .overview--job-overview .block--provider-facets h2::before {
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transition: all 0.3s ease-in-out;
+  }
+  .overview--job-overview .block--provider-facets.block--facet-blockjob-category [class*="facets-widget-"] {
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .overview--job-overview .block--provider-facets .facet-item,
+  .overview--job-overview .block--provider-facets .form__dropdown {
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .overview--job-overview .block--provider-facets.js-open h2 {
+    margin-bottom: 1.5rem;
+    color: #10bfff;
+  }
+  .overview--job-overview .block--provider-facets.js-open h2:hover {
+    color: #10bfff;
+  }
+  .overview--job-overview .block--provider-facets.js-open h2::before {
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+  }
+  .overview--job-overview .block--provider-facets.js-open .facet-item,
+  .overview--job-overview .block--provider-facets.js-open .form__dropdown {
+    max-height: 6.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .overview--job-overview .block--provider-facets .item-list__checkbox .facet-item,
+  .overview--job-overview .block--provider-facets .item-list__radio .facet-item,
+  .overview--job-overview .block--provider-facets .item-list__radiobutton .facet-item {
+    margin-bottom: 0.3125rem;
+    min-height: 2.1875rem;
+  }
+}
+
+.job__bottom--full .block--provider-webform {
+  padding: 1.5rem 0 1.5rem 0;
+  position: relative;
+  z-index: 5;
+}
+
+.job__bottom--full .block--provider-webform:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  height: 100%;
+  margin-left: calc((-100vw + 100%) / 2);
+  width: 100vw;
+  background-color: #e5e5e5;
+}
+
+.job__bottom--full .form-type--webform-markup p:last-child,
+.job__bottom--full .form-type--webform-markup ul:last-child,
+.job__bottom--full .form-type--webform-markup ol:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .job__bottom--full .block--provider-webform {
+    padding: 1.5rem 0 1.5rem 0;
+  }
+}
+
+@media (min-width: 940px) {
+  .job__bottom--full .block--provider-webform {
+    padding: 2.5rem 0 2.5rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .job__bottom--full .block--provider-webform {
+    padding: 6.875rem 0 6.875rem 0;
+  }
+}
+
+.job__footer--full .field--name-field-job-property-one h3,
+.job__footer--full .field--name-field-job-category h3 {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+}
+
+.job__footer--full .field__items {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin: -0.625rem -0.3125rem 0 -0.3125rem;
+}
+
+.job__footer--full .field__items .field__item {
+  display: inline-block;
+  margin: 0.625rem 0.3125rem 0 0.3125rem;
+}
+
+.job__footer--full .field__items a {
+  display: inline-block;
+  white-space: nowrap;
+  -ms-word-break: keep-all;
+  word-break: keep-all;
+}
+
+@media (min-width: 768px) {
+  .job__footer--full {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .job__footer--full .field--name-field-job-property-one {
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 0;
+  }
+  .job__footer--full .field--name-field-job-category {
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width: 1200px) {
+  .job__footer--full {
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  .job__footer--full .field--name-ds-time-ago,
+  .job__footer--full .field--name-created {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+
+.job__header--full .layout__subregion-02 {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .job__header--full .layout__subregion-02 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.job--teaser .layout__content__row--bottom {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-left: -1.25rem;
+  margin-top: 1.5rem;
+}
+
+.job--teaser .layout__content__row--bottom .block {
+  margin-left: 1.25rem;
+}
+
+.job--teaser .layout__content__row--bottom .field {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.job--teaser .layout__content__row--bottom h3 {
+  margin: 0 0.625rem 0 0;
+}
+
+.job--teaser .layout__content__row--bottom .field__items {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: -0.3125rem -0.125rem 0 -0.125rem;
+}
+
+.job--teaser .layout__content__row--bottom .field__item {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  margin: 0.3125rem 0.125rem 0 0.125rem;
+}
+
+.job--teaser .layout__content__row--bottom .field__item::after {
+  content: ", ";
+}
+
+.job--teaser .layout__content__row--bottom .field__item:last-child::after {
+  content: "";
+}
+
+.job__header--full {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 5;
+}
+
+.job__header--full:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  height: 100%;
+  margin-left: calc((-100vw + 100%) / 2);
+  width: 100vw;
+  background-color: #000;
+}
+
+.job__header--full,
+.job__header--full h1,
+.job__header--full h2,
+.job__header--full h3,
+.job__header--full a,
+.job__header--full a:visited,
+.job__header--full a:hover,
+.job__header--full a:active,
+.job__header--full .field {
+  color: #fff;
+}
+
+.job__header--full .field--image,
+.job__header--full .field--name-field-media-canonical-image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  opacity: .5;
+}
+
+.job__header--full .field--image .media,
+.job__header--full .field--name-field-media-canonical-image .media {
+  position: static;
+}
+
+.job__header--full .field--image img,
+.job__header--full .field--name-field-media-canonical-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.job__header--full .layout__subregion-01 {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 940px) {
+  .job__header--full {
+    padding: 2.5rem 0 2.5rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .job__header--full {
+    padding: 6.875rem 0 6.875rem 0;
+  }
+}

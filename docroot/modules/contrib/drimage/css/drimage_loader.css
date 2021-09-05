@@ -1,0 +1,16 @@
+.drimage.is-loading {
+  opacity: 0.8;
+  animation: color-change 2s infinite alternate ease-in-out;
+}
+@keyframes color-change {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.drimage {
+  animation: none;
+}

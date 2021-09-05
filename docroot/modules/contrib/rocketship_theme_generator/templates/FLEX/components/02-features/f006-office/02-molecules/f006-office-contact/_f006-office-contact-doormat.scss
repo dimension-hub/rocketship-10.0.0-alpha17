@@ -1,0 +1,93 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * office address: a field with multiple lines and elements
+// *
+// * In doormat
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.office--footer {
+
+  // -- contact styling
+  @include office-contact((
+    icons: true,
+    font-size: $font-size-sm,
+    line-height: $line-height-sm,
+    type: "regular",
+    color: $color-spot-2
+  ));
+
+  .address {
+    margin-bottom: rem($gap-vert);
+    // @include font-size(17, 23);
+    // font-weight: bold;
+
+    a {
+      // @include link-underline((color: $color-spot-1, color-hover: $color-spot-1, inverse: true));
+    }
+  }
+
+  .address__lines {
+    &::before {
+      // top: 2px;
+      // font-size: rem(17);
+      // line-height: rem(17);
+      // font-weight: 400;
+      // color: $color-spot-2;
+    }
+  }
+
+  .field__item--name-field-office-phone,
+  .field__item--name-field-office-fax,
+  .field__item--name-field-office-email {
+    // margin-bottom: rem(4);
+    // padding-left: rem(30);
+    // @include font-size(17, 23);
+    // font-weight: bold;
+
+    // &::before {
+    //   top: 2px;
+    //   font-size: rem(17);
+    //   line-height: rem(17);
+    //   font-weight: 400;
+    //   color: $color-spot-2;
+    // }
+
+    // a {
+    //   @include link-underline((color: $color-spot-1, color-hover: $color-spot-1, inverse: true));
+    // }
+  }
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: only on phone (< 768)
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-xs-only {
+
+  .office--footer {
+    // centered txt with icons near to text
+
+    .layout__region {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .address {
+      text-align: left;
+    }
+
+    .field__item--name-field-office-phone,
+    .field__item--name-field-office-fax,
+    .field__item--name-field-office-email {
+      .field__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+}

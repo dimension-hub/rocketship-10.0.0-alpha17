@@ -1,0 +1,165 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * job meta on full page: part of the header
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+.job__header--full {
+
+  .layout__subregion-02 {
+    position: relative;
+    padding: rem($gap-vert-top-xs) 0 rem($gap-vert-bottom-xs) 0;
+    color: $color-white;
+    transition: all $duration $easing;
+
+    // ** breadcrumb
+
+    .breadcrumb__item {
+
+      &::before {
+        color: $color-white;
+      }
+
+      &::after {
+        color: $color-white;
+      }
+    }
+
+    .breadcrumb__link {
+
+      &,
+      &:visited {
+        border-bottom: 1px solid rgba($color-white, 1);
+        color: $color-white;
+      }
+
+      &:hover,
+      &:active {
+        border-bottom: 1px solid rgba($color-white, 0);
+        color: $color-white;
+      }
+    }
+
+
+    // ** Apply (if Advanced module)
+
+    .rs-scroll-to-formatter {
+      margin-top: rem($gap-vert);
+
+      a {
+        @include button-primary;
+      }
+    }
+
+  }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: tablet & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-sm {
+
+  .job__header--full {
+
+    .layout__subregion-02 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 5; // go over the header img and bg
+
+      // spread items evenly in 1 row
+      display: flex;
+      justify-content: space-between;
+      align-items: center; // vertical center
+
+      width: 100%;
+      color: $color-white;
+
+      // -- Example: set a background-color
+      // @include full-bg ($color-spot-1, "before");
+
+      h3 {
+        color: $color-white;
+      }
+
+      a {
+        &,
+        &:visited {
+          color: $color-white;
+
+        }
+      }
+
+      // ** breadcrumb
+
+      .breadcrumb__item {
+
+        &::before {
+          color: $color-white;
+        }
+
+        &::after {
+          color: $color-white;
+        }
+      }
+
+      .breadcrumb__link {
+
+        &,
+        &:visited {
+          border-bottom: 1px solid rgba($color-white, 1);
+          color: $color-white;
+        }
+
+        &:hover,
+        &:active {
+          border-bottom: 1px solid rgba($color-white, 0);
+          color: $color-white;
+        }
+      }
+
+      // ** Apply (if Advanced module)
+
+      .rs-scroll-to-formatter {
+        display: flex;
+        // align button to the right
+        flex-grow: 1;
+        justify-content: flex-end;
+        margin-top: 0; // reset
+      }
+
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: desktop & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-md {
+
+  .job__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// * Breakpoint: large & wider
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+@include bp-lg {
+
+  .job__header--full {
+    .layout__subregion-02 {
+      //
+    }
+  }
+
+}

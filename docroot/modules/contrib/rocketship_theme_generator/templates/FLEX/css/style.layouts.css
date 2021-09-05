@@ -1,0 +1,187 @@
+/**
+ * Square mixin
+ *
+ * @param [Number] $dimensions = the height and width of the element
+ */
+/* stylelint-disable */
+/* stylelint-enable */
+body::after {
+  content: "bp-xs";
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: block;
+  padding: 0.625rem;
+  background: red;
+  visibility: hidden;
+  opacity: 0;
+}
+
+body.theme-debug-mode::after {
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  body::after {
+    content: "bp-sm";
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #ffce00;
+  }
+}
+
+@media (min-width: 940px) {
+  body::after {
+    content: "bp-md";
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: yellow;
+  }
+}
+
+@media (min-width: 1200px) {
+  body::after {
+    content: "bp-lg";
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: green;
+  }
+}
+
+/* stylelint-disable */
+/* stylelint-enable */
+@media (min-width: 768px) {
+  .layout__cols {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -0.9375rem;
+    margin-right: -0.9375rem;
+  }
+  .layout__cols--reversed {
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+  .layout__content--2-col--left,
+  .layout__content--2-col--right {
+    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(50% - 1.875rem);
+    min-height: 1px;
+  }
+  .layout__sidebar--2-col--left,
+  .layout__sidebar--2-col--right {
+    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(50% - 1.875rem);
+    min-height: 1px;
+  }
+}
+
+@media (min-width: 940px) {
+  .layout__content--2-col--left,
+  .layout__content--2-col--right {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(66.66667% - 1.875rem);
+  }
+  .layout__sidebar--2-col--left,
+  .layout__sidebar--2-col--right {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(33.33333% - 1.875rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .layout__content--2-col--left,
+  .layout__content--2-col--right {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(75% - 1.875rem);
+  }
+  .layout__sidebar--2-col--left,
+  .layout__sidebar--2-col--right {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(25% - 1.875rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .layout__content--3-col--center {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+    min-height: 1px;
+    width: calc(50% - 1.875rem);
+  }
+  .layout__sidebar--3-col--left,
+  .layout__sidebar--3-col--right {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+    min-height: 1px;
+    width: calc(25% - 1.875rem);
+  }
+}
+
+@media (min-width: 940px) {
+  .layout__sidebar--3-col--left,
+  .layout__sidebar--3-col--right {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(25% - 1.875rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .layout__region--4-col {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+    min-height: 1px;
+    width: calc(50% - 1.875rem);
+  }
+}
+
+@media (min-width: 940px) {
+  .layout__region--4-col {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    width: calc(33.33333% - 1.875rem);
+  }
+}

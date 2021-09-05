@@ -1,0 +1,76 @@
+////////////////////////////////////////////////////////////////////////////////
+// *
+// * Variables for Layout: creating whitespace, sizing and positioning
+// *
+////////////////////////////////////////////////////////////////////////////////
+
+
+// ** Vertical spacing
+// =============================================================================
+
+// traditionally, we use the line-height to create a vertical rhythm
+// this is used to create space after p-text and other typography
+$gap-vert: $line-height-base !default;
+
+// smaller gap
+$gap-vert-xs: 5 !default; // the smallest vertical distance you will need
+$gap-vert-sm: 15 !default; // eg. could use $font-size-base instead;
+
+// bigger gap
+$gap-vert-lg: ($font-size-base + $line-height-base) !default;
+$gap-vert-xl: ($gap-vert-lg) !default;
+
+// space above and below certain elements: eg. paragraphs or blocks with a bg
+// $gap-vert-top-xs: $gap-vert !default; // 20 or $gap-vert, whatever is largest
+// $gap-vert-top-sm: $gap-vert !default;
+// $gap-vert-top-md: 40 !default;
+// $gap-vert-top-lg: 50 !default;
+// $gap-vert-top-lg-2: 110 !default;
+
+// $gap-vert-bottom-xs: $gap-vert !default;
+// $gap-vert-bottom-sm: $gap-vert !default;
+// $gap-vert-bottom-md: 40 !default;
+// $gap-vert-bottom-lg: 50 !default;
+// $gap-vert-bottom-lg-2: 110 !default;
+
+// ** Horizontal spacing
+// =============================================================================
+
+// used by the grid for it's gutters
+// DON'T override this if you only want to change the grid gutters
+$gap-hor: 30;
+
+// space on the side of your main container so content doesn't stick to the sides
+$container-padding: 15;
+
+// ** Fixed sizes
+// =============================================================================
+
+// used for things like the mobile menu icon & fixed menu bar
+$menubar-height: 60;
+$mobile-header-space: 120;
+
+// ** Position
+// =============================================================================
+
+$absolute-left: calc((-100vw + 100%) / 2);
+
+// ** Z-index
+// =============================================================================
+
+// -- used with mixin: eg. @include z-index(header)
+
+$z-index: (
+  top                : 10010, // the top layer possible, don't put anything before it
+  pb                 : 10000, // develop
+  grid-overlay       : 9999,  // develop
+  cookie             : 1010,  // over everything
+  modal              : 1000,  // over all content and nav
+  admin-toolbar      : 990,   // under modal but over rest
+  header-top         : 920,   // some elements go on the mobile nav
+  mobile-nav         : 910,
+  header-fixed       : 910,
+  header             : 910,
+  status             : 900,   // under all fixed things but above content
+);
+

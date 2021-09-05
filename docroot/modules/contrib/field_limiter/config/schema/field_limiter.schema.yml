@@ -1,0 +1,15 @@
+field.formatter.settings.field_limiter:
+  type: mapping
+  mapping:
+    type:
+      label: 'Machine name of the formatter'
+      type: string
+    settings:
+      label: 'Formatter settings'
+      type: field.formatter.settings.[%parent.type]
+    offset:
+      type: integer
+      label: 'Offset'
+    limit:
+      type: integer
+      label: 'Limit'

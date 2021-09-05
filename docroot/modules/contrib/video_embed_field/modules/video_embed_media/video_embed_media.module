@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Module file for video_embed_media.
+ */
+
+use Drupal\video_embed_media\Form\VideoEmbedUpload;
+
+/**
+ * Implements hook_media_source_info_alter().
+ */
+function video_embed_field_media_source_info_alter(array &$sources) {
+  $sources['video_embed_field']['forms']['media_library_add'] = VideoEmbedUpload::class;
+}
