@@ -1,0 +1,8 @@
+name: Custom REST
+description: Examples for REST Resource
+type: module
+core_version_requirement: ^8 || ^9
+version: 1.x
+
+dependencies:
+ - rest

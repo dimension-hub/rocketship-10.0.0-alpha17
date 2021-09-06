@@ -178,6 +178,8 @@
         }
     ],
     "require-dev": {
+        "roave/security-advisories": "dev-latest"
+        ,
         "drupal/core-dev-pinned": "^9.2",
         "drupal/twig_xdebug": "^1.2",
         "drupal/twig_vardumper": "^3.0"

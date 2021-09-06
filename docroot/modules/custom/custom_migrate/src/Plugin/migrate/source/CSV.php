@@ -2,6 +2,7 @@
 
 namespace Drupal\custom_migrate\Plugin\migrate\source;
 
+use Drupal\migrate\Annotation\MigrateSource;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\MigrateException;
 use Drupal\migrate\Plugin\migrate\source\SourcePluginBase;
@@ -10,7 +11,7 @@ use Drupal\migrate\Plugin\migrate\source\SourcePluginBase;
  * Use csv file data as source.
  *
  * @MigrateSource(
- *   id = "custom_migrate_csv"
+ *   id = "custom_migrate
  * )
  */
 class CSV extends SourcePluginBase {
