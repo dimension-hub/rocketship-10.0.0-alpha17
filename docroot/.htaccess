@@ -37,8 +37,8 @@ AddEncoding gzip svgz
   # Enable expirations.
   ExpiresActive On
 
-  # Cache all files for 2 weeks after access (A).
-  ExpiresDefault A1209600
+  # Cache all files for 1 year after access (A).
+  ExpiresDefault "access plus 1 year"
 
   <FilesMatch \.php$>
     # Do not allow PHP scripts to be cached unless they explicitly send cache
@@ -180,3 +180,16 @@ AddEncoding gzip svgz
   # Disable Proxy header, since it's an attack vector.
   RequestHeader unset Proxy
 </IfModule>
+
+# This bit of text has been added using a patch. Which is, for now,
+# the best way of ensuring changes to your .htaccess file do not get
+# overridden by core's new scaffolding plugin.
+# See etc/scaffold-modifications/htaccess.patch for the source of this text.
+# To update the patch file, place the newest "pure", untouched .htaccess file
+# in your docroot, stage the file, apply your changes, do NOT stage the file
+# again and then run the following command from above docroot:
+# "git diff docroot/.htaccess > etc/scaffold-modifications/htaccess.patch"
+# Afterwards, run composer update again to apply your changes properly.
+#
+# @see https://www.drupal.org/project/drupal/issues/3092563
+# @see https://www.drupal.org/project/drupal/issues/3095214

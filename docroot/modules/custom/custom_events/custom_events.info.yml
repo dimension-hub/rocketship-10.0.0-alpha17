@@ -1,0 +1,5 @@
+name: Custom Events
+description: 'Drupal 9 Events'
+type: module
+core_version_requirement: ^8 || ^9
+version: 8.x-1.0

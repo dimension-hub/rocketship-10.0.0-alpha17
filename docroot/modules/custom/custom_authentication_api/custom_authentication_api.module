@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Main file for hooks and custom functions.
+ */
+
+use Drupal\Component\Utility\Crypt;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_entity_base_field_info().
+ *
+ * This hook requires running `drush entity:updates` (entity-updates for older
+ * versions).
+ */
+function custom_authentication_api_entity_base_field_info(EntityTypeInterface $entity_type) {
+  if ($entity_type->id() === 'user') {
+    $fields = [];
+    $fields['custom_authentication_api_key'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('API Key'))
+      ->setRevisionable(FALSE)
+      ->setTranslatable(FALSE);
+    $fields['custom_authentication_api_secret'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('API Secret'))
+      ->setRevisionable(FALSE)
+      ->setTranslatable(FALSE);
+    return $fields;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function custom_authentication_api_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $user = \Drupal::routeMatch()->getParameter('user');
+  if ($user) {
+    $key_secret = _custom_authentication_api_get_key_and_secret($user->id());
+
+    $form['custom_authentication_api_api'] = [
+      '#type' => 'fieldset',
+      '#title' => 'API',
+    ];
+    $form['custom_authentication_api_api']['key'] = [
+      '#type' => 'item',
+      '#title' => 'Key',
+      '#markup' => $key_secret['key'],
+    ];
+    $form['custom_authentication_api_api']['secret'] = [
+      '#type' => 'item',
+      '#title' => 'Secret',
+      '#markup' => $key_secret['secret'],
+    ];
+  }
+}
+
+/**
+ * Returns key and secret for API. If they are not exists, generate new one.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function _custom_authentication_api_get_key_and_secret($uid): array {
+  $user = User::load($uid);
+
+  if ($user->custom_authentication_api_key->isEmpty()) {
+    $user->custom_authentication_api_key->value = Crypt::randomBytesBase64(16);
+    $user->save();
+  }
+
+  if ($user->custom_authentication_api_secret->isEmpty()) {
+    $user->custom_authentication_api_secret->value = Crypt::randomBytesBase64(16);
+    $user->save();
+  }
+
+  return [
+    'key' => $user->custom_authentication_api_key->value,
+    'secret' => $user->custom_authentication_api_secret->value,
+  ];
+}
