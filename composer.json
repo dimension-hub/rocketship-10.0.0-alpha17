@@ -13,6 +13,7 @@
         "drupal/restui": "^1.20",
         "drupal/rocketship_florista_demo_profile": "^1.0",
         "drupal/rocketship_theme_generator": "^3.3.0",
+        "drupal/tvi": "^1.0@RC",
         "harvesthq/chosen": "1.8.7",
         "imakewebthings/waypoints": "~4.0.1",
         "jackmoore/colorbox": "^1.0",

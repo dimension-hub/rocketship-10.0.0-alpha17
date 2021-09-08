@@ -1,0 +1,5 @@
+services:
+  page_redefinition.route_subscriber:
+    class: Drupal\page_redefinition\EventSubscriber\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

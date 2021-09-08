@@ -1,0 +1,8 @@
+name: Page Redefinition
+description: 'Drupal 8 Term page override example'
+type: module
+core_version_requirement: 8.x || 9.x
+version: 9.x-1.0
+
+dependencies:
+  - drupal:taxonomy
